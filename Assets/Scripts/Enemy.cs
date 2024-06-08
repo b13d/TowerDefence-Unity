@@ -20,11 +20,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         target = path[indexPath];
-        speed += GameManager.instance.spawnerEnemy.currentWave * .5f;
+        speed += LevelLogic.instance.spawnerEnemy.currentWave * .5f;
 
-        if (((GameManager.instance.spawnerEnemy.currentWave + 1) % 3) == 0)
+        if (((LevelLogic.instance.spawnerEnemy.currentWave + 1) % 3) == 0)
         {
-            health = (GameManager.instance.spawnerEnemy.currentWave + 1) * 2;
+            health = (LevelLogic.instance.spawnerEnemy.currentWave + 1) * 2;
             sliderHealth.maxValue = health;
             sliderHealth.value = health;
         }
@@ -57,8 +57,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Castle")
         {
-            GameManager.instance.UpdateHealth();
-            GameManager.instance.EnemyFinished();
+            LevelLogic.instance.UpdateHealth();
+            LevelLogic.instance.EnemyFinished();
 
             Destroy(gameObject);
         }
@@ -72,8 +72,8 @@ public class Enemy : MonoBehaviour
 
                 if (health <= 0)
                 {
-                    GameManager.instance.UpdateMoney(levelEnemy);
-                    GameManager.instance.EnemyKill();
+                    LevelLogic.instance.UpdateMoney(levelEnemy);
+                    LevelLogic.instance.EnemyKill();
 
                     Destroy(gameObject);
                 }
