@@ -13,6 +13,11 @@ public class LevelLogic : MonoBehaviour
     [SerializeField]
     GameObject _windowLose;
 
+    [SerializeField]
+    GameObject _windowWin;
+
+
+    public int enemyKill = 0;
     public Spawner spawnerEnemy;
 
     public static LevelLogic instance;
@@ -23,24 +28,35 @@ public class LevelLogic : MonoBehaviour
         {
             instance = this;
 
+            InitialValues();
             Time.timeScale = 1.0f;
+
         } else
         {
             Destroy(gameObject);
         }
+    }
 
+    public void InitialValues()
+    {
+        texts.txtMoney.text = $"Money: {GameManager.instance.Money}";
         texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy}";
         texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
     }
 
-    public void UpdateMoney(int levelEnemy)
+    public void ProfitMoney(int levelEnemy)
     {
         GameManager.instance.Money += PRICE * levelEnemy;
 
         texts.txtMoney.text = $"Money: {GameManager.instance.Money}";
     }
 
-    public void UpdateHealth()
+    public void UpdateTextMoney()
+    {
+        texts.txtMoney.text = $"Money: {GameManager.instance.Money}";
+    }
+
+    public void HitCastleHealth()
     {
         GameManager.instance.Health -= 10;
 
@@ -58,8 +74,16 @@ public class LevelLogic : MonoBehaviour
     {
         _windowLose.SetActive(false);
 
-        GameManager.instance.ResetValue();
+        GameManager.instance.LoadGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
+    public void ReturnToLevels()
+    {
+        _windowWin.SetActive(false);
+
+        SceneManager.LoadScene(1);
     }
 
     public void SpeedGame(int speedGame)
@@ -83,6 +107,7 @@ public class LevelLogic : MonoBehaviour
             spawnerEnemy.NextWave();
 
             texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
+            texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
 
             GameManager.instance.finishedEnemy = 0;
         }
@@ -90,10 +115,24 @@ public class LevelLogic : MonoBehaviour
 
     public void EnemyKill()
     {
-        GameManager.instance.enemyKill++;
-        texts.txtCountEnemy.text = GameManager.instance.enemyKill.ToString();
+        enemyKill++;
+        texts.txtCountEnemy.text = enemyKill.ToString();
 
         EnemyFinished();
     }
 
+    public void FinishedLevel()
+    {
+        Time.timeScale = 0.0f;
+
+        _windowWin.SetActive(true);
+    }
+
+    public void NextLevel(int nextLevel)
+    {
+        GameManager.instance.Level++;
+        GameManager.instance.SaveGame();
+
+        SceneManager.LoadScene(nextLevel);
+    }
 }

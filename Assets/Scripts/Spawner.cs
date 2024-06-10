@@ -46,6 +46,8 @@ public class Spawner : MonoBehaviour
     {
         _countDown -= Time.deltaTime;
 
+        Debug.Log($"spawnCountEnemy: {spawnCountEnemy}");
+
         if (_countDown < 0 && spawnCountEnemy > 0)
         {
             _countDown = _beginValueCountDonw;
@@ -87,6 +89,10 @@ public class Spawner : MonoBehaviour
         {
             currentWave++;
             spawnCountEnemy = waveNumber[currentWave];
+        } else
+        {
+            // завершение уровня
+            LevelLogic.instance.FinishedLevel();
         }
 
     }

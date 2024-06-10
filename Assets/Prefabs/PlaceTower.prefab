@@ -147,6 +147,8 @@ MonoBehaviour:
   - {fileID: 5063693415146351223, guid: aa48a7c75b8eaf64c9617da2fc61ec34, type: 3}
   - {fileID: 8133533663763552647, guid: 11202d33f1843d34a905c9bf73e85915, type: 3}
   - {fileID: 6107291173371116809, guid: 221932133b9f26a4582f200283d7ecfe, type: 3}
+  _buttonDeleteTower: {fileID: 1356933893589116946}
+  _place: {fileID: 330644515938029178}
 --- !u!95 &5393241847555358459
 Animator:
   serializedVersion: 5
@@ -276,6 +278,10 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 4385921581492274984}
+    - target: {fileID: 5797990569449349258, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8391038752352177399}
     - target: {fileID: 6702468564763864751, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
       propertyPath: m_Name
       value: Towers
@@ -333,6 +339,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+--- !u!1 &1356933893589116946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3212704901010510681, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+  m_PrefabInstance: {fileID: 4485899939099081547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5185502835421028792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8770625450868169459, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}

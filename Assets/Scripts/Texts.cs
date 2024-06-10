@@ -8,7 +8,6 @@ public class Texts: MonoBehaviour
     public TextMeshProUGUI txtFinishedEnemy;
     public TextMeshProUGUI txtCountWave;
     public TextMeshProUGUI txtCountEnemy;
-
     public TextMeshProUGUI txtHealth;
     public TextMeshProUGUI txtMoney;
 }

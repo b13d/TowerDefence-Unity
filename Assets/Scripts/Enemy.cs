@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Castle")
         {
-            LevelLogic.instance.UpdateHealth();
+            LevelLogic.instance.HitCastleHealth();
             LevelLogic.instance.EnemyFinished();
 
             Destroy(gameObject);
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
 
                 if (health <= 0)
                 {
-                    LevelLogic.instance.UpdateMoney(levelEnemy);
+                    LevelLogic.instance.ProfitMoney(levelEnemy);
                     LevelLogic.instance.EnemyKill();
 
                     Destroy(gameObject);
