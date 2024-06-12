@@ -103,6 +103,7 @@ public class Spawner : MonoBehaviour
 
         var enemy = Instantiate(_prefabsEnemy[rnd], transform.position, Quaternion.identity);
 
+        enemy.GetComponent<Enemy>().levelEnemy = 0;
         enemy.GetComponent<Enemy>().lastTarget = _castle;
         enemy.GetComponent<Enemy>().path = paths;
     }

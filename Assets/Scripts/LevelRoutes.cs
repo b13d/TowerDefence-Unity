@@ -13,8 +13,7 @@ public class LevelRoutes : MonoBehaviour
             GameManager.instance.ResetData();
         }
 
+        GameManager.instance.LoadGame();
         SceneManager.LoadScene(idLevel);
     }
-
-  
 }

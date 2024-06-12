@@ -256,6 +256,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 513166313}
     - target: {fileID: 939187777260182003, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
+      propertyPath: _currentLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 939187777260182003, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
       propertyPath: countSpawnersOnLevel
       value: 1
       objectReference: {fileID: 0}

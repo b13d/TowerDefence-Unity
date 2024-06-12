@@ -19,14 +19,23 @@ public class LevelLogic : MonoBehaviour
     [SerializeField]
     GameObject _newWave;
 
+    [SerializeField]
+    int _currentLevel;
+
     public int enemyKill = 0;
     public bool pause;
+    public int currentWave = 0;
 
     [SerializeField]
     int countSpawnersOnLevel;
     
 
     public static LevelLogic instance;
+
+    public int GetCurrentLevel
+    {
+        get { return _currentLevel; }
+    }
 
     private void Start()
     {
@@ -73,11 +82,13 @@ public class LevelLogic : MonoBehaviour
     void HideNewWave()
     {
         _newWave.SetActive(false);
+
+        currentWave++;
     }
 
     public void ProfitMoney(int levelEnemy)
     {
-        GameManager.instance.Money += PRICE * levelEnemy;
+        GameManager.instance.Money += PRICE * Mathf.FloorToInt(levelEnemy + (float)_currentLevel / 2);
 
         texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
     }

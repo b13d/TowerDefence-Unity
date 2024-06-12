@@ -25,15 +25,14 @@ public class Enemy : MonoBehaviour
             return;
         }
 
+        levelEnemy = LevelLogic.instance.GetCurrentLevel;
+
+        health = LevelLogic.instance.currentWave * levelEnemy;
+        sliderHealth.maxValue = health;
+        sliderHealth.value = health;
+        
         target = path[indexPath];
         speed += 1.5f;
-
-        //if (((LevelLogic.instance.spawnerEnemy.currentWave + 1) % 3) == 0)
-        //{
-        //    health = (LevelLogic.instance.spawnerEnemy.currentWave + 1) * 2;
-        //    sliderHealth.maxValue = health;
-        //    sliderHealth.value = health;
-        //}
     }
 
     void FixedUpdate()
@@ -56,8 +55,6 @@ public class Enemy : MonoBehaviour
                 target = lastTarget.transform.position;
             }
         }
-
-        //Debug.Log($"speed {speed}");
 
         var step = speed * Time.deltaTime;
 
