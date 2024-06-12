@@ -39,28 +39,28 @@ public class LevelLogic : MonoBehaviour
 
     public void InitialValues()
     {
-        texts.txtMoney.text = $"Money: {GameManager.instance.Money}";
+        texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
         texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy}";
-        texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
+        //texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
     }
 
     public void ProfitMoney(int levelEnemy)
     {
         GameManager.instance.Money += PRICE * levelEnemy;
 
-        texts.txtMoney.text = $"Money: {GameManager.instance.Money}";
+        texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
     }
 
     public void UpdateTextMoney()
     {
-        texts.txtMoney.text = $"Money: {GameManager.instance.Money}";
+        texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
     }
 
     public void HitCastleHealth()
     {
         GameManager.instance.Health -= 10;
 
-        texts.txtHealth.text = $"Health: {GameManager.instance.Health}";
+        texts.txtHealth.text = $"<sprite=0> {GameManager.instance.Health}";
 
         if (GameManager.instance.Health <= 0)
         {
@@ -95,22 +95,22 @@ public class LevelLogic : MonoBehaviour
     {
         GameManager.instance.finishedEnemy++;
 
-        texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
+        //texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
 
-        if (spawnerEnemy.GetCurrentCountEnemy == GameManager.instance.finishedEnemy && GameManager.instance.Health > 0)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log("Переход на следующую волну!!!");
-            }
+        //if (spawnerEnemy.GetCurrentCountEnemy == GameManager.instance.finishedEnemy && GameManager.instance.Health > 0)
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        Debug.Log("Переход на следующую волну!!!");
+        //    }
 
-            spawnerEnemy.NextWave();
+        //    spawnerEnemy.NextWave();
 
-            texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
-            texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
+        //    texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
+        //    texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
 
-            GameManager.instance.finishedEnemy = 0;
-        }
+        //    GameManager.instance.finishedEnemy = 0;
+        //}
     }
 
     public void EnemyKill()

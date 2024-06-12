@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Vector2 target;
 
     public Slider sliderHealth;
-    public int health;
+    public float health;
     public float speed;
     public int levelEnemy;
 
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         target = path[indexPath];
-        speed += LevelLogic.instance.spawnerEnemy.currentWave * .5f;
+        speed += LevelLogic.instance.spawnerEnemy.currentWave * 1.5f;
 
         if (((LevelLogic.instance.spawnerEnemy.currentWave + 1) % 3) == 0)
         {
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        Debug.Log($"speed {speed}");
+        //Debug.Log($"speed {speed}");
 
         var step = speed * Time.deltaTime;
 

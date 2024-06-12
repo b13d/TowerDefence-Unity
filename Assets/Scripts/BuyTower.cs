@@ -9,7 +9,7 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
     [SerializeField] private int _price = 0;
     [SerializeField] int index;
 
-    [SerializeField] GameObject _parent;
+    [SerializeField] PlaceTower _parent;
 
     [SerializeField] GameObject _place;
 
@@ -34,11 +34,19 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
 
             _txtPrice.text = $"{_price}$";
 
-            _parent.GetComponent<PlaceTower>().SelectedTower();
+            _parent.SelectedTower();
 
-            Instantiate(_parent.GetComponent<PlaceTower>()._towers[index],
+            var newTower = Instantiate(_parent._towers[index],
                 _place.transform.position,
                 Quaternion.identity, _place.transform);
+
+            //_parent.speedAttackTower = newTower.GetComponent<Tower>().speedAttack;
+            //_parent.damageTower = newTower.GetComponent<Tower>().damage;
+
+            //_parent.SetStats();
+
+            Debug.Log($"newTower.GetComponent<Tower>().speedAttack {newTower.GetComponent<Tower>().speedAttack}");
+            Debug.Log($"newTower.GetComponent<Tower>().damage {newTower.GetComponent<Tower>().damage}");
         } 
         else
         {

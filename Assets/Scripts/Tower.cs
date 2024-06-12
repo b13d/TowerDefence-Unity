@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Tower : MonoBehaviour
+public class Tower : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private GameObject _target;
@@ -10,24 +12,72 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private GameObject _projectile;
 
-    public int damage = 1;
+    [SerializeField]
+    private TextMeshProUGUI _txtDamage;
 
-    float _seconds = .3f;
+    [SerializeField]
+    private TextMeshProUGUI _txtSpeedAttack;
 
-    
+    [SerializeField]
+    private GameObject _textsView;
+
+    [SerializeField]
+    private GameObject _skillsView;
+
+    [SerializeField]
+    List<Skill> _skills = new List<Skill>();
+
+    public float damage = 1.0f;
+    public float speedAttack = .6f;
+    float changesSpeedAttack;
+
+    private void Start()
+    {
+        changesSpeedAttack = speedAttack;
+        _textsView.SetActive(false);
+        _skillsView.SetActive(false);
+
+        _txtDamage.text = $"Урон: {damage}";
+        _txtSpeedAttack.text = $"Скорость атаки: {speedAttack}";
+    }
+
     void Update()
     {
         if (_target != null)
         {
-            _seconds -= Time.deltaTime;
+            changesSpeedAttack -= Time.deltaTime;
 
-            if (_seconds < 0)
+            if (changesSpeedAttack < 0)
             {
-                _seconds = .3f;
+                changesSpeedAttack = speedAttack;
                 Shoot();
             }
 
         }
+    }
+
+    public void ChangeSpeedAttack(float value)
+    {
+        if (speedAttack - value > 0)
+        {
+            speedAttack -= value;
+            changesSpeedAttack = speedAttack;
+
+            UpdateTexts();
+        }
+    }
+
+    public void ChangeDamageTower(float value)
+    {
+        damage += value;
+
+        UpdateTexts();
+    }
+
+    void UpdateTexts()
+    {
+        _txtDamage.text = $"Урон: {damage}";
+        _txtSpeedAttack.text = $"Скорость атаки: {speedAttack}";
     }
 
     void Shoot()
@@ -38,6 +88,17 @@ public class Tower : MonoBehaviour
 
         projectilePrefab.targetEnemy = _target;
         projectilePrefab.Damage = damage;
+    }
+
+    private void OnMouseEnter()
+    {
+        _textsView.SetActive(true);
+    }
+
+
+    private void OnMouseExit()
+    {
+        _textsView.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -56,6 +117,14 @@ public class Tower : MonoBehaviour
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _skillsView.SetActive(!_skillsView.activeSelf);
+    }
 
 
+    public void DestoySelf()
+    {
+        Destroy(gameObject);
+    }
 }

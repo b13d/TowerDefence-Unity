@@ -8,6 +8,11 @@ public class LevelRoutes : MonoBehaviour
 {
     public void LoadLevel(int idLevel)
     {
+        if (idLevel == 2)
+        {
+            GameManager.instance.ResetData();
+        }
+
         SceneManager.LoadScene(idLevel);
     }
 

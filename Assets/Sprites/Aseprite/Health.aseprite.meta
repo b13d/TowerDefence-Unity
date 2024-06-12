@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc6ff228dd5983942b7ee0ac7c285b61
+guid: b56b57d3cfd8790428c7fe81bdae5744
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Skills
+  - name: Health
     originalName: 
-    pivot: {x: 0.548495, y: -0.43600002}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 299
-      height: 250
-    spriteID: 2037e7655c9e248428eb1dd68f6d406a
+      width: 31
+      height: 36
+    spriteID: 1ca6ef365b08e874789b034fec3b9850
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,23 +142,23 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 481218856
-    name: Skills
+    guid: 1643805692
+    name: Health
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Skills
+    - name: Health
       frameIndex: 0
       cellRect:
-        x: 19
-        y: 109
-        width: 299
-        height: 250
-      spriteId: 2037e7655c9e248428eb1dd68f6d406a
+        x: 0
+        y: 0
+        width: 31
+        height: 36
+      spriteId: 1ca6ef365b08e874789b034fec3b9850
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 366, y: 354}
+  canvasSize: {x: 31, y: 36}

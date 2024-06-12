@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,16 +9,13 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
     public GameObject[] _towers;
     bool _isSelectedTower;
 
-    [SerializeField] GameObject _buttonDeleteTower;
     [SerializeField] GameObject _place;
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_isSelectedTower)
-        {
-            _buttonDeleteTower.SetActive(!_buttonDeleteTower.activeSelf);
-        } 
-        else
+
+        if(_place.transform.childCount == 0)
         {
             if (GetComponent<Animator>().GetBool("isClose") ||
             (!GetComponent<Animator>().GetBool("isClose") &&
@@ -32,36 +30,32 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
                 GetComponent<Animator>().SetBool("isOpen", false);
             }
 
-
-
             Debug.Log("Кликнул на основание");
         }
 
 
         
     }
+    //public void ClearTower()
+    //{
+    //    _isSelectedTower = false;
+        
+    //    int i = 0;
 
+    //    GameObject[] allChildrens = new GameObject[_place.transform.childCount];
 
-    public void ClearTower()
-    {
-        _isSelectedTower = false;
-        _buttonDeleteTower.SetActive(false);
+    //    foreach (Transform child in _place.transform)
+    //    {
+    //        allChildrens[i] = child.gameObject;
+    //        i += 1;
+    //    }
 
-        int i = 0;
+    //    foreach (GameObject child in allChildrens)
+    //    {
+    //        Destroy(child.gameObject);
+    //    }
+    //}
 
-        GameObject[] allChildrens = new GameObject[_place.transform.childCount];
-
-        foreach (Transform child in _place.transform)
-        {
-            allChildrens[i] = child.gameObject;
-            i += 1;
-        }
-
-        foreach (GameObject child in allChildrens)
-        {
-            Destroy(child.gameObject);
-        }
-    }
 
     public void SelectedTower()
     {
@@ -69,7 +63,5 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
 
         GetComponent<Animator>().SetBool("isClose", true);
         GetComponent<Animator>().SetBool("isOpen", false);
-       
     }
-
 }

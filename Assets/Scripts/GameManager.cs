@@ -68,6 +68,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    public void Update()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.up / 2);
+        Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.up / 2, Color.red);
+
+        if (hit)
+        {
+            Debug.Log(hit.collider);
+        }
+    }
+
     public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -95,6 +107,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game data loaded!!");
         } else
         {
+            ResetValue(false);
+
             Debug.LogError("There is no save data!!");
         }
     }
@@ -105,7 +119,7 @@ public class GameManager : MonoBehaviour
         if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
         {
             File.Delete(Application.persistentDataPath + "/MySaveData.dat");
-            ResetValue();
+            ResetValue(true);
             Debug.Log("Data reset complete");
         } else
         {
@@ -113,11 +127,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetValue()
+    public void ResetValue(bool isFullReset)
     {
+        if (isFullReset)
+        {
+            _level = 0;
+        } 
+
         _health = 100;
         _money = 20;
         finishedEnemy = 0;
-        _level = 0;
     }
 }

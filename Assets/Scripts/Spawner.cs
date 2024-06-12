@@ -16,49 +16,62 @@ public class Spawner : MonoBehaviour
     float _countDown;
 
     [SerializeField]
-    float _beginValueCountDonw;
+    float _beginValueCountDown;
     
     public int spawnCountEnemy = 0;
-    public int currentWave;
-    public int[] waveNumber;
+
+    public List<int> countEnemyWave = new List<int>();
+
+    public int targetSpawnCountEnemy;
+
+    bool _isPause;
 
     public int counter = 0;
 
 
-    public int GetCurrentCountEnemy
-    {
-        get { return waveNumber[currentWave]; }
-    }
-
     private void Awake()
     {
-        _countDown = _beginValueCountDonw;
+        _countDown = _beginValueCountDown;
     }
 
     private void Start()
     {
-        Debug.Log($"spawnCountEnemy {spawnCountEnemy}");
+        targetSpawnCountEnemy = countEnemyWave[0];
 
-        spawnCountEnemy = waveNumber[currentWave]; 
+        countEnemyWave.RemoveAt(0);
     }
 
     void Update()
     {
-        _countDown -= Time.deltaTime;
+        if (_isPause) { return; }
 
-        Debug.Log($"spawnCountEnemy: {spawnCountEnemy}");
+        _countDown -= Time.deltaTime;
 
         if (_countDown < 0 && spawnCountEnemy > 0)
         {
-            _countDown = _beginValueCountDonw;
+            _countDown = _beginValueCountDown;
 
             counter++;
 
             spawnCountEnemy -= 1;
 
-            //GameManager.instance.UpdateCountEnemy(counter);
-
             SpawnEnemy();
+        }
+
+        if (spawnCountEnemy == 0)
+        {
+            if (countEnemyWave.Count > 0) 
+            {
+                spawnCountEnemy = countEnemyWave[0];
+
+                countEnemyWave.RemoveAt(0);
+
+                StartCoroutine(Pause());
+            }
+            else
+            {
+                Debug.LogError("Уровень завершен!!");
+            }
         }
     }
 
@@ -66,7 +79,7 @@ public class Spawner : MonoBehaviour
     {
         // создание противника, и присвоение ему пути его следования
 
-        _beginValueCountDonw = Random.Range(0.1f, 1);
+        _beginValueCountDown = Random.Range(0.1f, 1);
 
         int rnd = Random.Range(0, _prefabsEnemy.Length);
 
@@ -83,17 +96,12 @@ public class Spawner : MonoBehaviour
         enemy.GetComponent<Enemy>().path = paths;
     }
 
-    public void NextWave()
+    IEnumerator Pause()
     {
-        if (currentWave + 1 < waveNumber.Length)
-        {
-            currentWave++;
-            spawnCountEnemy = waveNumber[currentWave];
-        } else
-        {
-            // завершение уровня
-            LevelLogic.instance.FinishedLevel();
-        }
+        _isPause = true;
 
+        yield return new WaitForSeconds(1.5f);
+
+        _isPause = false;
     }
 }

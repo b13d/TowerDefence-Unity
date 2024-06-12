@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc6ff228dd5983942b7ee0ac7c285b61
+guid: dfc49cd429f42e44eaf728c5035143cb
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Skills
+  - name: "\u0420\u0438\u0441\u043E\u0432\u0430\u043B\u043A\u0430"
     originalName: 
-    pivot: {x: 0.548495, y: -0.43600002}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 299
-      height: 250
-    spriteID: 2037e7655c9e248428eb1dd68f6d406a
+      width: 2000
+      height: 2000
+    spriteID: e02c4b72b6d9027478c80ddd72b308ef
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,23 +142,23 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 481218856
-    name: Skills
+    guid: 871311618
+    name: "\u0420\u0438\u0441\u043E\u0432\u0430\u043B\u043A\u0430"
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Skills
+    - name: "\u0420\u0438\u0441\u043E\u0432\u0430\u043B\u043A\u0430"
       frameIndex: 0
       cellRect:
-        x: 19
-        y: 109
-        width: 299
-        height: 250
-      spriteId: 2037e7655c9e248428eb1dd68f6d406a
+        x: 0
+        y: 0
+        width: 2000
+        height: 2000
+      spriteId: e02c4b72b6d9027478c80ddd72b308ef
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 366, y: 354}
+  canvasSize: {x: 2000, y: 2000}

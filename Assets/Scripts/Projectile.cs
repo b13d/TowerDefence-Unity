@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     public bool isRotate;
 
     [SerializeField]
-    int damage = 0;
+    float damage = 0;
 
     Rigidbody2D _rb;
 
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();   
     }
 
-    public int Damage
+    public float Damage
     {
         get { return damage; }
         set { if (value >= 1) damage = value; }
