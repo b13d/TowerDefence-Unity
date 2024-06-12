@@ -58,7 +58,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
                 GameManager.instance.Money -= _price;
 
-                _price += Mathf.FloorToInt(_price * INCREASE);
+                _price += Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
             }
             else
             {
@@ -78,7 +78,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
                 GameManager.instance.Money -= _price;
 
-                _price += Mathf.FloorToInt(_price * INCREASE);
+                _price += Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
             }
             else
             {
@@ -96,7 +96,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
             {
                 GameManager.instance.Money -= _price;
 
-                _price += Mathf.FloorToInt(_price * INCREASE);
+                _price += Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
             }
             else
             {

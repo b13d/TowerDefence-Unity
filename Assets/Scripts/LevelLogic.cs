@@ -16,9 +16,15 @@ public class LevelLogic : MonoBehaviour
     [SerializeField]
     GameObject _windowWin;
 
+    [SerializeField]
+    GameObject _newWave;
 
     public int enemyKill = 0;
-    public Spawner spawnerEnemy;
+    public bool pause;
+
+    [SerializeField]
+    int countSpawnersOnLevel;
+    
 
     public static LevelLogic instance;
 
@@ -29,19 +35,44 @@ public class LevelLogic : MonoBehaviour
             instance = this;
 
             InitialValues();
+
+            pause = true;
+
             Time.timeScale = 1.0f;
 
-        } else
+            Invoke("UnPause", 1.0f);
+        } 
+        else
         {
             Destroy(gameObject);
         }
     }
 
+    void UnPause()
+    {
+        pause = false;
+    }
+
     public void InitialValues()
     {
+        _newWave.SetActive(true);
         texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
         texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy}";
+
+        Invoke("HideNewWave", 1f);
         //texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
+    }
+
+    public void ShowNewWave()
+    {
+        _newWave.SetActive(true);
+
+        Invoke("HideNewWave", 1f);
+    }
+
+    void HideNewWave()
+    {
+        _newWave.SetActive(false);
     }
 
     public void ProfitMoney(int levelEnemy)
@@ -91,34 +122,11 @@ public class LevelLogic : MonoBehaviour
         Time.timeScale = speedGame;
     }
 
-    public void EnemyFinished()
-    {
-        GameManager.instance.finishedEnemy++;
-
-        //texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
-
-        //if (spawnerEnemy.GetCurrentCountEnemy == GameManager.instance.finishedEnemy && GameManager.instance.Health > 0)
-        //{
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        Debug.Log("Переход на следующую волну!!!");
-        //    }
-
-        //    spawnerEnemy.NextWave();
-
-        //    texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
-        //    texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy} / {spawnerEnemy.waveNumber[spawnerEnemy.currentWave]}";
-
-        //    GameManager.instance.finishedEnemy = 0;
-        //}
-    }
 
     public void EnemyKill()
     {
         enemyKill++;
         texts.txtCountEnemy.text = enemyKill.ToString();
-
-        EnemyFinished();
     }
 
     public void FinishedLevel()
@@ -128,11 +136,24 @@ public class LevelLogic : MonoBehaviour
         _windowWin.SetActive(true);
     }
 
+    public void GameOver()
+    {
+        GameManager.instance.ResetData();
+
+        // загрузка сцены с уровнями
+        SceneManager.LoadScene(1);
+    }
+
     public void NextLevel(int nextLevel)
     {
-        GameManager.instance.Level++;
+        //GameManager.instance.Level++;
         GameManager.instance.SaveGame();
 
-        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public int GetCountSpawners
+    {
+        get { return countSpawnersOnLevel; }
     }
 }

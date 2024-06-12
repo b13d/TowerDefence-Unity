@@ -53,6 +53,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: markup
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 9070230555843264563, guid: c797fbc15df0b2a44b0115c4d0f78bf7, type: 3}
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1343366576, guid: 89782f1a3e7efc947817c69ce0175de7, type: 3}
+    - target: {fileID: 6354880393461807107, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7113708139584469301, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: m_Name
       value: Tower_02

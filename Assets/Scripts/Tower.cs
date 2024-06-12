@@ -27,9 +27,18 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     List<Skill> _skills = new List<Skill>();
 
+    [SerializeField]
+    float markup;
+    
+    
     public float damage = 1.0f;
     public float speedAttack = .6f;
     float changesSpeedAttack;
+
+    public float GetMarkup
+    {
+        get { return markup; }
+    }
 
     private void Start()
     {
@@ -103,6 +112,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.LogError($"У меня противник!! {collision.name}");
+
         if (collision.tag == "Enemy")
         {
             _target = collision.gameObject;

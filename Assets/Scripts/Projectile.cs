@@ -55,12 +55,4 @@ public class Projectile : MonoBehaviour
             transform.Rotate(0, 0, 5);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
-    }
 }

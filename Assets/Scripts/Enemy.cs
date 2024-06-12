@@ -15,23 +15,34 @@ public class Enemy : MonoBehaviour
     public float health;
     public float speed;
     public int levelEnemy;
+    public bool isAFKEnemy;
 
 
     private void Start()
     {
-        target = path[indexPath];
-        speed += LevelLogic.instance.spawnerEnemy.currentWave * 1.5f;
-
-        if (((LevelLogic.instance.spawnerEnemy.currentWave + 1) % 3) == 0)
+        if (isAFKEnemy)
         {
-            health = (LevelLogic.instance.spawnerEnemy.currentWave + 1) * 2;
-            sliderHealth.maxValue = health;
-            sliderHealth.value = health;
+            return;
         }
+
+        target = path[indexPath];
+        speed += 1.5f;
+
+        //if (((LevelLogic.instance.spawnerEnemy.currentWave + 1) % 3) == 0)
+        //{
+        //    health = (LevelLogic.instance.spawnerEnemy.currentWave + 1) * 2;
+        //    sliderHealth.maxValue = health;
+        //    sliderHealth.value = health;
+        //}
     }
 
     void FixedUpdate()
     {
+        if (isAFKEnemy)
+        {
+            return;
+        }
+
         if ((Vector2)transform.position == path[indexPath])
         {
             if (indexPath + 1 < path.Count)
@@ -58,7 +69,7 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Castle")
         {
             LevelLogic.instance.HitCastleHealth();
-            LevelLogic.instance.EnemyFinished();
+            LevelLogic.instance.EnemyKill();
 
             Destroy(gameObject);
         }
@@ -70,11 +81,14 @@ public class Enemy : MonoBehaviour
                 health -= collision.GetComponent<Projectile>().Damage;
                 sliderHealth.value = health;
 
+                Destroy(collision.gameObject);
+
                 if (health <= 0)
                 {
                     LevelLogic.instance.ProfitMoney(levelEnemy);
                     LevelLogic.instance.EnemyKill();
-
+                    
+                    
                     Destroy(gameObject);
                 }
             }

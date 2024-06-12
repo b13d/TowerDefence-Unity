@@ -649,6 +649,7 @@ MonoBehaviour:
   - {fileID: 133532045527130655}
   - {fileID: 8482994339731557424}
   - {fileID: 136471303975394504}
+  markup: 1
   damage: 1
   speedAttack: 0.6
 --- !u!50 &6354880393461807107
@@ -675,7 +676,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!58 &7328032951822401017

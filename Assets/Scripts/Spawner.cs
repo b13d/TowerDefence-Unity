@@ -17,12 +17,13 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     float _beginValueCountDown;
+
+    int _targetCountEnemy;
     
     public int spawnCountEnemy = 0;
 
-    public List<int> countEnemyWave = new List<int>();
-
-    public int targetSpawnCountEnemy;
+    [SerializeField]
+    List<int> countEnemyWave = new List<int>();
 
     bool _isPause;
 
@@ -36,14 +37,16 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        targetSpawnCountEnemy = countEnemyWave[0];
+        spawnCountEnemy = countEnemyWave[0];
+
+        _targetCountEnemy = spawnCountEnemy;
 
         countEnemyWave.RemoveAt(0);
     }
 
     void Update()
     {
-        if (_isPause) { return; }
+        if (_isPause || LevelLogic.instance.pause) { return; }
 
         _countDown -= Time.deltaTime;
 
@@ -60,17 +63,25 @@ public class Spawner : MonoBehaviour
 
         if (spawnCountEnemy == 0)
         {
-            if (countEnemyWave.Count > 0) 
+            if (LevelLogic.instance.enemyKill == _targetCountEnemy
+                * LevelLogic.instance.GetCountSpawners)
             {
-                spawnCountEnemy = countEnemyWave[0];
+                if (countEnemyWave.Count > 0)
+                {
+                    LevelLogic.instance.ShowNewWave();
 
-                countEnemyWave.RemoveAt(0);
+                    spawnCountEnemy = countEnemyWave[0];
 
-                StartCoroutine(Pause());
-            }
-            else
-            {
-                Debug.LogError("Уровень завершен!!");
+                    _targetCountEnemy += spawnCountEnemy;
+
+                    countEnemyWave.RemoveAt(0);
+
+                    StartCoroutine(Pause());
+                }
+                else
+                {
+                    LevelLogic.instance.FinishedLevel();
+                }
             }
         }
     }
@@ -100,7 +111,11 @@ public class Spawner : MonoBehaviour
     {
         _isPause = true;
 
+        Debug.Log("Pause start");
+
         yield return new WaitForSeconds(1.5f);
+
+        Debug.Log("Pause off");
 
         _isPause = false;
     }
