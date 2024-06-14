@@ -22,6 +22,9 @@ public class LevelLogic : MonoBehaviour
     [SerializeField]
     int _currentLevel;
 
+    [SerializeField]
+    GameObject _canvasStartGame;
+
     public int enemyKill = 0;
     public bool pause;
     public int currentWave = 0;

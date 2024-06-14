@@ -147,7 +147,6 @@ MonoBehaviour:
   - {fileID: 7113708139584469301, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
   - {fileID: 4395803024058759230, guid: fe9519695b1f3cd47b2578c4f50a37c9, type: 3}
   - {fileID: 993561781145274359, guid: 9b18a3aaf26e5024e972489ac16a9e8a, type: 3}
-  _buttonDeleteTower: {fileID: 0}
   _place: {fileID: 330644515938029178}
 --- !u!95 &5393241847555358459
 Animator:
@@ -283,6 +282,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330644515938029178}
     - target: {fileID: 5478277345963145249, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+      propertyPath: _price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478277345963145249, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
       propertyPath: _parent
       value: 
       objectReference: {fileID: 8391038752352177399}
@@ -302,6 +305,10 @@ PrefabInstance:
       propertyPath: _place
       value: 
       objectReference: {fileID: 330644515938029178}
+    - target: {fileID: 7503616835930105136, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+      propertyPath: _price
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7503616835930105136, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
       propertyPath: _parent
       value: 
