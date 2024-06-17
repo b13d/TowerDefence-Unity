@@ -41,7 +41,16 @@ public class Spawner : MonoBehaviour
 
         _targetCountEnemy = spawnCountEnemy;
 
+        int countEnemyOnLevel = 0;
+
+        foreach (int enemyOnWave in countEnemyWave)
+        {
+            countEnemyOnLevel += enemyOnWave;
+        }
+
         countEnemyWave.RemoveAt(0);
+
+        LevelLogic.instance.SetTextCountTargetEnemy = countEnemyOnLevel.ToString();
     }
 
     void Update()
@@ -63,7 +72,7 @@ public class Spawner : MonoBehaviour
 
         if (spawnCountEnemy == 0)
         {
-            if (LevelLogic.instance.enemyKill == _targetCountEnemy
+            if (LevelLogic.instance.allCounterEnemyDie == _targetCountEnemy
                 * LevelLogic.instance.GetCountSpawners)
             {
                 if (countEnemyWave.Count > 0)

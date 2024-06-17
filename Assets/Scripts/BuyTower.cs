@@ -22,9 +22,9 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (GameManager.instance.Money >= _price)
+        if (LevelLogic.instance.playerValues.money >= _price)
         {
-            GameManager.instance.Money -= _price;
+            LevelLogic.instance.playerValues.money -= _price;
 
             LevelLogic.instance.UpdateTextMoney();
 

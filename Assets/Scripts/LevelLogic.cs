@@ -1,7 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+[Serializable]
+public class PlayerValues
+{
+    public int health;
+    public int money;
+}
 
 public class LevelLogic : MonoBehaviour
 {
@@ -20,14 +29,25 @@ public class LevelLogic : MonoBehaviour
     GameObject _newWave;
 
     [SerializeField]
-    int _currentLevel;
-
-    [SerializeField]
     GameObject _canvasStartGame;
 
+    [SerializeField]
+    TextMeshProUGUI _txtTargetEnemyOnLevel;
+
+    [SerializeField]
+    TextMeshProUGUI _txtCurrentLevel;
+
+    public int allCounterEnemyDie = 0;
     public int enemyKill = 0;
     public bool pause;
     public int currentWave = 0;
+    public int targetEnemyOnLevel;
+
+    [SerializeField]
+    public PlayerValues playerValues = new PlayerValues();
+
+    [SerializeField]
+    int _currentLevel;
 
     [SerializeField]
     int countSpawnersOnLevel;
@@ -50,9 +70,9 @@ public class LevelLogic : MonoBehaviour
 
             pause = true;
 
-            Time.timeScale = 1.0f;
+            Time.timeScale = 0.0f;
 
-            Invoke("UnPause", 1.0f);
+            //Invoke("UnPause", 1.0f);
         } 
         else
         {
@@ -60,54 +80,62 @@ public class LevelLogic : MonoBehaviour
         }
     }
 
-    void UnPause()
+    public string SetTextCountTargetEnemy
     {
+        set { _txtTargetEnemyOnLevel.text = value; }
+    }
+
+    public void StartLevel()
+    {
+        _canvasStartGame.SetActive(false);
+        Time.timeScale = 1.0f;
         pause = false;
     }
 
     public void InitialValues()
     {
+        _txtCurrentLevel.text = $"Level - {_currentLevel}";
         _newWave.SetActive(true);
-        texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
-        texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy}";
+        texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
+        //texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy}";
+        texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
 
+        currentWave++;
         Invoke("HideNewWave", 1f);
-        //texts.txtCountWave.text = $"{spawnerEnemy.currentWave + 1}";
     }
 
     public void ShowNewWave()
     {
         _newWave.SetActive(true);
 
+        currentWave++;
         Invoke("HideNewWave", 1f);
     }
 
     void HideNewWave()
     {
         _newWave.SetActive(false);
-
-        currentWave++;
     }
 
     public void ProfitMoney(int levelEnemy)
     {
-        GameManager.instance.Money += PRICE * Mathf.FloorToInt(levelEnemy + (float)_currentLevel / 2);
+        playerValues.money += PRICE * Mathf.FloorToInt(levelEnemy + (float)_currentLevel / 2);
 
-        texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
+        texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
     }
 
     public void UpdateTextMoney()
     {
-        texts.txtMoney.text = $"<sprite=0> {GameManager.instance.Money}";
+        texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
     }
 
     public void HitCastleHealth()
     {
-        GameManager.instance.Health -= 10;
+        playerValues.health -= 10;
 
-        texts.txtHealth.text = $"<sprite=0> {GameManager.instance.Health}";
+        texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
 
-        if (GameManager.instance.Health <= 0)
+        if (playerValues.health <= 0)
         {
             Time.timeScale = 0;
 
@@ -139,6 +167,7 @@ public class LevelLogic : MonoBehaviour
 
     public void EnemyKill()
     {
+        allCounterEnemyDie++;
         enemyKill++;
         texts.txtCountEnemy.text = enemyKill.ToString();
     }
@@ -148,6 +177,13 @@ public class LevelLogic : MonoBehaviour
         Time.timeScale = 0.0f;
 
         _windowWin.SetActive(true);
+
+        if (GameManager.instance.Level < _currentLevel)
+        {
+            GameManager.instance.Level = _currentLevel;
+        }
+
+        GameManager.instance.SaveGame();
     }
 
     public void GameOver()
@@ -158,9 +194,8 @@ public class LevelLogic : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void NextLevel(int nextLevel)
+    public void NextLevel()
     {
-        //GameManager.instance.Level++;
         GameManager.instance.SaveGame();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -25,14 +25,27 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        levelEnemy = LevelLogic.instance.GetCurrentLevel;
+        StartCoroutine(WaitLoadedScript());
 
-        health = LevelLogic.instance.currentWave * levelEnemy;
-        sliderHealth.maxValue = health;
-        sliderHealth.value = health;
-        
         target = path[indexPath];
         speed += 1.5f;
+    }
+
+    IEnumerator WaitLoadedScript()
+    {
+        yield return new WaitForSeconds(.1f);
+
+        if (LevelLogic.instance == null)
+        {
+            StartCoroutine(WaitLoadedScript());
+        } 
+        else
+        {
+            levelEnemy = LevelLogic.instance.GetCurrentLevel;
+            health = LevelLogic.instance.currentWave * levelEnemy;
+            sliderHealth.maxValue = health;
+            sliderHealth.value = health;
+        }
     }
 
     void FixedUpdate()
@@ -66,7 +79,8 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Castle")
         {
             LevelLogic.instance.HitCastleHealth();
-            LevelLogic.instance.EnemyKill();
+            LevelLogic.instance.allCounterEnemyDie++;
+            //LevelLogic.instance.EnemyKill();
 
             Destroy(gameObject);
         }
@@ -77,6 +91,13 @@ public class Enemy : MonoBehaviour
             {
                 health -= collision.GetComponent<Projectile>().Damage;
                 sliderHealth.value = health;
+
+                GameObject traceHit = collision.GetComponent<Projectile>().GetTraceHit;
+
+                if (traceHit != null)
+                {
+                    Instantiate(traceHit, transform.position, Quaternion.identity);
+                }
 
                 Destroy(collision.gameObject);
 

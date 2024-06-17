@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 6048835165820184355, guid: 2a93dd98d8969f541a78c2b37b7c5c50, type: 3}
+    - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: _useSmokeShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6056563107249559171, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: m_Sprite
       value: 

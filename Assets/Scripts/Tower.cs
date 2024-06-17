@@ -28,7 +28,13 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     List<Skill> _skills = new List<Skill>();
 
     [SerializeField]
+    GameObject _gunSmoke;
+
+    [SerializeField]
     float markup;
+
+    [SerializeField]
+    bool _useSmokeShoot;
     
     
     public float damage = 1.0f;
@@ -46,8 +52,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         _textsView.SetActive(false);
         _skillsView.SetActive(false);
 
-        _txtDamage.text = $"Урон: {damage}";
-        _txtSpeedAttack.text = $"Скорость атаки: {speedAttack}";
+        _txtDamage.text = $"Damage: {damage}";
+        _txtSpeedAttack.text = $"Attack speed: {speedAttack}";
     }
 
     void Update()
@@ -61,7 +67,6 @@ public class Tower : MonoBehaviour, IPointerClickHandler
                 changesSpeedAttack = speedAttack;
                 Shoot();
             }
-
         }
     }
 
@@ -85,13 +90,23 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     void UpdateTexts()
     {
-        _txtDamage.text = $"Урон: {damage}";
-        _txtSpeedAttack.text = $"Скорость атаки: {speedAttack}";
+        _txtDamage.text = $"Damage: {damage}";
+        _txtSpeedAttack.text = $"Attack speed: {speedAttack}";
     }
 
     void Shoot()
     {
+
         var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
+
+        if (_useSmokeShoot)
+        {
+            Vector2 posSmoke = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            var smoke = Instantiate(_gunSmoke, transform.position, Quaternion.identity, transform);
+            smoke.transform.localPosition = posSmoke;
+
+            Destroy(smoke, 1f);
+        }
 
         Projectile projectilePrefab = projectile.GetComponent<Projectile>();
 

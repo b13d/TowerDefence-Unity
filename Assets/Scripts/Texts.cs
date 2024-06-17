@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Texts: MonoBehaviour
 {
-    public TextMeshProUGUI txtFinishedEnemy;
     public TextMeshProUGUI txtCountWave;
     public TextMeshProUGUI txtCountEnemy;
     public TextMeshProUGUI txtHealth;

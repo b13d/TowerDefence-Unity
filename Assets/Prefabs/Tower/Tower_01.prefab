@@ -66,8 +66,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3.1698, y: 2}
+  m_AnchoredPosition: {x: 1.0805, y: 0}
+  m_SizeDelta: {x: 5.3308, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6219784260416043100
 CanvasRenderer:
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0440\u043E\u043D: 2"
+  m_text: 'Damage: 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab8676db14cdd2347bee9968b137d87c, type: 2}
   m_sharedMaterial: {fileID: 51826651488520220, guid: ab8676db14cdd2347bee9968b137d87c, type: 2}
@@ -489,8 +489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.48}
-  m_SizeDelta: {x: 3.1698, y: 2}
+  m_AnchoredPosition: {x: 1.0805001, y: -1.48}
+  m_SizeDelta: {x: 5.3308, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6946317175690131621
 CanvasRenderer:
@@ -520,8 +520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438:
-    4"
+  m_text: 'Attack speed: 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab8676db14cdd2347bee9968b137d87c, type: 2}
   m_sharedMaterial: {fileID: 51826651488520220, guid: ab8676db14cdd2347bee9968b137d87c, type: 2}
@@ -548,7 +547,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.6
+  m_fontSize: 0.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -649,7 +648,9 @@ MonoBehaviour:
   - {fileID: 133532045527130655}
   - {fileID: 8482994339731557424}
   - {fileID: 136471303975394504}
+  _gunSmoke: {fileID: 3537701797407320335, guid: be89ed62603c2b846b9c32f0093e5ecc, type: 3}
   markup: 1
+  _useSmokeShoot: 0
   damage: 1
   speedAttack: 0.6
 --- !u!50 &6354880393461807107
@@ -862,7 +863,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 323857323751867343, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
       propertyPath: m_text
-      value: "\u0411\u043E\u043D\u0443\u0441\u043D\u044B\u0439 \u043D\u0430\u0432\u044B\u043A"
+      value: Radius increase
       objectReference: {fileID: 0}
     - target: {fileID: 323857323751867343, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
       propertyPath: m_fontSize
@@ -961,6 +962,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2692396186986688060}
     m_Modifications:
+    - target: {fileID: 323857323751867343, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
+      propertyPath: m_text
+      value: A skill to improve shooting speed
+      objectReference: {fileID: 0}
     - target: {fileID: 2734334280264338468, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
       propertyPath: _tower
       value: 
@@ -1040,8 +1045,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 323857323751867343, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
       propertyPath: m_text
-      value: "\u041D\u0430\u0432\u044B\u043A \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F
-        \u0443\u0440\u043E\u043D\u0430"
+      value: A skill for improving damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 323857323751867343, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
+      propertyPath: m_fontSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 323857323751867343, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
       propertyPath: m_VerticalAlignment

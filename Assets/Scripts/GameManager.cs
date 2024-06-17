@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
     }
     
 
-    [SerializeField] int _health;
-    [SerializeField] int _money;
-    //[SerializeField] int _level;
+    //[SerializeField] int _health;
+    //[SerializeField] int _money;
+    [SerializeField] int _level;
 
     public int finishedEnemy;
     
@@ -28,24 +28,24 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
 
-    //public int Level
+    public int Level
+    {
+        get { return _level; }
+        set { _level = value; }
+    }
+
+    //public int Money
     //{
-    //    get { return _level; }
-    //    set { _level = value; }
+    //    get { return _money; }
+    //    set { _money = value; }
     //}
 
-    public int Money
-    {
-        get { return _money; }
-        set { _money = value; }
-    }
 
-
-    public int Health
-    {
-        get { return _health; }
-        set { _health = value; }
-    }
+    //public int Health
+    //{
+    //    get { return _health; }
+    //    set { _health = value; }
+    //}
 
 
     void Start()
@@ -54,10 +54,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
 
-            _health = 100;
-            _money = 20;
+            //_health = 100;
+            //_money = 20;
 
             Time.timeScale = 1;
+            LoadGame();
 
             DontDestroyOnLoad(gameObject);
         }
@@ -85,9 +86,9 @@ public class GameManager : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/MySaveData.dat");
         SaveData data = new SaveData();
-        //data.level = _level;
-        data.money = _money;
-        data.healthPlayer = _health;
+        data.level = _level;
+        //data.money = _money;
+        //data.healthPlayer = _health;
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Game data saved!!");
@@ -101,9 +102,9 @@ public class GameManager : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/MySaveData.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
             file.Close();
-            //_level = data.level;
-            _money = data.money;
-            _health = data.healthPlayer;
+            _level = data.level;
+            //_money = data.money;
+            //_health = data.healthPlayer;
             Debug.Log("Game data loaded!!");
         } else
         {
@@ -129,13 +130,13 @@ public class GameManager : MonoBehaviour
 
     public void ResetValue(bool isFullReset)
     {
-        //if (isFullReset)
-        //{
-        //    _level = 0;
-        //} 
+        if (isFullReset)
+        {
+            _level = 0;
+        }
 
-        _health = 100;
-        _money = 20;
+        //_health = 100;
+        //_money = 20;
         finishedEnemy = 0;
     }
 }

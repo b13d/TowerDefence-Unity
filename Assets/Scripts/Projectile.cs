@@ -13,12 +13,20 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float damage = 0;
 
+    [SerializeField]
+    GameObject _traceHitEnemy;
+
     Rigidbody2D _rb;
 
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();   
+    }
+
+    public GameObject GetTraceHit
+    {
+        get { return _traceHitEnemy; }
     }
 
     public float Damage

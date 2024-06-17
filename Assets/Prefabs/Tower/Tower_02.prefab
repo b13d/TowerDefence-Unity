@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 9070230555843264563, guid: c797fbc15df0b2a44b0115c4d0f78bf7, type: 3}
+    - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: _useSmokeShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6056563107249559171, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -91,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 7113708139584469301, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: m_Name
       value: Tower_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7328032951822401017, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: m_Radius
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

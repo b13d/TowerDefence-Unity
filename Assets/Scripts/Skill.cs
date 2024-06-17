@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -52,11 +53,11 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
             Debug.Log($"price: {_price}");
 
-            if (GameManager.instance.Money >= _price)
+            if (LevelLogic.instance.playerValues.money >= _price)
             {
                 _tower.ChangeDamageTower(.5f);
 
-                GameManager.instance.Money -= _price;
+                LevelLogic.instance.playerValues.money -= _price;
 
                 _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
             }
@@ -72,13 +73,23 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
             Debug.Log($"price: {_price}");
 
-            if (GameManager.instance.Money >= _price)
+            if (LevelLogic.instance.playerValues.money >= _price)
             {
-                _tower.ChangeSpeedAttack(.1f);
+                if (_tower.speedAttack > 0.15f)
+                {
+                    _tower.ChangeSpeedAttack(.1f);
 
-                GameManager.instance.Money -= _price;
+                    LevelLogic.instance.playerValues.money -= _price;
 
-                _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+                    _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+                } 
+                else
+                {
+                    Debug.LogError("Превышает лимит атаки скорости");
+
+                    GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 1f);
+                    Destroy(gameObject, 1f);
+                }
             }
             else
             {
@@ -92,9 +103,9 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
             Debug.Log($"price: {_price}");
 
-            if (GameManager.instance.Money >= _price)
+            if (LevelLogic.instance.playerValues.money >= _price)
             {
-                GameManager.instance.Money -= _price;
+                LevelLogic.instance.playerValues.money -= _price;
 
                 _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
             }
