@@ -25,6 +25,9 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     List<int> countEnemyWave = new List<int>();
 
+    [SerializeField]
+    bool _isLiveStage;
+
     bool _isPause;
 
     public int counter = 0;
@@ -50,16 +53,21 @@ public class Spawner : MonoBehaviour
 
         countEnemyWave.RemoveAt(0);
 
-        LevelLogic.instance.SetTextCountTargetEnemy = countEnemyOnLevel.ToString();
+        if (!_isLiveStage)
+        {
+            LevelLogic.instance.SetTextCountTargetEnemy = countEnemyOnLevel.ToString();
+        }
+
     }
 
     void Update()
     {
-        if (_isPause || LevelLogic.instance.pause) { return; }
+        if (!_isLiveStage && (_isPause || LevelLogic.instance.pause)) { return; }
 
         _countDown -= Time.deltaTime;
 
-        if (_countDown < 0 && spawnCountEnemy > 0)
+        if ((_countDown < 0 && spawnCountEnemy > 0) 
+            || (_isLiveStage && _countDown < 0))
         {
             _countDown = _beginValueCountDown;
 
@@ -70,7 +78,7 @@ public class Spawner : MonoBehaviour
             SpawnEnemy();
         }
 
-        if (spawnCountEnemy == 0)
+        if (spawnCountEnemy == 0 && !_isLiveStage)
         {
             if (LevelLogic.instance.allCounterEnemyDie == _targetCountEnemy
                 * LevelLogic.instance.GetCountSpawners)
@@ -111,6 +119,11 @@ public class Spawner : MonoBehaviour
         }
 
         var enemy = Instantiate(_prefabsEnemy[rnd], transform.position, Quaternion.identity);
+
+        if (_isLiveStage)
+        {
+            enemy.GetComponent<Enemy>().isLiveStage = true;
+        }
 
         enemy.GetComponent<Enemy>().levelEnemy = 0;
         enemy.GetComponent<Enemy>().lastTarget = _castle;

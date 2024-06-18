@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     public float speed;
     public int levelEnemy;
     public bool isAFKEnemy;
+    public bool isLiveStage;
+
+    [SerializeField] SpriteRenderer _sprite;
 
 
     private void Start()
@@ -28,6 +31,9 @@ public class Enemy : MonoBehaviour
         StartCoroutine(WaitLoadedScript());
 
         target = path[indexPath];
+
+        RotateEnemy();
+
         speed += 1.5f;
     }
 
@@ -35,15 +41,22 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(.1f);
 
-        if (LevelLogic.instance == null)
+        if (LevelLogic.instance == null && !isLiveStage)
         {
             StartCoroutine(WaitLoadedScript());
         } 
         else
         {
-            levelEnemy = LevelLogic.instance.GetCurrentLevel;
-            health = LevelLogic.instance.currentWave * levelEnemy;
-            sliderHealth.maxValue = health;
+            if (!isLiveStage)
+            {
+                levelEnemy = LevelLogic.instance.GetCurrentLevel;
+                health = LevelLogic.instance.currentWave * levelEnemy;
+            } else
+            {
+                levelEnemy = 1;
+                health = 2;
+            }
+                sliderHealth.maxValue = health;
             sliderHealth.value = health;
         }
     }
@@ -62,10 +75,14 @@ public class Enemy : MonoBehaviour
                 indexPath++;
 
                 target = path[indexPath];
-            } 
+
+                RotateEnemy();
+            }
             else
             {
                 target = lastTarget.transform.position;
+
+                RotateEnemy();
             }
         }
 
@@ -74,13 +91,27 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, step);
     }
 
+    void RotateEnemy()
+    {
+        if (target.x < transform.position.x)
+        {
+            _sprite.flipX = true;
+        }
+        else
+        {
+            _sprite.flipX = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Castle")
         {
-            LevelLogic.instance.HitCastleHealth();
-            LevelLogic.instance.allCounterEnemyDie++;
-            //LevelLogic.instance.EnemyKill();
+            if (!isLiveStage)
+            {
+                LevelLogic.instance.HitCastleHealth();
+                LevelLogic.instance.allCounterEnemyDie++;
+            }
 
             Destroy(gameObject);
         }
@@ -103,9 +134,11 @@ public class Enemy : MonoBehaviour
 
                 if (health <= 0)
                 {
-                    LevelLogic.instance.ProfitMoney(levelEnemy);
-                    LevelLogic.instance.EnemyKill();
-                    
+                    if (!isLiveStage)
+                    {
+                        LevelLogic.instance.ProfitMoney(levelEnemy);
+                        LevelLogic.instance.EnemyKill();
+                    }
                     
                     Destroy(gameObject);
                 }

@@ -28,6 +28,9 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     float markup;
 
+    [SerializeField]
+    bool _isLiveStage;
+
     public float GetMarkup
     {
         get { return markup; }
@@ -52,23 +55,31 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseEnter()
     {
+        if (_isLiveStage) { return; }
+
         _textsView.SetActive(true);
     }
 
     private void OnMouseExit()
     {
+        if (_isLiveStage) { return; }
+
         _textsView.SetActive(false);
     }
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (_isLiveStage) { return; }
+
         _skillsView.SetActive(!_skillsView.activeSelf);
     }
 
 
     public void DestoySelf()
     {
+        if (_isLiveStage) { return; }
+
         Destroy(gameObject.transform.parent.gameObject);
     }
 }

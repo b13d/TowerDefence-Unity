@@ -394,6 +394,8 @@ MonoBehaviour:
   speed: 3
   levelEnemy: 1
   isAFKEnemy: 0
+  isLiveStage: 0
+  _sprite: {fileID: 8604188503941949909}
 --- !u!61 &3333683628443321397
 BoxCollider2D:
   m_ObjectHideFlags: 0

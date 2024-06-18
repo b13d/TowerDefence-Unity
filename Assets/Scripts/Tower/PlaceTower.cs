@@ -11,9 +11,15 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] GameObject _place;
 
+    [SerializeField]
+    bool _isLiveStage;
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (_isLiveStage)
+        {
+            return;
+        }
 
         if(_place.transform.childCount == 0)
         {
@@ -36,26 +42,6 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
 
         
     }
-    //public void ClearTower()
-    //{
-    //    _isSelectedTower = false;
-        
-    //    int i = 0;
-
-    //    GameObject[] allChildrens = new GameObject[_place.transform.childCount];
-
-    //    foreach (Transform child in _place.transform)
-    //    {
-    //        allChildrens[i] = child.gameObject;
-    //        i += 1;
-    //    }
-
-    //    foreach (GameObject child in allChildrens)
-    //    {
-    //        Destroy(child.gameObject);
-    //    }
-    //}
-
 
     public void SelectedTower()
     {
