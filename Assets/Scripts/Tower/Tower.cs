@@ -4,25 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Tower : MonoBehaviour, IPointerClickHandler
+public class Tower : MonoBehaviour
 {
     [SerializeField]
     private GameObject _target;
 
     [SerializeField]
     private GameObject _projectile;
-
-    [SerializeField]
-    private TextMeshProUGUI _txtDamage;
-
-    [SerializeField]
-    private TextMeshProUGUI _txtSpeedAttack;
-
-    [SerializeField]
-    private GameObject _textsView;
-
-    [SerializeField]
-    private GameObject _skillsView;
 
     [SerializeField]
     List<Skill> _skills = new List<Skill>();
@@ -35,6 +23,11 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     [SerializeField]
     bool _useSmokeShoot;
+
+    public TowerMenu towerMenu;
+
+    [SerializeField]
+    RadiusTower _radiusTower;
     
     
     public float damage = 1.0f;
@@ -49,11 +42,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         changesSpeedAttack = speedAttack;
-        _textsView.SetActive(false);
-        _skillsView.SetActive(false);
-
-        _txtDamage.text = $"Damage: {damage}";
-        _txtSpeedAttack.text = $"Attack speed: {speedAttack}";
+        towerMenu.UpdateTexts(damage, speedAttack);
+        towerMenu.UpdateRadiusText(_radiusTower.xradius);
     }
 
     void Update()
@@ -77,7 +67,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler
             speedAttack -= value;
             changesSpeedAttack = speedAttack;
 
-            UpdateTexts();
+            towerMenu.UpdateTexts(damage, speedAttack);
         }
     }
 
@@ -85,13 +75,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     {
         damage += value;
 
-        UpdateTexts();
-    }
-
-    void UpdateTexts()
-    {
-        _txtDamage.text = $"Damage: {damage}";
-        _txtSpeedAttack.text = $"Attack speed: {speedAttack}";
+        towerMenu.UpdateTexts(damage, speedAttack);
     }
 
     void Shoot()
@@ -114,16 +98,6 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         projectilePrefab.Damage = damage;
     }
 
-    private void OnMouseEnter()
-    {
-        _textsView.SetActive(true);
-    }
-
-
-    private void OnMouseExit()
-    {
-        _textsView.SetActive(false);
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -143,14 +117,4 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        _skillsView.SetActive(!_skillsView.activeSelf);
-    }
-
-
-    public void DestoySelf()
-    {
-        Destroy(gameObject);
-    }
 }

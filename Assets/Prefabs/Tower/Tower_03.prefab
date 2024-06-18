@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2837650389565445315, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: xradius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837650389565445315, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: yradius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: damage
       value: 3

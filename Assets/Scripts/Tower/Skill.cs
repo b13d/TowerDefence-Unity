@@ -22,6 +22,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
     [SerializeField] Tower _tower;
     [SerializeField] int _price;
     [SerializeField] TextMeshProUGUI _txtPriceSkill;
+    [SerializeField] RadiusTower _radiusTower;
 
 
     public SkillType skillType;
@@ -105,9 +106,24 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
             if (LevelLogic.instance.playerValues.money >= _price)
             {
-                LevelLogic.instance.playerValues.money -= _price;
+                if (_radiusTower.xradius < 1.5f)
+                {
+                    LevelLogic.instance.playerValues.money -= _price;
 
-                _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+                    _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+
+                    _radiusTower.ChangeScaleRadius();
+
+                    _tower.towerMenu.UpdateRadiusText(_radiusTower.xradius);
+                } 
+                else
+                {
+                    Debug.LogError("Превышает лимит радиуса");
+
+                    GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 1f);
+                    Destroy(gameObject, 1f);
+                }
+
             }
             else
             {
