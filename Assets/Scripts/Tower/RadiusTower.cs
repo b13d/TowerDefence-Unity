@@ -61,4 +61,9 @@ public class RadiusTower : MonoBehaviour
         _points = polygonCollider.points;
         CreatePoints();
     }
+
+    public LineRenderer GetLine
+    {
+        get { return line; }
+    }
 }

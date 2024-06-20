@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -28,8 +29,13 @@ public class Tower : MonoBehaviour
 
     [SerializeField]
     RadiusTower _radiusTower;
-    
-    
+
+    [SerializeField]
+    GameObject _shootTower;
+
+    LineRenderer _line;
+
+
     public float damage = 1.0f;
     public float speedAttack = .6f;
     float changesSpeedAttack;
@@ -44,6 +50,7 @@ public class Tower : MonoBehaviour
         changesSpeedAttack = speedAttack;
         towerMenu.UpdateTexts(damage, speedAttack);
         towerMenu.UpdateRadiusText(_radiusTower.xradius);
+        _line = _radiusTower.gameObject.GetComponent<LineRenderer>();
     }
 
     void Update()
@@ -82,6 +89,9 @@ public class Tower : MonoBehaviour
     {
 
         var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
+        var shootSound = Instantiate(_shootTower, transform.position, Quaternion.identity);
+
+        Destroy(shootSound, 2f);
 
         if (_useSmokeShoot)
         {
@@ -101,8 +111,6 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.LogError($"У меня противник!! {collision.name}");
-
         if (collision.tag == "Enemy")
         {
             _target = collision.gameObject;
@@ -116,5 +124,6 @@ public class Tower : MonoBehaviour
             _target = null;
         }
     }
+
 
 }

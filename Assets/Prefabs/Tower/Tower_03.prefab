@@ -85,6 +85,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6048835165820184355, guid: 2a93dd98d8969f541a78c2b37b7c5c50, type: 3}
     - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+      propertyPath: _shootTower
+      value: 
+      objectReference: {fileID: 2414145599975990997, guid: ff4f963db8030ec40a61dd1746eb0393, type: 3}
+    - target: {fileID: 3940996914350545186, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
       propertyPath: _useSmokeShoot
       value: 1
       objectReference: {fileID: 0}

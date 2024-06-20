@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,6 +32,11 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     bool _isLiveStage;
 
+    [SerializeField]
+    LineRenderer _line;
+
+    Color colorEmpty = new Color(1, 1, 1, 0);
+
     public float GetMarkup
     {
         get { return markup; }
@@ -55,6 +61,8 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseEnter()
     {
+        _line.DOColor(new Color2(colorEmpty, colorEmpty), new Color2(Color.white, Color.white), .5f);
+
         if (_isLiveStage) { return; }
 
         _textsView.SetActive(true);
@@ -62,6 +70,8 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseExit()
     {
+        _line.DOColor(new Color2(Color.white, Color.white), new Color2(colorEmpty, colorEmpty), .5f);
+
         if (_isLiveStage) { return; }
 
         _textsView.SetActive(false);
