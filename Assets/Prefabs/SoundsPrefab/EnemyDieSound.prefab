@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3800935511211090174}
   - component: {fileID: 7332296210194389291}
   m_Layer: 0
-  m_Name: ShootSoundTower
+  m_Name: EnemyDieSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,9 +42,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5ca57518415df1f4a943b4bd5b0d8256, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 79f48d0cefe9b7345bfc2f7cdc8271e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

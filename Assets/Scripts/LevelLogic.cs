@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,9 @@ public class LevelLogic : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI _txtCurrentLevel;
+
+    [SerializeField]
+    GameObject _enemySoundPrefab;
 
     public int allCounterEnemyDie = 0;
     public int enemyKill = 0;
@@ -87,6 +91,24 @@ public class LevelLogic : MonoBehaviour
 
     public void StartLevel()
     {
+        StartCoroutine(AlphaCanvas());
+        StartCoroutine(StartLevelWait());
+    }
+
+    IEnumerator AlphaCanvas()
+    {
+        for (int i = 3; i > 0; i--)
+        {
+            yield return new WaitForSecondsRealtime(.1f);
+
+            _canvasStartGame.GetComponent<CanvasGroup>().alpha -= .25f;
+        }
+    }
+
+    IEnumerator StartLevelWait()
+    {
+        yield return new WaitForSecondsRealtime(.5f);
+
         _canvasStartGame.SetActive(false);
         Time.timeScale = 1.0f;
         pause = false;
@@ -122,6 +144,15 @@ public class LevelLogic : MonoBehaviour
         playerValues.money += PRICE * Mathf.FloorToInt(levelEnemy + (float)_currentLevel / 2);
 
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
+
+        Invoke("SpawnSoundEnemyDie", .5f);
+    }
+
+    void SpawnSoundEnemyDie() 
+    {
+        var newSoundEnemyDie = Instantiate(_enemySoundPrefab, transform.position, Quaternion.identity);
+
+        Destroy(newSoundEnemyDie, 1f);
     }
 
     public void UpdateTextMoney()
