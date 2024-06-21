@@ -4172,8 +4172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 16, y: -82.2}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -171}
+  m_SizeDelta: {x: 668.215, y: 232.239}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883813464
 MonoBehaviour:
@@ -4195,7 +4195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Goblins TD
+  m_text: Guardians of the Realm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09adfcbce23d4024c8d747d472eb8cbf, type: 2}
   m_sharedMaterial: {fileID: -3176909396118424194, guid: 09adfcbce23d4024c8d747d472eb8cbf, type: 2}
@@ -4222,7 +4222,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
+  m_fontSize: 91.7
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4238,7 +4238,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -4258,7 +4258,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -233.40894, y: 0, z: -204.88113, w: -106.3307}
+  m_margin: {x: -4.849762, y: 0, z: -3.649564, w: -0.44808966}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

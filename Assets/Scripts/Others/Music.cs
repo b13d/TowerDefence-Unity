@@ -40,22 +40,30 @@ public class Music : MonoBehaviour
     {
         if (!_audioSource.isPlaying)
         {
-            if (_currentIndexMusic < _listMusic.Count)
-            {
-                _currentIndexMusic = Random.Range(0, _listMusic.Count);
-
-                _audioSource.clip = _listMusic[_currentIndexMusic];
-                
-                _currentIndexMusic++;
-            }    
-            else
-            {
-                _currentIndexMusic = 0;
-
-                _audioSource.clip = _listMusic[_currentIndexMusic];
-            }
-
-            _audioSource.Play();
+            PlayMusic();
         }
+    }
+
+
+    void PlayMusic()
+    {
+        Debug.LogError($"Method: PlayMusic");
+
+        if (_currentIndexMusic < _listMusic.Count)
+        {
+            _currentIndexMusic = Random.Range(0, _listMusic.Count);
+
+            _audioSource.clip = _listMusic[_currentIndexMusic];
+
+            _currentIndexMusic++;
+        }
+        else
+        {
+            _currentIndexMusic = 0;
+
+            _audioSource.clip = _listMusic[_currentIndexMusic];
+        }
+
+        _audioSource.Play();
     }
 }

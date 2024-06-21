@@ -94,6 +94,7 @@ public class Spawner : MonoBehaviour
             }
             else
             {
+                _isPause = true;
                 _spawnerManagment.FinishLevelSpawnEnemy();
             }
         }

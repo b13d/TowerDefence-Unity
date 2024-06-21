@@ -24,11 +24,16 @@ public class Skill : MonoBehaviour, IPointerClickHandler
     [SerializeField] TextMeshProUGUI _txtPriceSkill;
     [SerializeField] RadiusTower _radiusTower;
     [SerializeField] SpriteRenderer _sprite;
+    [SerializeField] AudioClip _buyingSuccess;
+    [SerializeField] AudioClip _buyingError;
+
+    private AudioSource _audioSource;
 
     public SkillType skillType;
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>(); 
         _hint.SetActive(false);
         _txtPriceSkill.text = _price.ToString();
     }
@@ -43,6 +48,24 @@ public class Skill : MonoBehaviour, IPointerClickHandler
         _hint.SetActive(false);
     }
 
+
+    void SuccessBuy()
+    {
+        _audioSource.volume = Settings.instance.GetAudioVolume;
+
+        _audioSource.clip = _buyingSuccess;
+
+        _audioSource.Play();
+    }
+
+    void ErrorBuy()
+    {
+        _audioSource.volume = Settings.instance.GetAudioVolume;
+
+        _audioSource.clip = _buyingError;
+
+        _audioSource.Play();
+    }
 
 
     public void OnPointerClick(PointerEventData eventData)
@@ -61,10 +84,14 @@ public class Skill : MonoBehaviour, IPointerClickHandler
                 LevelLogic.instance.playerValues.money -= _price;
 
                 _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+
+                SuccessBuy();
             }
             else
             {
                 Debug.LogError("Не хватает денег");
+
+                ErrorBuy();
             }
 
         } 
@@ -76,13 +103,15 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
             if (LevelLogic.instance.playerValues.money >= _price)
             {
-                if (_tower.speedAttack > 0.31f)
+                if (_tower.speedAttack > 0.21f)
                 {
                     _tower.ChangeSpeedAttack(.1f);
 
                     LevelLogic.instance.playerValues.money -= _price;
 
                     _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+
+                    SuccessBuy();
                 } 
                 else
                 {
@@ -95,6 +124,8 @@ public class Skill : MonoBehaviour, IPointerClickHandler
             else
             {
                 Debug.LogError("Не хватает денег");
+
+                ErrorBuy();
             }
             
         }
@@ -115,6 +146,8 @@ public class Skill : MonoBehaviour, IPointerClickHandler
                     _radiusTower.ChangeScaleRadius();
 
                     _tower.towerMenu.UpdateRadiusText(_radiusTower.xradius);
+
+                    SuccessBuy();
                 } 
                 else
                 {
@@ -128,6 +161,8 @@ public class Skill : MonoBehaviour, IPointerClickHandler
             else
             {
                 Debug.LogError("Не хватает денег");
+
+                ErrorBuy();
             }
         }
 
