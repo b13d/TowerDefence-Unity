@@ -126,6 +126,8 @@ public class LevelLogic : MonoBehaviour
 
     public void ShowNewWave()
     {
+        Debug.LogError("Показал новую волну!");
+
         _newWave.SetActive(true);
 
         currentWave++;

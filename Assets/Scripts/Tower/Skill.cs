@@ -76,7 +76,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
             if (LevelLogic.instance.playerValues.money >= _price)
             {
-                if (_tower.speedAttack > 0.15f)
+                if (_tower.speedAttack > 0.31f)
                 {
                     _tower.ChangeSpeedAttack(.1f);
 

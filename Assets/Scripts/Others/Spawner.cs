@@ -13,13 +13,18 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject _castle;
 
+    [SerializeField]
+    private Transform _placeSpawn;
+
+    private SpawnerManagment _spawnerManagment;
+
     float _countDown;
 
     [SerializeField]
     float _beginValueCountDown;
 
     int _targetCountEnemy;
-    
+
     public int spawnCountEnemy = 0;
 
     [SerializeField]
@@ -36,6 +41,8 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         _countDown = _beginValueCountDown;
+
+        _spawnerManagment = transform.parent.GetComponent<SpawnerManagment>();
     }
 
     private void Start()
@@ -55,7 +62,7 @@ public class Spawner : MonoBehaviour
 
         if (!_isLiveStage)
         {
-            LevelLogic.instance.SetTextCountTargetEnemy = countEnemyOnLevel.ToString();
+            _spawnerManagment.AddTargetEnemy(countEnemyOnLevel);
         }
 
     }
@@ -66,7 +73,7 @@ public class Spawner : MonoBehaviour
 
         _countDown -= Time.deltaTime;
 
-        if ((_countDown < 0 && spawnCountEnemy > 0) 
+        if ((_countDown < 0 && spawnCountEnemy > 0)
             || (_isLiveStage && _countDown < 0))
         {
             _countDown = _beginValueCountDown;
@@ -78,29 +85,26 @@ public class Spawner : MonoBehaviour
             SpawnEnemy();
         }
 
-        if (spawnCountEnemy == 0 && !_isLiveStage)
+        if (spawnCountEnemy == 0 && !_isLiveStage && _placeSpawn.childCount == 0)
         {
-            if (LevelLogic.instance.allCounterEnemyDie == _targetCountEnemy
-                * LevelLogic.instance.GetCountSpawners)
+            if (countEnemyWave.Count > 0)
             {
-                if (countEnemyWave.Count > 0)
-                {
-                    LevelLogic.instance.ShowNewWave();
-
-                    spawnCountEnemy = countEnemyWave[0];
-
-                    _targetCountEnemy += spawnCountEnemy;
-
-                    countEnemyWave.RemoveAt(0);
-
-                    StartCoroutine(Pause());
-                }
-                else
-                {
-                    LevelLogic.instance.FinishedLevel();
-                }
+                _isPause = true;
+                _spawnerManagment.CompleteSpawnEnemy();
+            }
+            else
+            {
+                _spawnerManagment.FinishLevelSpawnEnemy();
             }
         }
+    }
+
+    public void SetEnemySpawner()
+    {
+        spawnCountEnemy = countEnemyWave[0];
+        _targetCountEnemy += spawnCountEnemy;
+        countEnemyWave.RemoveAt(0);
+        _isPause = false;
     }
 
     void SpawnEnemy()
@@ -118,7 +122,7 @@ public class Spawner : MonoBehaviour
             paths.Add(_pathEnemy.transform.GetChild(i).transform.position);
         }
 
-        var enemy = Instantiate(_prefabsEnemy[rnd], transform.position, Quaternion.identity);
+        var enemy = Instantiate(_prefabsEnemy[rnd], transform.position, Quaternion.identity, _placeSpawn);
 
         if (_isLiveStage)
         {
@@ -130,16 +134,5 @@ public class Spawner : MonoBehaviour
         enemy.GetComponent<Enemy>().path = paths;
     }
 
-    IEnumerator Pause()
-    {
-        _isPause = true;
 
-        Debug.Log("Pause start");
-
-        yield return new WaitForSeconds(1.5f);
-
-        Debug.Log("Pause off");
-
-        _isPause = false;
-    }
 }
