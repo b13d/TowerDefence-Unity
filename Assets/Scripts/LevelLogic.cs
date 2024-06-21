@@ -55,7 +55,6 @@ public class LevelLogic : MonoBehaviour
 
     [SerializeField]
     int countSpawnersOnLevel;
-    
 
     public static LevelLogic instance;
 
@@ -75,8 +74,6 @@ public class LevelLogic : MonoBehaviour
             pause = true;
 
             Time.timeScale = 0.0f;
-
-            //Invoke("UnPause", 1.0f);
         } 
         else
         {
@@ -123,6 +120,7 @@ public class LevelLogic : MonoBehaviour
         texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
 
         currentWave++;
+        texts.txtCountWave.text = $"{currentWave}";
         Invoke("HideNewWave", 1f);
     }
 
@@ -131,6 +129,7 @@ public class LevelLogic : MonoBehaviour
         _newWave.SetActive(true);
 
         currentWave++;
+        texts.txtCountWave.text = $"{currentWave}";
         Invoke("HideNewWave", 1f);
     }
 
@@ -235,5 +234,10 @@ public class LevelLogic : MonoBehaviour
     public int GetCountSpawners
     {
         get { return countSpawnersOnLevel; }
+    }
+
+    public void ShowSettings()
+    {
+        Settings.instance.ShowSettings();
     }
 }

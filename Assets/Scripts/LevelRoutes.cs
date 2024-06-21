@@ -43,13 +43,13 @@ public class LevelRoutes : MonoBehaviour
 
     }
 
+    public void ShowSettings()
+    {
+        Settings.instance.ShowSettings();
+    }
+
     public void LoadLevel(int idLevel)
     {
-        //if (idLevel == 2)
-        //{
-        //    GameManager.instance.ResetData();
-        //}
-
         GameManager.instance.LoadGame();
         SceneManager.LoadScene(idLevel);
     }

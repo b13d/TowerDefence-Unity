@@ -6632,8 +6632,8 @@ Transform:
   m_GameObject: {fileID: 9119415018234932140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.6689, z: 1}
+  m_LocalPosition: {x: 0.6, y: 0.44, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4837222338020223235}
@@ -6679,8 +6679,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 577b0b038a5a1454f830aaa537562d7c, type: 3}
-  m_Color: {r: 0.42075467, g: 0.6210643, b: 1, a: 1}
+  m_Sprite: {fileID: -1271351825, guid: 1b1133fdf2a318c4ea56a3b276674226, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6699,7 +6699,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7172870160295377928}
-  - component: {fileID: 2460356474845069599}
   m_Layer: 0
   m_Name: LiveStage_2
   m_TagString: Untagged
@@ -6729,18 +6728,6 @@ Transform:
   - {fileID: 877323977667917502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2460356474845069599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179225311256935642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90553d42d5624cb40935c48508359ac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2464463991687202003
 PrefabInstance:
   m_ObjectHideFlags: 0

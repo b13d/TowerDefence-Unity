@@ -23,7 +23,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
     [SerializeField] int _price;
     [SerializeField] TextMeshProUGUI _txtPriceSkill;
     [SerializeField] RadiusTower _radiusTower;
-
+    [SerializeField] SpriteRenderer _sprite;
 
     public SkillType skillType;
 
@@ -88,7 +88,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
                 {
                     Debug.LogError("Превышает лимит атаки скорости");
 
-                    GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 1f);
+                    _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
                     Destroy(gameObject, 1f);
                 }
             }
@@ -120,7 +120,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
                 {
                     Debug.LogError("Превышает лимит радиуса");
 
-                    GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 1f);
+                    _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
                     Destroy(gameObject, 1f);
                 }
 

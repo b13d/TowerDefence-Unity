@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3800935511211090174}
   - component: {fileID: 7332296210194389291}
+  - component: {fileID: 6207051624808506717}
   m_Layer: 0
   m_Name: ShootSoundTower
   m_TagString: Untagged
@@ -128,3 +129,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6207051624808506717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414145599975990997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f094f2ea5552f04180be52c73992d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isSoundTowerShoot: 1
