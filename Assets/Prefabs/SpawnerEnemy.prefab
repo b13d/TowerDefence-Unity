@@ -131,8 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabsEnemy:
   - {fileID: 3632478619583426920, guid: bd7b9597625f53148bf7d6637810ea1e, type: 3}
+  - {fileID: 3632478619583426920, guid: 0c051806e807c1c48862ef05aa387eae, type: 3}
+  - {fileID: 3632478619583426920, guid: 9030db9f297245940b91f6cfcd4c16d8, type: 3}
   _pathEnemy: {fileID: 0}
   _castle: {fileID: 0}
+  _placeSpawn: {fileID: 0}
   _beginValueCountDown: 1
   spawnCountEnemy: 0
   countEnemyWave: 0a000000140000001e000000
