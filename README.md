@@ -1,4 +1,6 @@
-Hi! I am developing a game on Unity, for my portfolio, planning to release the game on itch
+<b>My game here</b> - https://boltach.itch.io/guardians-of-the-realm <br/>
+
+<b>Hi!</b> I am developing a game on Unity, for my portfolio, planning to release the game on itch
 
 Started development on June 5 <br/>
 I use free assets from itch <br/>
