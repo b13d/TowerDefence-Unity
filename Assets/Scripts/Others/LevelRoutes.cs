@@ -28,7 +28,6 @@ public class LevelRoutes : MonoBehaviour
 
     void InitialValues()
     {
-        Debug.LogError("Инициализация уровней");
 
         for (int i = 0; i < _levels.Count; i++)
         {

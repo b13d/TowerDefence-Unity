@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField]
+    GameObject _clickSound;
+
     [Serializable]
     class SaveData
     {
@@ -20,10 +23,6 @@ public class GameManager : MonoBehaviour
     }
     
     [SerializeField] int _level;
-
-    public int finishedEnemy;
-    
-
 
     #region Properties
     public int Level
@@ -53,6 +52,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void LoadLevels()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            var soundClick = Instantiate(_clickSound, transform);
+            Destroy(soundClick, 1f);
+        }
     }
 
     public void SaveGame()
@@ -106,8 +119,6 @@ public class GameManager : MonoBehaviour
         {
             _level = 0;
         }
-
-        finishedEnemy = 0;
     }
 
     #endregion
