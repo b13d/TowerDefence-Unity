@@ -7,15 +7,11 @@ public class Projectile : MonoBehaviour
 {
 
     public GameObject targetEnemy;
-
     public bool isRotate;
-
     [SerializeField]
     float damage = 0;
-
     [SerializeField]
     GameObject _traceHitEnemy;
-
     Rigidbody2D _rb;
 
 
@@ -24,10 +20,7 @@ public class Projectile : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();   
     }
 
-    public GameObject GetTraceHit
-    {
-        get { return _traceHitEnemy; }
-    }
+    public GameObject GetTraceHit => _traceHitEnemy;
 
     public float Damage
     {
@@ -43,17 +36,22 @@ public class Projectile : MonoBehaviour
         
             if (!isRotate)
             {
-                Vector3 diference = targetEnemy.transform.position - transform.position;
-                float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + 90);
-
-                // поворт объекта в сторону противника
+                RotateProjectile();
+                // turn the object toward the enemy
             }
 
-        } else
+        } 
+        else
         {
             Destroy(gameObject);
         }
+    }
+
+    void RotateProjectile()
+    {
+        Vector3 diference = targetEnemy.transform.position - transform.position;
+        float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + 90);
     }
 
     void Update()

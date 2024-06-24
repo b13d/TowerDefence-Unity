@@ -10,24 +10,26 @@ public class Settings : MonoBehaviour
     [SerializeField]
     GameObject _canvasSettings;
 
+    [Header("Sounds")]
     [SerializeField]
     Slider _sliderAudio;
 
     [SerializeField]
     Slider _sliderMusic;
 
+    #region Methods
     private void Start()
     {
         if (instance == null)
         {
             instance = this;
             _canvasSettings.SetActive(false);
-            
+
             _sliderAudio.value = .5f;
             _sliderMusic.value = .25f;
 
             DontDestroyOnLoad(gameObject);
-        } 
+        }
         else
         {
             Destroy(gameObject);
@@ -47,13 +49,12 @@ public class Settings : MonoBehaviour
         _canvasSettings.SetActive(true);
     }
 
-    public float GetAudioVolume
-    {
-        get { return _sliderAudio.value; }
-    }
+    #endregion
 
-    public float GetMusicVolume
-    {
-        get { return _sliderMusic.value; }
-    }
+    #region Properties
+    public float GetAudioVolume => _sliderAudio.value;
+
+    public float GetMusicVolume => _sliderMusic.value;
+
+    #endregion
 }

@@ -6,9 +6,12 @@ using UnityEngine.EventSystems;
 
 public class BuyTower : MonoBehaviour, IPointerClickHandler
 {
+
+    [Header("Tower Values")]
     [SerializeField] private int _price = 0;
     [SerializeField] int index;
 
+    [Header("Tower GameObjects")]
     [SerializeField] PlaceTower _parent;
 
     [SerializeField] GameObject _place;
@@ -24,33 +27,28 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
     {
         if (LevelLogic.instance.playerValues.money >= _price)
         {
-            LevelLogic.instance.playerValues.money -= _price;
-
-            LevelLogic.instance.UpdateTextMoney();
-
-            _price = Mathf.FloorToInt(_price * 1.5f);
-
-            Debug.Log($"newPrice: {_price}");
-
-            _txtPrice.text = $"{_price}$";
-
-            _parent.SelectedTower();
-
-            var newTower = Instantiate(_parent._towers[index],
-                _place.transform.position,
-                Quaternion.identity, _place.transform);
-
-            //_parent.speedAttackTower = newTower.GetComponent<Tower>().speedAttack;
-            //_parent.damageTower = newTower.GetComponent<Tower>().damage;
-
-            //_parent.SetStats();
-
-            Debug.Log($"newTower.GetComponent<Tower>().speedAttack {newTower.GetComponent<Tower>().speedAttack}");
-            Debug.Log($"newTower.GetComponent<Tower>().damage {newTower.GetComponent<Tower>().damage}");
+            Buy();
         } 
         else
         {
             Debug.LogError("Не хватает денег!!");
         }
+    }
+
+    void Buy()
+    {
+        LevelLogic.instance.playerValues.money -= _price;
+
+        LevelLogic.instance.UpdateTextMoney();
+
+        _price = Mathf.FloorToInt(_price * 1.5f);
+
+        _txtPrice.text = $"{_price}$";
+
+        _parent.SelectedTower();
+
+        Instantiate(_parent._towers[index],
+            _place.transform.position,
+            Quaternion.identity, _place.transform);
     }
 }

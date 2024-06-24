@@ -7,41 +7,36 @@ using UnityEngine.EventSystems;
 
 public class TowerMenu : MonoBehaviour, IPointerClickHandler
 {
-
+    [Header("TextMeshProGUI")]
     [SerializeField]
     private TextMeshProUGUI _txtDamage;
-
     [SerializeField]
     private TextMeshProUGUI _txtSpeedAttack;
-
     [SerializeField]
     private TextMeshProUGUI _txtRadiusTower;
-
+    
+    [Header("Objects")]
     [SerializeField]
     private GameObject _textsView;
-
     [SerializeField]
     private GameObject _skillsView;
-
     [SerializeField]
     List<Skill> _skills = new List<Skill>();
-
-    [SerializeField]
-    float markup;
-
-    [SerializeField]
-    bool _isLiveStage;
-
     [SerializeField]
     LineRenderer _line;
 
+
+
+    [SerializeField]
+    float markup;
+    [SerializeField]
+    bool _isLiveStage;
+
     Color colorEmpty = new Color(1, 1, 1, 0);
 
-    public float GetMarkup
-    {
-        get { return markup; }
-    }
+    public float GetMarkup => markup;
 
+    #region Methods
     private void Start()
     {
         _textsView.SetActive(false);
@@ -92,4 +87,8 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
         Destroy(gameObject.transform.parent.gameObject);
     }
+
+    #endregion
+
+
 }

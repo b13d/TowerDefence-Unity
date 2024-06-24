@@ -15,7 +15,11 @@ public class PlayerValues
 
 public class LevelLogic : MonoBehaviour
 {
+    public static LevelLogic instance;
+
     const int PRICE = 10;
+
+    [Header("Level Objects")]
 
     [SerializeField]
     Texts texts;
@@ -41,6 +45,10 @@ public class LevelLogic : MonoBehaviour
     [SerializeField]
     GameObject _enemySoundPrefab;
 
+    [SerializeField]
+    public PlayerValues playerValues = new PlayerValues();
+
+    [Header("Level Values")]
     public int allCounterEnemyDie = 0;
     public int enemyKill = 0;
     public bool pause;
@@ -48,20 +56,26 @@ public class LevelLogic : MonoBehaviour
     public int targetEnemyOnLevel;
 
     [SerializeField]
-    public PlayerValues playerValues = new PlayerValues();
-
-    [SerializeField]
     int _currentLevel;
-
     [SerializeField]
     int countSpawnersOnLevel;
 
-    public static LevelLogic instance;
 
-    public int GetCurrentLevel
+
+    #region Propetries
+    public string SetTextCountTargetEnemy
     {
-        get { return _currentLevel; }
+        set { _txtTargetEnemyOnLevel.text = value; }
     }
+
+    public int GetCurrentLevel => _currentLevel;
+
+    public int GetCountSpawners => countSpawnersOnLevel;
+
+    #endregion
+
+
+    #region Methods
 
     private void Start()
     {
@@ -70,20 +84,11 @@ public class LevelLogic : MonoBehaviour
             instance = this;
 
             InitialValues();
-
-            pause = true;
-
-            Time.timeScale = 0.0f;
-        } 
+        }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    public string SetTextCountTargetEnemy
-    {
-        set { _txtTargetEnemyOnLevel.text = value; }
     }
 
     public void StartLevel()
@@ -92,36 +97,20 @@ public class LevelLogic : MonoBehaviour
         StartCoroutine(StartLevelWait());
     }
 
-    IEnumerator AlphaCanvas()
-    {
-        for (int i = 3; i > 0; i--)
-        {
-            yield return new WaitForSecondsRealtime(.1f);
-
-            _canvasStartGame.GetComponent<CanvasGroup>().alpha -= .25f;
-        }
-    }
-
-    IEnumerator StartLevelWait()
-    {
-        yield return new WaitForSecondsRealtime(.5f);
-
-        _canvasStartGame.SetActive(false);
-        Time.timeScale = 1.0f;
-        pause = false;
-    }
-
     public void InitialValues()
     {
         _txtCurrentLevel.text = $"Level - {_currentLevel}";
-        _newWave.SetActive(true);
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
-        //texts.txtFinishedEnemy.text = $"Enemy Finished {GameManager.instance.finishedEnemy}";
         texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
+        _newWave.SetActive(true);
 
         currentWave++;
         texts.txtCountWave.text = $"{currentWave}";
         Invoke("HideNewWave", 1f);
+
+        pause = true;
+
+        Time.timeScale = 0.0f;
     }
 
     public void ShowNewWave()
@@ -149,7 +138,7 @@ public class LevelLogic : MonoBehaviour
         Invoke("SpawnSoundEnemyDie", .5f);
     }
 
-    void SpawnSoundEnemyDie() 
+    void SpawnSoundEnemyDie()
     {
         var newSoundEnemyDie = Instantiate(_enemySoundPrefab, transform.position, Quaternion.identity);
 
@@ -222,7 +211,7 @@ public class LevelLogic : MonoBehaviour
     {
         GameManager.instance.ResetData();
 
-        // загрузка сцены с уровнями
+        // level scene loading
         SceneManager.LoadScene(1);
     }
 
@@ -233,13 +222,36 @@ public class LevelLogic : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public int GetCountSpawners
-    {
-        get { return countSpawnersOnLevel; }
-    }
+
 
     public void ShowSettings()
     {
         Settings.instance.ShowSettings();
     }
+
+    #endregion
+
+
+    #region Coroutines
+
+    IEnumerator AlphaCanvas()
+    {
+        for (int i = 3; i > 0; i--)
+        {
+            yield return new WaitForSecondsRealtime(.1f);
+
+            _canvasStartGame.GetComponent<CanvasGroup>().alpha -= .25f;
+        }
+    }
+
+    IEnumerator StartLevelWait()
+    {
+        yield return new WaitForSecondsRealtime(.5f);
+
+        _canvasStartGame.SetActive(false);
+        Time.timeScale = 1.0f;
+        pause = false;
+    }
+
+    #endregion
 }

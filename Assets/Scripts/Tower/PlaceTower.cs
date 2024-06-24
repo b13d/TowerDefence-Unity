@@ -7,10 +7,8 @@ using UnityEngine.EventSystems;
 public class PlaceTower : MonoBehaviour, IPointerClickHandler
 {
     public GameObject[] _towers;
-    bool _isSelectedTower;
-
-    [SerializeField] GameObject _place;
-
+    [SerializeField]
+    GameObject _place;
     [SerializeField]
     bool _isLiveStage;
 
@@ -35,18 +33,11 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
                 GetComponent<Animator>().SetBool("isClose", true);
                 GetComponent<Animator>().SetBool("isOpen", false);
             }
-
-            Debug.Log("Кликнул на основание");
         }
-
-
-        
     }
 
     public void SelectedTower()
     {
-        _isSelectedTower = true;
-
         GetComponent<Animator>().SetBool("isClose", true);
         GetComponent<Animator>().SetBool("isOpen", false);
     }

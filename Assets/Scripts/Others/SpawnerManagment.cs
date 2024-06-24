@@ -11,6 +11,7 @@ public class SpawnerManagment : MonoBehaviour
     int _finishLevel = 0;
     int _targetEnemyOnLevel = 0;
 
+    #region Methods
     public void AddTargetEnemy(int value)
     {
         _targetEnemyOnLevel += value;
@@ -38,9 +39,9 @@ public class SpawnerManagment : MonoBehaviour
             LevelLogic.instance.FinishedLevel();
         }
     }
+    #endregion
 
-
-
+    #region Coroutine
     IEnumerator NextWave()
     {
         Debug.Log("Pause start");
@@ -56,5 +57,8 @@ public class SpawnerManagment : MonoBehaviour
 
         LevelLogic.instance.ShowNewWave();
     }
+
+    #endregion
+
 
 }

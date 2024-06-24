@@ -6,21 +6,23 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Status Enemy")]
     public List<Vector2> path;
     public int indexPath;
     public GameObject lastTarget;
     public Vector2 target;
-
     public Slider sliderHealth;
+    [SerializeField] SpriteRenderer _sprite;
+
+    [Header("Parameters Enemy")]
     public float health;
     public float speed;
     public int levelEnemy;
     public bool isAFKEnemy;
     public bool isLiveStage;
 
-    [SerializeField] SpriteRenderer _sprite;
 
-
+    #region Methods
     private void Start()
     {
         if (isAFKEnemy)
@@ -28,37 +30,30 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        StartCoroutine(WaitLoadedScript());
+        InitialValues();
+    }
+
+    void InitialValues()
+    {
+        if (!isLiveStage)
+        {
+            levelEnemy = LevelLogic.instance.GetCurrentLevel;
+            health = LevelLogic.instance.currentWave * levelEnemy;
+        }
+        else
+        {
+            levelEnemy = 1;
+            health = 2;
+        }
+
+        sliderHealth.maxValue = health;
+        sliderHealth.value = health;
 
         target = path[indexPath];
 
         RotateEnemy();
 
         speed += 1.5f;
-    }
-
-    IEnumerator WaitLoadedScript()
-    {
-        yield return new WaitForSeconds(.1f);
-
-        if (LevelLogic.instance == null && !isLiveStage)
-        {
-            StartCoroutine(WaitLoadedScript());
-        } 
-        else
-        {
-            if (!isLiveStage)
-            {
-                levelEnemy = LevelLogic.instance.GetCurrentLevel;
-                health = LevelLogic.instance.currentWave * levelEnemy;
-            } else
-            {
-                levelEnemy = 1;
-                health = 2;
-            }
-                sliderHealth.maxValue = health;
-            sliderHealth.value = health;
-        }
     }
 
     void FixedUpdate()
@@ -103,6 +98,38 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Damage(Projectile projectile)
+    {
+        health -= projectile.Damage;
+        sliderHealth.value = health;
+    }
+
+    void IsDead()
+    {
+        if (health <= 0)
+        {
+            if (!isLiveStage)
+            {
+                LevelLogic.instance.ProfitMoney(levelEnemy);
+                LevelLogic.instance.EnemyKill();
+            }
+
+            Destroy(gameObject);
+        }
+    }
+
+    void DestroyProjectile(Projectile projectile, Collider2D collision)
+    {
+        GameObject traceHit = projectile.GetTraceHit;
+
+        if (traceHit != null)
+        {
+            Instantiate(traceHit, transform.position, Quaternion.identity);
+        }
+
+        Destroy(collision.gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Castle")
@@ -118,31 +145,18 @@ public class Enemy : MonoBehaviour
 
         if (collision.tag == "Projectile")
         {
-            if (collision.GetComponent<Projectile>().targetEnemy == gameObject)
+            Projectile projectile = collision.GetComponent<Projectile>();
+
+            if (projectile.targetEnemy == gameObject)
             {
-                health -= collision.GetComponent<Projectile>().Damage;
-                sliderHealth.value = health;
+                Damage(projectile);
 
-                GameObject traceHit = collision.GetComponent<Projectile>().GetTraceHit;
+                DestroyProjectile(projectile, collision);
 
-                if (traceHit != null)
-                {
-                    Instantiate(traceHit, transform.position, Quaternion.identity);
-                }
-
-                Destroy(collision.gameObject);
-
-                if (health <= 0)
-                {
-                    if (!isLiveStage)
-                    {
-                        LevelLogic.instance.ProfitMoney(levelEnemy);
-                        LevelLogic.instance.EnemyKill();
-                    }
-                    
-                    Destroy(gameObject);
-                }
+                IsDead();
             }
         }
     }
+    #endregion
+
 }

@@ -24,6 +24,8 @@ public class Skill : MonoBehaviour, IPointerClickHandler
     [SerializeField] TextMeshProUGUI _txtPriceSkill;
     [SerializeField] RadiusTower _radiusTower;
     [SerializeField] SpriteRenderer _sprite;
+
+    [Header("Sounds")]
     [SerializeField] AudioClip _buyingSuccess;
     [SerializeField] AudioClip _buyingError;
 
@@ -31,9 +33,10 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
     public SkillType skillType;
 
+    #region Methods
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>(); 
+        _audioSource = GetComponent<AudioSource>();
         _hint.SetActive(false);
         _txtPriceSkill.text = _price.ToString();
     }
@@ -67,19 +70,33 @@ public class Skill : MonoBehaviour, IPointerClickHandler
         _audioSource.Play();
     }
 
-
-    public void OnPointerClick(PointerEventData eventData)
+    void AddDamage()
     {
-
-        if (skillType == SkillType.Damage)
+        if (LevelLogic.instance.playerValues.money >= _price)
         {
-            Debug.Log("Damage");
+            _tower.ChangeDamageTower(.5f);
 
-            Debug.Log($"price: {_price}");
+            LevelLogic.instance.playerValues.money -= _price;
 
-            if (LevelLogic.instance.playerValues.money >= _price)
+            _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+
+            SuccessBuy();
+        }
+        else
+        {
+            Debug.LogError("Не хватает денег");
+
+            ErrorBuy();
+        }
+    }
+
+    void AddSpeedAttack()
+    {
+        if (LevelLogic.instance.playerValues.money >= _price)
+        {
+            if (_tower.speedAttack > 0.21f)
             {
-                _tower.ChangeDamageTower(.5f);
+                _tower.ChangeSpeedAttack(.1f);
 
                 LevelLogic.instance.playerValues.money -= _price;
 
@@ -89,84 +106,80 @@ public class Skill : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                Debug.LogError("Не хватает денег");
+                Debug.LogError("Превышает лимит атаки скорости");
 
-                ErrorBuy();
+                _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
+                Destroy(gameObject, 1f);
             }
-
-        } 
-        else if (skillType == SkillType.SpeedAttack)
+        }
+        else
         {
-            Debug.Log("SpeedAttack");
+            Debug.LogError("Не хватает денег");
 
-            Debug.Log($"price: {_price}");
+            ErrorBuy();
+        }
+    }
 
-            if (LevelLogic.instance.playerValues.money >= _price)
+    void AddRadiusTower()
+    {
+        if (LevelLogic.instance.playerValues.money >= _price)
+        {
+            if (_radiusTower.xradius < 1.5f)
             {
-                if (_tower.speedAttack > 0.21f)
-                {
-                    _tower.ChangeSpeedAttack(.1f);
+                LevelLogic.instance.playerValues.money -= _price;
 
-                    LevelLogic.instance.playerValues.money -= _price;
+                _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
 
-                    _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
+                _radiusTower.ChangeScaleRadius();
 
-                    SuccessBuy();
-                } 
-                else
-                {
-                    Debug.LogError("Превышает лимит атаки скорости");
+                _tower.towerMenu.UpdateRadiusText(_radiusTower.xradius);
 
-                    _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
-                    Destroy(gameObject, 1f);
-                }
+                SuccessBuy();
             }
             else
             {
-                Debug.LogError("Не хватает денег");
+                Debug.LogError("Превышает лимит радиуса");
 
-                ErrorBuy();
+                _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
+                Destroy(gameObject, 1f);
             }
-            
+        }
+        else
+        {
+            Debug.LogError("Не хватает денег");
+
+            ErrorBuy();
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
+        if (skillType == SkillType.Damage)
+        {
+            AddDamage();
+        }
+        else if (skillType == SkillType.SpeedAttack)
+        {
+            AddSpeedAttack();
         }
         else if (skillType == SkillType.Radius)
         {
-            Debug.Log("Radius");
-
-            Debug.Log($"price: {_price}");
-
-            if (LevelLogic.instance.playerValues.money >= _price)
-            {
-                if (_radiusTower.xradius < 1.5f)
-                {
-                    LevelLogic.instance.playerValues.money -= _price;
-
-                    _price = Mathf.FloorToInt(_price * INCREASE * _tower.GetMarkup);
-
-                    _radiusTower.ChangeScaleRadius();
-
-                    _tower.towerMenu.UpdateRadiusText(_radiusTower.xradius);
-
-                    SuccessBuy();
-                } 
-                else
-                {
-                    Debug.LogError("Превышает лимит радиуса");
-
-                    _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
-                    Destroy(gameObject, 1f);
-                }
-
-            }
-            else
-            {
-                Debug.LogError("Не хватает денег");
-
-                ErrorBuy();
-            }
+            AddRadiusTower();
         }
 
         _txtPriceSkill.text = _price.ToString();
         LevelLogic.instance.UpdateTextMoney();
     }
+    #endregion
+
+
+
+
+
+
+
+
+
+
 }

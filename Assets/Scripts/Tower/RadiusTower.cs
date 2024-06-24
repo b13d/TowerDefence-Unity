@@ -62,8 +62,5 @@ public class RadiusTower : MonoBehaviour
         CreatePoints();
     }
 
-    public LineRenderer GetLine
-    {
-        get { return line; }
-    }
+    public LineRenderer GetLine => line;
 }

@@ -12,6 +12,8 @@ public class Music : MonoBehaviour
     AudioSource _audioSource;
     int _currentIndexMusic;
 
+    #region Methods 
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -22,7 +24,7 @@ public class Music : MonoBehaviour
             instance = this;
 
             DontDestroyOnLoad(gameObject);
-        } 
+        }
         else
         {
             Destroy(gameObject);
@@ -47,8 +49,6 @@ public class Music : MonoBehaviour
 
     void PlayMusic()
     {
-        Debug.LogError($"Method: PlayMusic");
-
         if (_currentIndexMusic < _listMusic.Count)
         {
             _currentIndexMusic = Random.Range(0, _listMusic.Count);
@@ -66,4 +66,8 @@ public class Music : MonoBehaviour
 
         _audioSource.Play();
     }
+
+    #endregion
+
+
 }

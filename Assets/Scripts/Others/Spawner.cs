@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [Header("Spawner Settings")]
     [SerializeField]
     private GameObject[] _prefabsEnemy;
 
@@ -16,6 +17,15 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private Transform _placeSpawn;
 
+    [Header("Spawner Values")]
+    [SerializeField]
+    List<int> countEnemyWave = new List<int>();
+
+    public int spawnCountEnemy = 0;
+
+    public int counter = 0;
+
+    #region Private Fields
     private SpawnerManagment _spawnerManagment;
 
     float _countDown;
@@ -25,18 +35,15 @@ public class Spawner : MonoBehaviour
 
     int _targetCountEnemy;
 
-    public int spawnCountEnemy = 0;
-
-    [SerializeField]
-    List<int> countEnemyWave = new List<int>();
-
     [SerializeField]
     bool _isLiveStage;
 
     bool _isPause;
 
-    public int counter = 0;
+    #endregion
 
+
+    #region Methods
 
     private void Awake()
     {
@@ -46,6 +53,11 @@ public class Spawner : MonoBehaviour
     }
 
     private void Start()
+    {
+        InitialValues();
+    }
+
+    void InitialValues()
     {
         spawnCountEnemy = countEnemyWave[0];
 
@@ -64,7 +76,6 @@ public class Spawner : MonoBehaviour
         {
             _spawnerManagment.AddTargetEnemy(countEnemyOnLevel);
         }
-
     }
 
     void Update()
@@ -85,6 +96,11 @@ public class Spawner : MonoBehaviour
             SpawnEnemy();
         }
 
+        StatusSpawn();
+    }
+
+    void StatusSpawn()
+    {
         if (spawnCountEnemy == 0 && !_isLiveStage && _placeSpawn.childCount == 0)
         {
             if (countEnemyWave.Count > 0)
@@ -110,12 +126,29 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // создание противника, и присвоение ему пути его следования
+        // the creation of an enemy, and assigning him his path of travel
 
         _beginValueCountDown = Random.Range(0.1f, 1);
 
         int rnd = Random.Range(0, _prefabsEnemy.Length);
 
+        List<Vector2> paths = NewPathEnemy();
+
+        var enemyPrefab = Instantiate(_prefabsEnemy[rnd], transform.position, Quaternion.identity, _placeSpawn);
+        Enemy enemy = enemyPrefab.GetComponent<Enemy>();
+
+        if (_isLiveStage)
+        {
+            enemy.isLiveStage = true;
+        }
+
+        enemy.levelEnemy = 0;
+        enemy.lastTarget = _castle;
+        enemy.path = paths;
+    }
+
+    List<Vector2> NewPathEnemy()
+    {
         List<Vector2> paths = new List<Vector2>();
 
         for (int i = 0; i < _pathEnemy.transform.childCount; i++)
@@ -123,17 +156,11 @@ public class Spawner : MonoBehaviour
             paths.Add(_pathEnemy.transform.GetChild(i).transform.position);
         }
 
-        var enemy = Instantiate(_prefabsEnemy[rnd], transform.position, Quaternion.identity, _placeSpawn);
-
-        if (_isLiveStage)
-        {
-            enemy.GetComponent<Enemy>().isLiveStage = true;
-        }
-
-        enemy.GetComponent<Enemy>().levelEnemy = 0;
-        enemy.GetComponent<Enemy>().lastTarget = _castle;
-        enemy.GetComponent<Enemy>().path = paths;
+        return paths;
     }
+
+    #endregion
+
 
 
 }
