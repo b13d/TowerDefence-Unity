@@ -8,3 +8,11 @@
 Started development on June 5 <br/>
 I use free assets from itch <br/>
 If you found a bad piece of code, please give advice! I'd appreciate it:3
+
+<b>Maps in Game:</b>
+
+<div>
+<img src="Img/3.png" height="250" width="250">
+<img src="Img/4.png" height="250" width="250">
+<img src="Img/5.png" height="250" width="250">
+</div>
