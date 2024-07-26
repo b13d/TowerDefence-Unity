@@ -18,13 +18,39 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] TextMeshProUGUI _txtPrice;
 
+    [SerializeField]
+    bool _isTutorial;
+
+    GameObject[] tutorialObject;
+
     private void Start()
     {
+        if (_isTutorial)
+        {
+            tutorialObject = GameObject.FindGameObjectsWithTag("TutorialObject");
+        }
+
         _txtPrice.text = $"{_price}$";
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // если это туториал не проверять
+
+        if (_isTutorial)
+        {
+            Buy();
+
+
+            foreach(var t in tutorialObject)
+            {
+                Destroy(t.gameObject);    
+            }
+
+            return;
+        }
+
+
         if (LevelLogic.instance.playerValues.money >= _price)
         {
             Buy();
@@ -37,13 +63,17 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
 
     void Buy()
     {
-        LevelLogic.instance.playerValues.money -= _price;
 
-        LevelLogic.instance.UpdateTextMoney();
+        if (!_isTutorial)
+        {
+            LevelLogic.instance.playerValues.money -= _price;
 
-        _price = Mathf.FloorToInt(_price * 1.5f);
+            LevelLogic.instance.UpdateTextMoney();
 
-        _txtPrice.text = $"{_price}$";
+            _price = Mathf.FloorToInt(_price * 1.5f);
+
+            _txtPrice.text = $"{_price}$";
+        }
 
         _parent.SelectedTower();
 
