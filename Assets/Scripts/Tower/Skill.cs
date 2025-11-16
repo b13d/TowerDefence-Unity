@@ -54,7 +54,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
     void SuccessBuy()
     {
-        _audioSource.volume = Settings.instance.GetAudioVolume;
+        // _audioSource.volume = Settings.instance.GetAudioVolume;
 
         _audioSource.clip = _buyingSuccess;
 
@@ -63,7 +63,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
     void ErrorBuy()
     {
-        _audioSource.volume = Settings.instance.GetAudioVolume;
+        // _audioSource.volume = Settings.instance.GetAudioVolume;
 
         _audioSource.clip = _buyingError;
 
@@ -84,7 +84,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.LogError("Не хватает денег");
+            Debug.LogError("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 
             ErrorBuy();
         }
@@ -106,7 +106,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                Debug.LogError("Превышает лимит атаки скорости");
+                Debug.LogError("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 
                 _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
                 Destroy(gameObject, 1f);
@@ -114,7 +114,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.LogError("Не хватает денег");
+            Debug.LogError("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 
             ErrorBuy();
         }
@@ -138,7 +138,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                Debug.LogError("Превышает лимит радиуса");
+                Debug.LogError("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 
                 _sprite.DOColor(new Color(1, 1, 1, 0), 1f);
                 Destroy(gameObject, 1f);
@@ -146,7 +146,7 @@ public class Skill : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.LogError("Не хватает денег");
+            Debug.LogError("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
 
             ErrorBuy();
         }

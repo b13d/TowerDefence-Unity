@@ -19,50 +19,37 @@ public class LevelLogic : MonoBehaviour
 
     const int PRICE = 10;
 
-    [Header("Level Objects")]
-
-    [SerializeField]
+    [Header("Level Objects")] [SerializeField]
     Texts texts;
 
-    [SerializeField]
-    GameObject _windowLose;
+    [SerializeField] GameObject _windowLose;
 
-    [SerializeField]
-    GameObject _windowWin;
+    [SerializeField] GameObject _windowWin;
 
-    [SerializeField]
-    GameObject _newWave;
+    [SerializeField] GameObject _newWave;
 
-    [SerializeField]
-    GameObject _canvasStartGame;
+    [SerializeField] GameObject _canvasStartGame;
 
-    [SerializeField]
-    TextMeshProUGUI _txtTargetEnemyOnLevel;
+    [SerializeField] TextMeshProUGUI _txtTargetEnemyOnLevel;
 
-    [SerializeField]
-    TextMeshProUGUI _txtCurrentLevel;
+    [SerializeField] TextMeshProUGUI _txtCurrentLevel;
 
-    [SerializeField]
-    GameObject _enemySoundPrefab;
+    [SerializeField] GameObject _enemySoundPrefab;
 
-    [SerializeField]
-    public PlayerValues playerValues = new PlayerValues();
+    [SerializeField] public PlayerValues playerValues = new PlayerValues();
 
-    [Header("Level Values")]
-    public int allCounterEnemyDie = 0;
+    [Header("Level Values")] public int allCounterEnemyDie = 0;
     public int enemyKill = 0;
     public bool pause;
     public int currentWave = 0;
     public int targetEnemyOnLevel;
 
-    [SerializeField]
-    int _currentLevel;
-    [SerializeField]
-    int countSpawnersOnLevel;
-
+    [SerializeField] int _currentLevel;
+    [SerializeField] int countSpawnersOnLevel;
 
 
     #region Propetries
+
     public string SetTextCountTargetEnemy
     {
         set { _txtTargetEnemyOnLevel.text = value; }
@@ -115,7 +102,7 @@ public class LevelLogic : MonoBehaviour
 
     public void ShowNewWave()
     {
-        Debug.LogError("Показал новую волну!");
+        Debug.LogError("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!");
 
         _newWave.SetActive(true);
 
@@ -209,10 +196,10 @@ public class LevelLogic : MonoBehaviour
 
     public void GameOver()
     {
-        GameManager.instance.ResetData();
+        // GameManager.instance.ResetData();
 
         // level scene loading
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Menu");
     }
 
     public void NextLevel()
@@ -223,10 +210,14 @@ public class LevelLogic : MonoBehaviour
     }
 
 
-
     public void ShowSettings()
     {
-        Settings.instance.ShowSettings();
+        // Settings.instance.ShowSettings();
+    }
+
+    public void GoToLevels()
+    {
+        SceneManager.LoadScene("Levels");
     }
 
     #endregion

@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Castle")
+        if (collision.CompareTag("Castle"))
         {
             if (!isLiveStage)
             {
@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.tag == "Projectile")
+        if (collision.CompareTag("Projectile"))
         {
             Projectile projectile = collision.GetComponent<Projectile>();
 

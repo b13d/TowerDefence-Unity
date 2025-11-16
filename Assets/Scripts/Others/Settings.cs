@@ -5,35 +5,20 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    public static Settings instance;
+    [SerializeField] GameObject _canvasSettings;
 
-    [SerializeField]
-    GameObject _canvasSettings;
+    [Header("Sounds")] [SerializeField] Slider _sliderAudio;
 
-    [Header("Sounds")]
-    [SerializeField]
-    Slider _sliderAudio;
-
-    [SerializeField]
-    Slider _sliderMusic;
+    [SerializeField] Slider _sliderMusic;
 
     #region Methods
+
     private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            _canvasSettings.SetActive(false);
+        _canvasSettings.SetActive(false);
 
-            _sliderAudio.value = .5f;
-            _sliderMusic.value = .25f;
-
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        _sliderAudio.value = 0.5f;
+        _sliderMusic.value = 0.25f;
     }
 
     public void ChangeValueMusic()
@@ -52,6 +37,7 @@ public class Settings : MonoBehaviour
     #endregion
 
     #region Properties
+
     public float GetAudioVolume => _sliderAudio.value;
 
     public float GetMusicVolume => _sliderMusic.value;

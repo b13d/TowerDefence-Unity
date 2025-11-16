@@ -15,10 +15,10 @@ public class LevelRoutes : MonoBehaviour
         InitialValues();
     }
 
-    public void ShowSettings()
-    {
-        Settings.instance.ShowSettings();
-    }
+    // public void ShowSettings()
+    // {
+    //     Settings.instance.ShowSettings();
+    // }
 
     public void LoadLevel(int idLevel)
     {
@@ -26,6 +26,11 @@ public class LevelRoutes : MonoBehaviour
         SceneManager.LoadScene(idLevel);
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    
     void InitialValues()
     {
 

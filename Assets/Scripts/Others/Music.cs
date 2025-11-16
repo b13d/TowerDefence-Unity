@@ -34,7 +34,7 @@ public class Music : MonoBehaviour
 
     public void UpdateValueMusic()
     {
-        _audioSource.volume = Settings.instance.GetMusicVolume;
+        // _audioSource.volume = Settings.instance.GetMusicVolume;
     }
 
 
