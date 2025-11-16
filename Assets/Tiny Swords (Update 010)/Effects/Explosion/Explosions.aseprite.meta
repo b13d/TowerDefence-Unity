@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -302,78 +305,92 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1083024906
+    uuid:
+      value0: 2528814414
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1766152882
     name: Explosions
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Explosions_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 64
         y: 56
         width: 64
         height: 71
       spriteId: c3b9f7eea14c75042a24acbdf1427e48
-    - name: Explosions_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 60
         y: 60
         width: 72
         height: 72
       spriteId: e2cfbbb7697108a4298cb2808e33ba4c
-    - name: Explosions_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 58
         width: 81
         height: 79
       spriteId: 425fa3382d58a754dadd42ae6947daf4
-    - name: Explosions_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 47
         y: 51
         width: 98
         height: 100
       spriteId: 967cb13912b19a6449b1d4f7ad8eb769
-    - name: Explosions_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 47
         width: 105
         height: 109
       spriteId: 3128d41085e42f042a5478195abf95da
-    - name: Explosions_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 43
         width: 104
         height: 113
       spriteId: 5c82739ed7d7369448325836e00ea8c1
-    - name: Explosions_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 45
         y: 45
         width: 98
         height: 110
       spriteId: 9b98c19217224a44ebba9f48c05005e0
-    - name: Explosions_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 73
         y: 78
         width: 60
         height: 45
       spriteId: d98202c12eca67b42a0e9ab075903220
-    - name: Explosions_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 79
         y: 92
@@ -383,6 +400,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 192, y: 192}
+  previousTextureSize: {x: 256, y: 512}

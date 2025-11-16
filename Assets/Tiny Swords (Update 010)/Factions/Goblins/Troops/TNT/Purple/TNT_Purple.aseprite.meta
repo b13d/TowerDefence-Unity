@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -642,214 +645,245 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -300895389
+    uuid:
+      value0: 2876978351
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1417988945
     name: TNT_Purple
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TNT_Purple_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 58
         y: 57
         width: 85
         height: 69
       spriteId: ae85653f06d4c6b41a6850cf47f3be06
-    - name: TNT_Purple_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 58
         y: 57
         width: 86
         height: 68
       spriteId: d744bcb096853704a90a7b1ece49d701
-    - name: TNT_Purple_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 57
         width: 83
         height: 68
       spriteId: 0dc51089daa542b45a7c4f5bc935abb4
-    - name: TNT_Purple_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 60
         y: 57
         width: 83
         height: 68
       spriteId: 190bdafbaf5e5f84880ee0ee742210b1
-    - name: TNT_Purple_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 57
         width: 86
         height: 66
       spriteId: 355ca726cddb98f4197522989d395432
-    - name: TNT_Purple_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 57
         y: 57
         width: 86
         height: 65
       spriteId: af944eecd2b28fe42a0f4e4e95c0efa4
-    - name: TNT_Purple_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 57
         y: 57
         width: 87
         height: 66
       spriteId: c17659f48ae9a584c998b4db5ef52f06
-    - name: TNT_Purple_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 60
         y: 59
         width: 80
         height: 64
       spriteId: 6f715c33a3d59a341ad162af865c0ebb
-    - name: TNT_Purple_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 61
         y: 59
         width: 80
         height: 67
       spriteId: a4131a423e192714ab4d1d764a78f264
-    - name: TNT_Purple_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 60
         y: 59
         width: 83
         height: 60
       spriteId: fded64fa90d3ae346b85454ac3825e1b
-    - name: TNT_Purple_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 58
         y: 59
         width: 85
         height: 64
       spriteId: 85b89dfbbdbffba428dfb70158d6c34c
-    - name: TNT_Purple_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 57
         y: 59
         width: 82
         height: 67
       spriteId: 1410152f5cad621489fcc952c9e47f69
-    - name: TNT_Purple_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 58
         y: 59
         width: 80
         height: 60
       spriteId: 26274115948518a4c96c46b9f6449454
-    - name: TNT_Purple_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 57
         width: 77
         height: 72
       spriteId: 8659e7e0537339c46b53816d41c31ac5
-    - name: TNT_Purple_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 51
         y: 57
         width: 76
         height: 75
       spriteId: 7db6824ff38cfc049a1809690e5260eb
-    - name: TNT_Purple_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 57
         width: 75
         height: 60
       spriteId: 408aca10424da6045abd125568b6b6e9
-    - name: TNT_Purple_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 58
         y: 57
         width: 74
         height: 63
       spriteId: 575d0cf961e25a745943b5e68f7824c1
-    - name: TNT_Purple_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 57
         y: 57
         width: 73
         height: 68
       spriteId: 73e2f588886630148944eb4b6909abe5
-    - name: TNT_Purple_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 57
         width: 64
         height: 81
       spriteId: f956ac635f9617548b29a8284c0b5d0f
-    - name: TNT_Purple_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 57
         width: 66
         height: 72
       spriteId: 1c07d97de4e160d48a6f12629d99d3f4
-    - name: TNT_Purple_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 84
         y: 75
         width: 27
         height: 51
       spriteId: 7f2ee3eb93641374caa60386f7724193
-    - name: TNT_Purple_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 84
         y: 75
         width: 27
         height: 52
       spriteId: fa25e98c383c5a9408f3363534cb40cc
-    - name: TNT_Purple_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 84
         y: 75
         width: 26
         height: 51
       spriteId: fde630f21f60f0a4e8fc3fa7ad8775d9
-    - name: TNT_Purple_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 84
         y: 75
         width: 25
         height: 50
       spriteId: 6b24734952ea24f4f9f97cc87ab16965
-    - name: TNT_Purple_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 84
         y: 75
         width: 27
         height: 51
       spriteId: 04ab4d27727670147a161a39236f777a
-    - name: TNT_Purple_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 84
         y: 75
@@ -859,6 +893,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 192, y: 192}
+  previousTextureSize: {x: 512, y: 512}

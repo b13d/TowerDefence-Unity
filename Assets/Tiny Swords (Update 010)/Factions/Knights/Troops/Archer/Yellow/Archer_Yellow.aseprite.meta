@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -1222,446 +1225,506 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1724145790
+    uuid:
+      value0: 685912054
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 685912054
     name: Archer_Yellow
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Archer_Yellow_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 58
         width: 63
         height: 75
       spriteId: 358a1ce620290b742a5c5c5a29c34558
-    - name: Archer_Yellow_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 58
         width: 62
         height: 75
       spriteId: 5b67466202b274648bba8555c9c6886e
-    - name: Archer_Yellow_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 58
         width: 63
         height: 75
       spriteId: c60d78accd2b2c44490025171f998ff0
-    - name: Archer_Yellow_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 58
         width: 63
         height: 75
       spriteId: 72183532603e1bb4f8ae98389898c9bd
-    - name: Archer_Yellow_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 66
         y: 58
         width: 67
         height: 74
       spriteId: cc46a8d299ed76c409892a5cc02dfd16
-    - name: Archer_Yellow_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 66
         y: 58
         width: 65
         height: 71
       spriteId: 247d29e90ccef9943ba7cbc6ca6862c1
-    - name: Archer_Yellow_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 67
         y: 58
         width: 62
         height: 73
       spriteId: 77c8ee071f8e4ab4380241783761f745
-    - name: Archer_Yellow_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 66
         y: 58
         width: 67
         height: 77
       spriteId: 9bbeeb90ed485c549b9b4785ccc3569b
-    - name: Archer_Yellow_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 67
         y: 58
         width: 65
         height: 76
       spriteId: 05033f100ba82b345a30d020c56a688a
-    - name: Archer_Yellow_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 58
         width: 62
         height: 70
       spriteId: 052ae935b697789419daa29b249a2ef6
-    - name: Archer_Yellow_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 61
         y: 58
         width: 72
         height: 77
       spriteId: 14db1c7c01613824486b5043a81580d3
-    - name: Archer_Yellow_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 63
         y: 58
         width: 69
         height: 76
       spriteId: 0115abb68c89bb4469fac3af04af0b58
-    - name: Archer_Yellow_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 58
         width: 62
         height: 70
       spriteId: dc5e72a74713c284eb86c2612af6c663
-    - name: Archer_Yellow_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 67
         y: 58
         width: 65
         height: 80
       spriteId: 06812204620d68446ba46aaa4a6a5e11
-    - name: Archer_Yellow_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 67
         y: 58
         width: 75
         height: 82
       spriteId: 53db09f1685705541b703dde9a593c07
-    - name: Archer_Yellow_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 67
         y: 58
         width: 62
         height: 114
       spriteId: 00668f0740b20c643b4bc680ff5d3cfb
-    - name: Archer_Yellow_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 61
         y: 58
         width: 66
         height: 98
       spriteId: 4faeb6358a0465c4680cb94aad0f1c68
-    - name: Archer_Yellow_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 61
         y: 58
         width: 66
         height: 92
       spriteId: a39bafb161bcb6d41b6d8aec378dcb3c
-    - name: Archer_Yellow_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 61
         y: 58
         width: 66
         height: 92
       spriteId: 660262449a3256844af5d6ab5d760944
-    - name: Archer_Yellow_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 69
         height: 94
       spriteId: ecd77e0e407522147a792eac7e102151
-    - name: Archer_Yellow_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 67
         y: 58
         width: 62
         height: 88
       spriteId: 5f23c395fe9cee84581183ba47340a5f
-    - name: Archer_Yellow_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 58
         width: 64
         height: 75
       spriteId: 8d0ca5c24141c714d91398e9a925682f
-    - name: Archer_Yellow_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 55
         height: 75
       spriteId: 7fc6e68f758c47549b15b4f451166eaf
-    - name: Archer_Yellow_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 92
         height: 75
       spriteId: a86b03f8f2efe6c4aad9c343ecc31f3a
-    - name: Archer_Yellow_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 72
         height: 73
       spriteId: 88cd39385d499c3478311955878acce2
-    - name: Archer_Yellow_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 74
         height: 75
       spriteId: f7eaac889ccb7a64789463143ef2fa20
-    - name: Archer_Yellow_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 74
         height: 75
       spriteId: ccca099e6cc8c1842a852bbec3fd97b8
-    - name: Archer_Yellow_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 58
         width: 78
         height: 76
       spriteId: 5c3eee1f82785ca449a3559c880ef9a4
-    - name: Archer_Yellow_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 66
         height: 75
       spriteId: 8ddd09127b8144d41a24dfe430409c9b
-    - name: Archer_Yellow_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 58
         width: 64
         height: 75
       spriteId: 14aafb1edf8467d42881adee6e132c73
-    - name: Archer_Yellow_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 55
         height: 75
       spriteId: e90936417d813614b94c60bca27412b6
-    - name: Archer_Yellow_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 92
         height: 75
       spriteId: 096d4a1305407c740873b8b3d7ecbe95
-    - name: Archer_Yellow_Frame_32
+    - name: Frame_32
       frameIndex: 32
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 79
         height: 73
       spriteId: 4e8a5baf5cc2e1c41a1c3c4206e84110
-    - name: Archer_Yellow_Frame_33
+    - name: Frame_33
       frameIndex: 33
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 73
         height: 73
       spriteId: 8bca49748ec63e54ca60098c9f729133
-    - name: Archer_Yellow_Frame_34
+    - name: Frame_34
       frameIndex: 34
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 58
         width: 73
         height: 73
       spriteId: 0975e4d00c27e694b8d227850cefe95c
-    - name: Archer_Yellow_Frame_35
+    - name: Frame_35
       frameIndex: 35
+      additiveSortOrder: 0
       cellRect:
         x: 51
         y: 58
         width: 80
         height: 73
       spriteId: fc672b6496990d0488c4b24402104e8a
-    - name: Archer_Yellow_Frame_36
+    - name: Frame_36
       frameIndex: 36
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 63
         height: 75
       spriteId: fc235f30cc2912a41ba39cf71c204c5e
-    - name: Archer_Yellow_Frame_37
+    - name: Frame_37
       frameIndex: 37
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 58
         width: 64
         height: 75
       spriteId: 31e228a6a1f99c145b58aa91ebe1b374
-    - name: Archer_Yellow_Frame_38
+    - name: Frame_38
       frameIndex: 38
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 55
         height: 75
       spriteId: bfac2e7817739a440a797ba48b51029f
-    - name: Archer_Yellow_Frame_39
+    - name: Frame_39
       frameIndex: 39
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 92
         height: 75
       spriteId: ce219220597bf8241b895b7cc0fa63ba
-    - name: Archer_Yellow_Frame_40
+    - name: Frame_40
       frameIndex: 40
+      additiveSortOrder: 0
       cellRect:
         x: 64
         y: 51
         width: 61
         height: 86
       spriteId: a13b2e1c1b17f13489a311620be1da37
-    - name: Archer_Yellow_Frame_41
+    - name: Frame_41
       frameIndex: 41
+      additiveSortOrder: 0
       cellRect:
         x: 60
         y: 49
         width: 67
         height: 88
       spriteId: ec0ca493f0048494b8f3fc33b1a0fe6f
-    - name: Archer_Yellow_Frame_42
+    - name: Frame_42
       frameIndex: 42
+      additiveSortOrder: 0
       cellRect:
         x: 60
         y: 49
         width: 67
         height: 88
       spriteId: 98c1a22a325c0d04fa6a7b06273f4467
-    - name: Archer_Yellow_Frame_43
+    - name: Frame_43
       frameIndex: 43
+      additiveSortOrder: 0
       cellRect:
         x: 54
         y: 48
         width: 74
         height: 89
       spriteId: 30fcb4add336e1e4f98cec3ca8e99f5d
-    - name: Archer_Yellow_Frame_44
+    - name: Frame_44
       frameIndex: 44
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 52
         width: 69
         height: 81
       spriteId: 689cfb211ae672640b5937fcd98f40ba
-    - name: Archer_Yellow_Frame_45
+    - name: Frame_45
       frameIndex: 45
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 58
         width: 64
         height: 75
       spriteId: b9f73b76a70185c40babed48058e675b
-    - name: Archer_Yellow_Frame_46
+    - name: Frame_46
       frameIndex: 46
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 58
         width: 55
         height: 75
       spriteId: de64454c18e783c49932bd4702f28486
-    - name: Archer_Yellow_Frame_47
+    - name: Frame_47
       frameIndex: 47
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 55
         width: 84
         height: 78
       spriteId: c8f6d3ec1d819bf4889f8b05a7583cdb
-    - name: Archer_Yellow_Frame_48
+    - name: Frame_48
       frameIndex: 48
+      additiveSortOrder: 0
       cellRect:
         x: 64
         y: 43
         width: 55
         height: 94
       spriteId: d77dee32c079d694aa0211414cbc64cc
-    - name: Archer_Yellow_Frame_49
+    - name: Frame_49
       frameIndex: 49
+      additiveSortOrder: 0
       cellRect:
         x: 64
         y: 48
         width: 55
         height: 89
       spriteId: 31cadc166b148234eb9edd0aafd00367
-    - name: Archer_Yellow_Frame_50
+    - name: Frame_50
       frameIndex: 50
+      additiveSortOrder: 0
       cellRect:
         x: 64
         y: 48
         width: 55
         height: 89
       spriteId: f1a00943b385868499b7e48d710cf333
-    - name: Archer_Yellow_Frame_51
+    - name: Frame_51
       frameIndex: 51
+      additiveSortOrder: 0
       cellRect:
         x: 61
         y: 48
         width: 59
         height: 89
       spriteId: 240cea61226ee1f40bc22951f06dcf67
-    - name: Archer_Yellow_Frame_52
+    - name: Frame_52
       frameIndex: 52
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 52
         width: 69
         height: 81
       spriteId: ab3cf9b1d535beb48940c5a5e8cdd74b
-    - name: Archer_Yellow_Frame_53
+    - name: Frame_53
       frameIndex: 53
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 86
         width: 63
         height: 14
       spriteId: 80af879b8876d8a458fd7f1e24d480ea
-    - name: Archer_Yellow_Frame_54
+    - name: Frame_54
       frameIndex: 54
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 86
@@ -1671,6 +1734,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 192, y: 192}
+  previousTextureSize: {x: 512, y: 1024}

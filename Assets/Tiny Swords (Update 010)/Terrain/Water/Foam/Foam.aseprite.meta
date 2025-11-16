@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -282,70 +285,83 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1495573631
+    uuid:
+      value0: 1770476229
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 1770476229
     name: Foam
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Foam_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 55
         width: 82
         height: 82
       spriteId: 6231f1a54156d35459ab5f61c72a3c4e
-    - name: Foam_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 55
         width: 81
         height: 82
       spriteId: 8555cbb3088b5fe49aba1e0dd4c57cf3
-    - name: Foam_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 55
         width: 81
         height: 82
       spriteId: e944138d23f0cd3429d67e39aef78523
-    - name: Foam_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 55
         width: 81
         height: 82
       spriteId: c8c7115aba230f6498b1754b3c3f7df2
-    - name: Foam_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 55
         width: 82
         height: 82
       spriteId: 01be7bf9ebf5adc419496c36aa5cd21f
-    - name: Foam_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 54
         y: 53
         width: 85
         height: 86
       spriteId: c5b61690e51dfc84cb85192ae9de39f5
-    - name: Foam_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 53
         y: 53
         width: 86
         height: 86
       spriteId: 2ccedcdee6840704c88d4c24191cef5f
-    - name: Foam_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 54
         y: 54
@@ -355,6 +371,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 192, y: 192}
+  previousTextureSize: {x: 256, y: 512}

@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -402,118 +405,137 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1402920708
+    uuid:
+      value0: 4136222740
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -158744556
     name: Dead
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Dead_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 29
         width: 56
         height: 64
       spriteId: 7064fe26bb856ea41a1f42e1bdf166e8
-    - name: Dead_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 60
         height: 67
       spriteId: da0531507f4716744a696cfbb9b2fddc
-    - name: Dead_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 45
         y: 29
         width: 39
         height: 56
       spriteId: afce27d250ad32d42b43968fa99e5882
-    - name: Dead_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 38
         y: 29
         width: 55
         height: 33
       spriteId: a640440caa97ba84ca877b997a66d04d
-    - name: Dead_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 29
         width: 38
         height: 43
       spriteId: a2f83b5f0739cf441a567cd541824bdb
-    - name: Dead_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 46
         y: 29
         width: 41
         height: 40
       spriteId: 97adcf24b73057045850bc83adb1b902
-    - name: Dead_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 29
         width: 47
         height: 34
       spriteId: 273d001a67510524c93e39e6f9614765
-    - name: Dead_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 29
         width: 39
         height: 49
       spriteId: 8e90eab1ffbf04b4d9cc93d143a9ae02
-    - name: Dead_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 46
         y: 29
         width: 41
         height: 40
       spriteId: 4f08fb6fa0dbf47468a97d31eb538e9c
-    - name: Dead_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 31
         width: 41
         height: 34
       spriteId: b88e69b9fbe821145a9d354de766c258
-    - name: Dead_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 31
         width: 41
         height: 27
       spriteId: d9d7de37314724643855cc9221e0e524
-    - name: Dead_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 31
         width: 32
         height: 17
       spriteId: d1af6bf18584c3b4ba4208d9da97797a
-    - name: Dead_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 52
         y: 33
         width: 25
         height: 9
       spriteId: 61f448ca63a776843b7bd9197b9878d1
-    - name: Dead_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 43
@@ -523,6 +545,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 256, y: 256}

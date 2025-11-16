@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -802,278 +805,317 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 910351052
+    uuid:
+      value0: 370124028
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 370124028
     name: Torch_Red
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Torch_Red_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 59
         width: 71
         height: 97
       spriteId: 9b35997d9cdf10c419ce3ae2b4704576
-    - name: Torch_Red_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 59
         width: 77
         height: 97
       spriteId: 69d3fc770e83d5543aaf205eaeaa9703
-    - name: Torch_Red_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 69
         y: 59
         width: 75
         height: 98
       spriteId: 386a3091ff509e64282106b64f4863c4
-    - name: Torch_Red_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 53
         y: 59
         width: 74
         height: 79
       spriteId: 46e5b7a32e2c34e4a9472c5c800b6227
-    - name: Torch_Red_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 51
         y: 59
         width: 75
         height: 82
       spriteId: 7e3ee3e10f5a4124f85f5ad84fe555e7
-    - name: Torch_Red_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 52
         y: 59
         width: 74
         height: 83
       spriteId: 2156fee012dfe704aa64aefab19c05d2
-    - name: Torch_Red_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 54
         y: 59
         width: 72
         height: 84
       spriteId: 428482bce49cf9344b4236d8787f4a52
-    - name: Torch_Red_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 59
         width: 71
         height: 86
       spriteId: 456a90ef1b6fce648bb6c858230c5859
-    - name: Torch_Red_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 59
         width: 71
         height: 88
       spriteId: b9d348f47676ac64691ee8c87f1130a5
-    - name: Torch_Red_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 59
         width: 71
         height: 89
       spriteId: c6ddc108f6e30f947a203d7945e0f808
-    - name: Torch_Red_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 59
         width: 108
         height: 73
       spriteId: c1e02ebaebdf2c94396d6f2bcf65eca7
-    - name: Torch_Red_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 59
         width: 99
         height: 76
       spriteId: fae2d0b6487cb9143ad83eb3242940b5
-    - name: Torch_Red_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 59
         width: 105
         height: 73
       spriteId: eec5e228662e43a4fa24248004ca2387
-    - name: Torch_Red_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 59
         width: 111
         height: 73
       spriteId: 69bcbe44f4ac3f44aa73f2794425ac2c
-    - name: Torch_Red_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 59
         width: 100
         height: 76
       spriteId: 33964a9c0068fc14d96973d34c867c5d
-    - name: Torch_Red_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 59
         width: 105
         height: 73
       spriteId: e184b122ed5d842429591f904b4562a9
-    - name: Torch_Red_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 59
         width: 80
         height: 96
       spriteId: 8b675d70a6eac7345925d524b311d0cb
-    - name: Torch_Red_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 59
         width: 86
         height: 102
       spriteId: a9deb35e74ba39d468533ee4411a8585
-    - name: Torch_Red_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 59
         width: 90
         height: 109
       spriteId: 5260a6af9306a1944870a94abfc8774a
-    - name: Torch_Red_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 58
         width: 137
         height: 106
       spriteId: 0c4e3032b84c34e4d8ba92d3db3c50df
-    - name: Torch_Red_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 57
         width: 135
         height: 107
       spriteId: d11e54e1929c27149bb307b6032f4ec8
-    - name: Torch_Red_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 59
         width: 123
         height: 108
       spriteId: f4ad3595af8912546ae480cd2dd3e043
-    - name: Torch_Red_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 47
         y: 59
         width: 79
         height: 80
       spriteId: 95b4ac3d163d3334d8f32b3745004cb5
-    - name: Torch_Red_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 41
         y: 59
         width: 86
         height: 84
       spriteId: 1bba2e836da3f0c4e9312d7dd77261e7
-    - name: Torch_Red_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 38
         y: 59
         width: 89
         height: 88
       spriteId: 7f653bf992799454abb29bf181c9ae8f
-    - name: Torch_Red_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 29
         width: 116
         height: 113
       spriteId: 971eccfc6c1455147ba153c0c9df6195
-    - name: Torch_Red_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 38
         y: 23
         width: 119
         height: 117
       spriteId: 83ba9d52008b0634cac3bd5200e5307f
-    - name: Torch_Red_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 27
         width: 102
         height: 100
       spriteId: 37c62c411f6b8284c8afb2d0ff221ef1
-    - name: Torch_Red_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 59
         width: 91
         height: 75
       spriteId: 5d921485241190e42bbedce12ca15628
-    - name: Torch_Red_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 44
         width: 94
         height: 91
       spriteId: 181d33eb0db95914b89e97a35baeffd0
-    - name: Torch_Red_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 41
         width: 91
         height: 94
       spriteId: 8efcd01d636bf1b46811aae3c1a75ec6
-    - name: Torch_Red_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 47
         width: 140
         height: 106
       spriteId: 83cccc5ce8292714dacb3c64260c4cf3
-    - name: Torch_Red_Frame_32
+    - name: Frame_32
       frameIndex: 32
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 51
         width: 137
         height: 105
       spriteId: 4dbc45003a021ae48af5a2cc10dd32b3
-    - name: Torch_Red_Frame_33
+    - name: Frame_33
       frameIndex: 33
+      additiveSortOrder: 0
       cellRect:
         x: 15
         y: 59
@@ -1083,6 +1125,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 192, y: 192}
+  previousTextureSize: {x: 512, y: 1024}

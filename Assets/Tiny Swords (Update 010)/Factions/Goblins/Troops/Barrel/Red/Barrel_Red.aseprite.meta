@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,6 +78,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +91,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -542,174 +545,200 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 394717838
+    uuid:
+      value0: 1634596422
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 1634596422
     name: Barrel_Red
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Barrel_Red_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
         width: 50
         height: 70
       spriteId: 353875cd7b87b4541891f176bf74d23c
-    - name: Barrel_Red_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
         width: 50
         height: 70
       spriteId: e20566abe934ca44ba8c528ed0289872
-    - name: Barrel_Red_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 58
         height: 62
       spriteId: fe4409b8cb3b3434385973e671c04a60
-    - name: Barrel_Red_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 25
         width: 42
         height: 84
       spriteId: 141d9e5e0a56a104ab79fc20f36a2934
-    - name: Barrel_Red_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 25
         width: 50
         height: 93
       spriteId: 812c623c307ec164aadcee354ca49ac2
-    - name: Barrel_Red_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 26
         width: 54
         height: 67
       spriteId: a714ebfd331255b46864ccc6332c5173
-    - name: Barrel_Red_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 50
         height: 80
       spriteId: 8dfa8653e7ad6d741850c0c3463b2f3a
-    - name: Barrel_Red_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 50
         height: 83
       spriteId: 76d3e8bac33e58f4db2a4d056ada7c58
-    - name: Barrel_Red_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 50
         height: 83
       spriteId: 217ce8d9b93fdff4f811ad883c15277b
-    - name: Barrel_Red_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 26
         width: 54
         height: 67
       spriteId: 16afe9eca0b5eb746bf46f6e4fd57d3e
-    - name: Barrel_Red_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 25
         width: 50
         height: 89
       spriteId: 4ac76a788e2a1d34dac25f2d8c6500ac
-    - name: Barrel_Red_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 25
         width: 42
         height: 95
       spriteId: 5bc4dfdcb9d35c246b3422c132bb4ea1
-    - name: Barrel_Red_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 58
         height: 62
       spriteId: 81f72f3350c0dfb489a240550241008f
-    - name: Barrel_Red_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 41
         y: 29
         width: 45
         height: 76
       spriteId: 716106079e501724382e6b930b8063bc
-    - name: Barrel_Red_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
         width: 50
         height: 70
       spriteId: 31e18e0d770419e469c97f291247b673
-    - name: Barrel_Red_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 26
         width: 54
         height: 67
       spriteId: d064cf4c2a52a2644a4482d446dd4446
-    - name: Barrel_Red_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 25
         width: 50
         height: 84
       spriteId: 3ad21d6eeb38246458a907667695c873
-    - name: Barrel_Red_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 25
         width: 48
         height: 86
       spriteId: f3b0438216138bf459aa65d881202358
-    - name: Barrel_Red_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 57
         height: 75
       spriteId: b7e674115d24d2b439cc8ff24140997e
-    - name: Barrel_Red_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 41
         y: 29
         width: 46
         height: 79
       spriteId: 5e05b151cba50b242ba743d7e58be19f
-    - name: Barrel_Red_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
@@ -719,6 +748,8 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 512, y: 512}
