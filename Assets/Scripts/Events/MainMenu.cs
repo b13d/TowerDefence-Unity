@@ -16,4 +16,14 @@ public class MainMenu : MonoBehaviour
     {
         settingsMenu.SetActive(isOpen);
     }
+
+    public void SoundAudio()
+    {
+        
+    }
+
+    public void SoundMusic()
+    {
+        // Music.instance.UpdateValueMusic();
+    }
 }

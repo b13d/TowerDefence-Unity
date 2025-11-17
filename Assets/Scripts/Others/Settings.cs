@@ -23,10 +23,6 @@ public class Settings : MonoBehaviour
 
     public void ChangeValueMusic()
     {
-        if (Music.instance)
-        {
-            Music.instance.UpdateValueMusic();
-        }
     }
 
     public void ShowSettings()
