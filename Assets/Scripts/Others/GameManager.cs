@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     #region Methods
 
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {

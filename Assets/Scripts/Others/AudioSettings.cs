@@ -1,13 +1,17 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class Sound : MonoBehaviour
+public class AudioSettings : MonoBehaviour
 {
     [SerializeField] private AudioClip[] musicClips;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private int musicIndex;
     
-    public static Sound instance;
+    public static AudioSettings instance;
+
+    public AudioMixer mixer;
+
     
     private bool _isAudio = true;
     private bool _isMusic = true;
@@ -27,15 +31,18 @@ public class Sound : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void TurnSound()
+    public void SetSFXEnabled()
     {
-        _isAudio = !_isAudio;
+        mixer.GetFloat("SFX_Volume", out float volume);
+        mixer.SetFloat("SFX_Volume", volume < 0 ? 0 : -80f);
+    }
+    
+    public void SetMusicEnabled()
+    {
+        mixer.GetFloat("Music_Volume", out float volume);
+        mixer.SetFloat("Music_Volume", volume < 0 ? 0 : -80f);
     }
 
-    public void TurnMusic()
-    {
-        _isMusic = !_isMusic;        
-    }
 
     public void InitialMusic()
     {
@@ -45,6 +52,5 @@ public class Sound : MonoBehaviour
     
     public void NextMusic()
     {
-        
     }
 }
