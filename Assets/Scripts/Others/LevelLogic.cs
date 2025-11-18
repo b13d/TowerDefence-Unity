@@ -26,7 +26,7 @@ public class LevelLogic : MonoBehaviour
 
     [SerializeField] GameObject _windowWin;
 
-    [SerializeField] GameObject _newWave;
+    [SerializeField] TextMeshProUGUI textCounterWave;
 
     [SerializeField] GameObject _canvasStartGame;
 
@@ -89,10 +89,9 @@ public class LevelLogic : MonoBehaviour
         _txtCurrentLevel.text = $"Level - {_currentLevel}";
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
         texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
-        _newWave.SetActive(true);
+        // counterWave.SetActive(true);
 
         currentWave++;
-        texts.txtCountWave.text = $"{currentWave}";
         Invoke("HideNewWave", 1f);
 
         pause = true;
@@ -102,18 +101,8 @@ public class LevelLogic : MonoBehaviour
 
     public void ShowNewWave()
     {
-        Debug.LogError("������� ����� �����!");
-
-        _newWave.SetActive(true);
-
         currentWave++;
-        texts.txtCountWave.text = $"{currentWave}";
-        Invoke("HideNewWave", 1f);
-    }
-
-    void HideNewWave()
-    {
-        _newWave.SetActive(false);
+        textCounterWave.text = $"Round\r\n{currentWave}/{3}";
     }
 
     public void ProfitMoney(int levelEnemy)
