@@ -1854,6 +1854,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6062379709077311056, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3123162016035733350, guid: 878553d80c4397049984fbc9babf6f6b, type: 2}
     - target: {fileID: 6146406383834095122, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
