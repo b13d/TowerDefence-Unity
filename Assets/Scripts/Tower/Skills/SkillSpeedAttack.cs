@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class SkillSpeedAttack : Skill
+{
+    public override void Start()
+    {
+        base.Start();
+    }
+    
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        base.OnPointerClick(eventData);
+        AddSpeedAttack();
+    }
+
+    
+    void AddSpeedAttack()
+    {
+        if (LevelLogic.instance.playerValues.money >= price)
+        {
+            if (tower.speedAttack > 0.21f)
+            {
+                tower.ChangeSpeedAttack(.1f);
+
+                LevelLogic.instance.playerValues.money -= price;
+
+                price = Mathf.FloorToInt(price * INCREASE * tower.GetMarkup);
+
+                SuccessBuy();
+            }
+            else
+            {
+                sprite.DOColor(new Color(1, 1, 1, 0), 1f);
+                Destroy(gameObject, 1f);
+            }
+        }
+        else
+        {
+            ErrorBuy();
+        }
+    }
+}
