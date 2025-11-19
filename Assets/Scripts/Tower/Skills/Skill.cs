@@ -27,15 +27,16 @@ public class Skill : MonoBehaviour, IPointerClickHandler
     [Header("Sounds")]
     [SerializeField] AudioClip _buyingSuccess;
     [SerializeField] AudioClip _buyingError;
+    public AudioClip lastUpdateSound;
 
-    private AudioSource _audioSource;
+    public AudioSource audioSource;
 
     // public SkillType skillType;
 
     #region Methods
     public virtual void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         hint.SetActive(false);
         _txtPriceSkill.text = price.ToString();
     }
@@ -53,14 +54,14 @@ public class Skill : MonoBehaviour, IPointerClickHandler
 
     public void SuccessBuy()
     {
-        _audioSource.clip = _buyingSuccess;
-        _audioSource.Play();
+        audioSource.clip = _buyingSuccess;
+        audioSource.Play();
     }
 
     public void ErrorBuy()
     {
-        _audioSource.clip = _buyingError;
-        _audioSource.Play();
+        audioSource.clip = _buyingError;
+        audioSource.Play();
     }
 
 

@@ -1256,7 +1256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2692396186986688060
 Transform:
   m_ObjectHideFlags: 0
@@ -1458,6 +1458,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3474036663650279296, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
   m_PrefabInstance: {fileID: 2600434506727461100}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &4306609821587821627 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2293105954106623191, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
+  m_PrefabInstance: {fileID: 2600434506727461100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5347754987297839541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7935786420522617177, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
@@ -1482,6 +1487,8 @@ MonoBehaviour:
   hint: {fileID: 6842859841545159824}
   _buyingSuccess: {fileID: 8300000, guid: 645e356708cb44e41b5efbfca0dac91b, type: 3}
   _buyingError: {fileID: 8300000, guid: dc51af49cffda6e43961a128a12c82b7, type: 3}
+  lastUpdateSound: {fileID: 8300000, guid: 0f3bfb02aefe86042988a38911c526f1, type: 3}
+  audioSource: {fileID: 4306609821587821627}
   _radiusTower: {fileID: 2837650389565445315}
 --- !u!212 &6531594437240987948 stripped
 SpriteRenderer:
@@ -1666,6 +1673,8 @@ MonoBehaviour:
   hint: {fileID: 6829719386697218631}
   _buyingSuccess: {fileID: 8300000, guid: 645e356708cb44e41b5efbfca0dac91b, type: 3}
   _buyingError: {fileID: 8300000, guid: dc51af49cffda6e43961a128a12c82b7, type: 3}
+  lastUpdateSound: {fileID: 8300000, guid: 0f3bfb02aefe86042988a38911c526f1, type: 3}
+  audioSource: {fileID: 0}
 --- !u!212 &6528622786134466555 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9129495661388116416, guid: efd52649d70547a47bf3518d62d10f53, type: 3}
@@ -1856,6 +1865,8 @@ MonoBehaviour:
   hint: {fileID: 3074772451204289640}
   _buyingSuccess: {fileID: 8300000, guid: 645e356708cb44e41b5efbfca0dac91b, type: 3}
   _buyingError: {fileID: 8300000, guid: dc51af49cffda6e43961a128a12c82b7, type: 3}
+  lastUpdateSound: {fileID: 8300000, guid: 0f3bfb02aefe86042988a38911c526f1, type: 3}
+  audioSource: {fileID: 0}
 --- !u!4 &6952899295351922580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3474036663650279296, guid: efd52649d70547a47bf3518d62d10f53, type: 3}

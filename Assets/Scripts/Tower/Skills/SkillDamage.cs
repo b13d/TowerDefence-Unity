@@ -5,11 +5,6 @@ using UnityEngine.EventSystems;
 
 public class SkillDamage : Skill
 {
-    public override void Start()
-    {
-        base.Start();
-    }
-    
     public override void OnPointerClick(PointerEventData eventData)
     {
         base.OnPointerClick(eventData);

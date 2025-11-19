@@ -11,6 +11,11 @@ public class SkillRadius : Skill
     public override void Start()
     {
         base.Start();
+        
+        if (_radiusTower.yradius >= 1.5f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void OnPointerClick(PointerEventData eventData)
@@ -26,19 +31,20 @@ public class SkillRadius : Skill
             if (_radiusTower.xradius < 1.5f)
             {
                 LevelLogic.instance.playerValues.money -= price;
-
                 price = Mathf.FloorToInt(price * INCREASE * tower.GetMarkup);
-
                 _radiusTower.ChangeScaleRadius();
-
                 tower.towerMenu.UpdateRadiusText(_radiusTower.xradius);
 
                 SuccessBuy();
-            }
-            else
-            {
-                sprite.DOColor(new Color(1, 1, 1, 0), 1f);
-                Destroy(gameObject, 1f);
+                
+                if (_radiusTower.yradius >= 1.5f)
+                {
+                    audioSource.clip = lastUpdateSound;
+                    audioSource.Play();
+                    
+                    sprite.DOColor(new Color(1, 1, 1, 0), 1f);
+                    Destroy(gameObject, 1f);
+                }
             }
         }
         else
