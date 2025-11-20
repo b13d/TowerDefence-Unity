@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PersistentCanvas : MonoBehaviour
+namespace Ui
 {
-    public static PersistentCanvas instance;
-    
-    void Awake()
+    public class PersistentCanvas : MonoBehaviour
     {
-        if (instance == null)
+        public static PersistentCanvas instance;
+    
+        void Awake()
         {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         
-        DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

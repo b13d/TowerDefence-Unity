@@ -8958,6 +8958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 1433269554387860640, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2629738563499138233, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
       propertyPath: txtCountWave
       value: 
