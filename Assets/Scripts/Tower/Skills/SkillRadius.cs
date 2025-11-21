@@ -20,8 +20,8 @@ public class SkillRadius : Skill
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        base.OnPointerClick(eventData);
         AddRadiusTower();
+        base.OnPointerClick(eventData);
     }
 
     void AddRadiusTower()

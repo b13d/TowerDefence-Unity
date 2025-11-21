@@ -7,8 +7,8 @@ public class SkillDamage : Skill
 {
     public override void OnPointerClick(PointerEventData eventData)
     {
-        base.OnPointerClick(eventData);
         AddDamage();
+        base.OnPointerClick(eventData);
     }
 
     void AddDamage()

@@ -18,8 +18,8 @@ public class SkillSpeedAttack : Skill
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        base.OnPointerClick(eventData);
         AddSpeedAttack();
+        base.OnPointerClick(eventData);
     }
 
 
