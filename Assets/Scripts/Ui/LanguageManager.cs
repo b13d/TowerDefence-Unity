@@ -1,31 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
-namespace Ui
+public class LanguageManager : MonoBehaviour
 {
-    public class LanguageManager : MonoBehaviour
+    [SerializeField] private Sprite flagEn;
+    [SerializeField] private Sprite flagRu;
+    [SerializeField] private Button btnFlag;
+
+    private void Start()
     {
-        [SerializeField] private LocalizedString[] englishTexts;
-        [SerializeField] private LocalizedString[] russianTexts;
+        string language = LocalizationSettings.SelectedLocale.Identifier.Code;
 
-        [SerializeField] private TMPro.TextMeshProUGUI englishTextUI;
-        [SerializeField] private TMPro.TextMeshProUGUI russianTextUI;
+        if (language == "en")
+        {
+            btnFlag.image.sprite = flagEn;
+        }
+        else
+        {
+            btnFlag.image.sprite = flagRu;
+        }
+    }
+
+    public void ChangeLanguage()
+    {
+        string language = LocalizationSettings.SelectedLocale.Identifier.Code;
         
-        void Start()
+        if (language == "en")
         {
-            englishTexts[0].StringChanged += UpdateEnglishText;
-            russianTexts[0].StringChanged += UpdateRussianText;
+            language = "ru";
+            SwitchToRussian();
         }
-
-
-        void UpdateEnglishText(string value)
+        else
         {
-            englishTextUI.text = value;
+            language = "en";
+            SwitchToEnglish();
         }
+        
+        Debug.Log("language: " + language);
+    }
+    
+    void SwitchToRussian()
+    {
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale("ru");
+        btnFlag.image.sprite = flagRu;
+    }
 
-        void UpdateRussianText(string value)
-        {
-            russianTextUI.text = value;
-        }
+    void SwitchToEnglish()
+    {
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale("en");
+        btnFlag.image.sprite = flagEn;
     }
 }

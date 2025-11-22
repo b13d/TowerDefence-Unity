@@ -4900,6 +4900,7 @@ GameObject:
   - component: {fileID: 1268861390}
   - component: {fileID: 1268861392}
   - component: {fileID: 1268861391}
+  - component: {fileID: 1268861393}
   m_Layer: 5
   m_Name: Text Title
   m_TagString: Untagged
@@ -5023,6 +5024,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268861389}
   m_CullTransparentMesh: 1
+--- !u!114 &1268861393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268861389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2c6acafeb7fcc4ba61016eeb6ba7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  englishTexts:
+  - m_TableReference:
+      m_TableCollectionName: GUID:3539a9b26959773448668012443e2bcc
+    m_TableEntryReference:
+      m_KeyId: 146079842304
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  russianTexts:
+  - m_TableReference:
+      m_TableCollectionName: GUID:3539a9b26959773448668012443e2bcc
+    m_TableEntryReference:
+      m_KeyId: 146079842304
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  englishTextUI: {fileID: 1268861391}
+  russianTextUI: {fileID: 1268861391}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1278448573
 GameObject:
   m_ObjectHideFlags: 0

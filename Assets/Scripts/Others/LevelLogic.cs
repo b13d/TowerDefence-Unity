@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 
 [Serializable]
@@ -47,6 +48,7 @@ public class LevelLogic : MonoBehaviour
     [SerializeField] int _currentLevel;
     [SerializeField] int countSpawnersOnLevel;
 
+    private string language = "";
 
     #region Propetries
 
@@ -86,6 +88,8 @@ public class LevelLogic : MonoBehaviour
 
     public void InitialValues()
     {
+        language = LocalizationSettings.SelectedLocale.Identifier.Code;
+        
         _txtCurrentLevel.text = $"Level - {_currentLevel}";
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
         texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
@@ -95,6 +99,15 @@ public class LevelLogic : MonoBehaviour
         Invoke("HideNewWave", 1f);
 
         pause = true;
+        
+        if (language == "en")
+        {
+            textCounterWave.text = $"Round\r\n{currentWave}/{3}";
+        }
+        else
+        {
+            textCounterWave.text = $"Волна\r\n{currentWave}/{3}";
+        }
 
         Time.timeScale = 0.0f;
     }
@@ -102,7 +115,17 @@ public class LevelLogic : MonoBehaviour
     public void ShowNewWave()
     {
         currentWave++;
-        textCounterWave.text = $"Round\r\n{currentWave}/{3}";
+        
+
+        if (language == "en")
+        {
+            textCounterWave.text = $"Round\r\n{currentWave}/{3}";
+        }
+        else
+        {
+            textCounterWave.text = $"Волна\r\n{currentWave}/{3}";
+        }
+        
     }
 
     public void ProfitMoney(int levelEnemy)
