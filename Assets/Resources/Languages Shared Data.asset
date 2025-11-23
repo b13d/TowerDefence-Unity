@@ -75,6 +75,18 @@ MonoBehaviour:
     m_Key: congratulations
     m_Metadata:
       m_Items: []
+  - m_Id: 391768751833088
+    m_Key: skill_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391787433263104
+    m_Key: slill_damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391803115765760
+    m_Key: skill_radius
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

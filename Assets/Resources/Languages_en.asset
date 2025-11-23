@@ -78,6 +78,18 @@ MonoBehaviour:
     m_Localized: You passed the game, congratulations!
     m_Metadata:
       m_Items: []
+  - m_Id: 391768751833088
+    m_Localized: Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391787433263104
+    m_Localized: Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391803115765760
+    m_Localized: Radius
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

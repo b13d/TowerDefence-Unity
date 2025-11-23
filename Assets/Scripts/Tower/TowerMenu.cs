@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Settings;
 
 public class TowerMenu : MonoBehaviour, IPointerClickHandler
 {
@@ -45,13 +46,33 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     public void UpdateTexts(float damage, float speedAttack)
     {
-        _txtDamage.text = $"Damage: {damage}";
-        _txtSpeedAttack.text = $"Attack speed: {speedAttack}";
+        string language = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (language == "en")
+        {
+            _txtDamage.text = $"Damage: {damage}";
+            _txtSpeedAttack.text = $"Attack speed: {speedAttack}";
+        }
+        else
+        {
+            _txtDamage.text = $"Урон: {damage}";
+            _txtSpeedAttack.text = $"Скорость атаки: {speedAttack}";
+        }
     }
 
     public void UpdateRadiusText(float radius)
     {
-        _txtRadiusTower.text = $"Radius Tower: {radius}";
+        string language = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (language == "en")
+        {
+            _txtRadiusTower.text = $"Radius: {radius}";
+        }
+        else
+        {
+            _txtRadiusTower.text = $"Радиус: {radius}";
+        }
+        
     }
 
     private void OnMouseEnter()
