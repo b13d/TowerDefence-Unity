@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -39,8 +40,22 @@ public class AudioSettings : MonoBehaviour
     
     public void SetMusicEnabled()
     {
+        mixer.GetFloat("Win_Lose_Volume", out float volume_win_lose);
+        mixer.SetFloat("Win_Lose_Volume", volume_win_lose < 0 ? 0 : -80f);
         mixer.GetFloat("Music_Volume", out float volume);
         mixer.SetFloat("Music_Volume", volume < 0 ? 0 : -80f);
+    }
+
+    public void Reset()
+    {
+        musicSource.mute = false;
+    }
+    
+    public IEnumerator CongratulationMusic(float time)
+    {        
+        musicSource.mute = true;
+        yield return new WaitForSecondsRealtime(time);
+        musicSource.mute = false;
     }
 
 
