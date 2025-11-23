@@ -74,6 +74,10 @@ MonoBehaviour:
     m_Localized: Pause
     m_Metadata:
       m_Items: []
+  - m_Id: 387119072247808
+    m_Localized: You passed the game, congratulations!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
