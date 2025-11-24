@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
     public int counter = 0;
 
     #region Private Fields
-    private SpawnerManagment _spawnerManagment;
+    // private SpawnerManagment _spawnerManagment;
 
     float _countDown;
 
@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour
     {
         _countDown = _beginValueCountDown;
 
-        _spawnerManagment = transform.parent.GetComponent<SpawnerManagment>();
+        // _spawnerManagment = transform.parent.GetComponent<SpawnerManagment>();
     }
 
     private void Start()
@@ -74,7 +74,7 @@ public class Spawner : MonoBehaviour
 
         if (!_isLiveStage)
         {
-            _spawnerManagment.AddTargetEnemy(countEnemyOnLevel);
+            // _spawnerManagment.AddTargetEnemy(countEnemyOnLevel);
         }
     }
 
@@ -106,12 +106,12 @@ public class Spawner : MonoBehaviour
             if (countEnemyWave.Count > 0)
             {
                 _isPause = true;
-                _spawnerManagment.CompleteSpawnEnemy();
+                // _spawnerManagment.CompleteSpawnEnemy();
             }
             else
             {
                 _isPause = true;
-                _spawnerManagment.FinishLevelSpawnEnemy();
+                // _spawnerManagment.FinishLevelSpawnEnemy();
             }
         }
     }
