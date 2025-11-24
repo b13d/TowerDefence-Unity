@@ -2813,19 +2813,19 @@ PrefabInstance:
       objectReference: {fileID: 1910967031}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: spawnCountEnemy
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: countEnemyWave.Array.data[0]
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: countEnemyWave.Array.data[1]
-      value: 200
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: countEnemyWave.Array.data[2]
-      value: 250
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5763271827928909853, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: m_LocalScale.x
@@ -15871,19 +15871,19 @@ PrefabInstance:
       objectReference: {fileID: 2009220051}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: spawnCountEnemy
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: countEnemyWave.Array.data[0]
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: countEnemyWave.Array.data[1]
-      value: 200
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4566184352253393614, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: countEnemyWave.Array.data[2]
-      value: 250
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5763271827928909853, guid: 049d0eb86ea10ff4db5e5bae6f9be40e, type: 3}
       propertyPath: m_LocalScale.x
