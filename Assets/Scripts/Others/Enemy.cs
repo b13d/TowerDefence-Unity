@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
     public bool isLiveStage;
 
 
+    public static event Action<Enemy> OnEnemyDied;
+    
     #region Methods
     private void Start()
     {
@@ -111,9 +113,10 @@ public class Enemy : MonoBehaviour
             if (!isLiveStage)
             {
                 LevelLogic.instance.ProfitMoney(levelEnemy);
-                LevelLogic.instance.EnemyKill();
+                // LevelLogic.instance.EnemyKill();
             }
 
+            OnEnemyDied?.Invoke(this);
             Destroy(gameObject);
         }
     }
@@ -140,6 +143,7 @@ public class Enemy : MonoBehaviour
                 LevelLogic.instance.allCounterEnemyDie++;
             }
 
+            OnEnemyDied?.Invoke(this);
             Destroy(gameObject);
         }
 

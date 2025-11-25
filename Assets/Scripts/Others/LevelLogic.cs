@@ -65,6 +65,16 @@ public class LevelLogic : MonoBehaviour
 
 
     #region Methods
+    
+    private void OnEnable()
+    {
+        Enemy.OnEnemyDied += EnemyKill;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyDied -= EnemyKill;
+    }
 
     private void Start()
     {
@@ -115,7 +125,6 @@ public class LevelLogic : MonoBehaviour
     public void ShowNewWave()
     {
         currentWave++;
-        
 
         if (language == "en")
         {
@@ -125,7 +134,6 @@ public class LevelLogic : MonoBehaviour
         {
             textCounterWave.text = $"Волна\r\n{currentWave}/{3}";
         }
-        
     }
 
     public void ProfitMoney(int levelEnemy)
@@ -185,7 +193,7 @@ public class LevelLogic : MonoBehaviour
     }
 
 
-    public void EnemyKill()
+    public void EnemyKill(Enemy enemy)
     {
         allCounterEnemyDie++;
         enemyKill++;
