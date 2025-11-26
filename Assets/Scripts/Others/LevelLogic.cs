@@ -37,7 +37,7 @@ public class LevelLogic : MonoBehaviour
 
     [SerializeField] GameObject _enemySoundPrefab;
 
-    [SerializeField] public PlayerValues playerValues = new PlayerValues();
+    [SerializeField] public PlayerValues playerValues;
 
     [Header("Level Values")] public int allCounterEnemyDie = 0;
     public int enemyKill = 0;
@@ -45,12 +45,18 @@ public class LevelLogic : MonoBehaviour
     public int currentWave = 0;
     public int targetEnemyOnLevel;
 
+    [SerializeField] int maxWave = 0;
     [SerializeField] int _currentLevel;
     [SerializeField] int countSpawnersOnLevel;
 
     private string language = "";
 
     #region Propetries
+
+    public int GetCountWave
+    {
+        get { return maxWave; }
+    }
 
     public string SetTextCountTargetEnemy
     {
@@ -65,7 +71,7 @@ public class LevelLogic : MonoBehaviour
 
 
     #region Methods
-    
+
     private void OnEnable()
     {
         Enemy.OnEnemyDied += EnemyKill;
@@ -99,7 +105,7 @@ public class LevelLogic : MonoBehaviour
     public void InitialValues()
     {
         language = LocalizationSettings.SelectedLocale.Identifier.Code;
-        
+
         _txtCurrentLevel.text = $"Level - {_currentLevel}";
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
         texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
@@ -109,14 +115,14 @@ public class LevelLogic : MonoBehaviour
         Invoke("HideNewWave", 1f);
 
         pause = true;
-        
+
         if (language == "en")
         {
-            textCounterWave.text = $"Round\r\n{currentWave}/{3}";
+            textCounterWave.text = $"Round\r\n{currentWave}/{maxWave}";
         }
         else
         {
-            textCounterWave.text = $"Волна\r\n{currentWave}/{3}";
+            textCounterWave.text = $"Волна\r\n{currentWave}/{maxWave}";
         }
 
         Time.timeScale = 0.0f;
@@ -128,11 +134,11 @@ public class LevelLogic : MonoBehaviour
 
         if (language == "en")
         {
-            textCounterWave.text = $"Round\r\n{currentWave}/{3}";
+            textCounterWave.text = $"Round\r\n{currentWave}/{maxWave}";
         }
         else
         {
-            textCounterWave.text = $"Волна\r\n{currentWave}/{3}";
+            textCounterWave.text = $"Волна\r\n{currentWave}/{maxWave}";
         }
     }
 

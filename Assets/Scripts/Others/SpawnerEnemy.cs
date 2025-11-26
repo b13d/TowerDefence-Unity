@@ -9,7 +9,7 @@ public class SpawnerEnemy : MonoBehaviour
 {
     public GameObject[] prefabsEnemy;
     public int spawnAmount;
-    public int countEnemy;
+    public int maxEnemyLevel;
     public GameObject[] pointsSpawner;
     public GameObject target;
     public List<Enemy> enemies;
@@ -27,7 +27,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     void Start()
     {
-        // Debug.Log("Количество точке пути: " + paths[0].transform.getchil);
+        spawnAmount = maxEnemyLevel;
         StartCoroutine(SpawnEnemy());
     }
 
@@ -38,13 +38,14 @@ public class SpawnerEnemy : MonoBehaviour
         if (spawnAmount > 0)
         {
             List<Vector2> newWay = new List<Vector2>();
+            int randWay = Random.Range(0, wayPoints.Count);
             
             // Создаю врага
-            int randWay = Random.Range(0, wayPoints.Count);
+            // int randWay = Random.Range(0, wayPoints.Count);
             int randEnemy = Random.Range(0, prefabsEnemy.Length);
-            int randPosition = Random.Range(0, pointsSpawner.Length);
-            Vector3 positionEnemy = pointsSpawner[randPosition].transform.position;
-            positionEnemy.x = Random.Range(-7.55f, -5.45f);
+            // int randPosition = Random.Range(0, pointsSpawner.Length);
+            Vector3 positionEnemy = pointsSpawner[randWay].transform.position;
+            positionEnemy.x = Random.Range(positionEnemy.x - 1f, positionEnemy.x + 1f);
             
             var enemy = Instantiate(prefabsEnemy[randEnemy], positionEnemy, transform.rotation);
             
@@ -62,8 +63,6 @@ public class SpawnerEnemy : MonoBehaviour
             spawnAmount -= 1;
             StartCoroutine(SpawnEnemy());
         }
-
-        Debug.Log("Все враги появились!");
     }
 
     void EnemyDie(Enemy enemy)
@@ -75,12 +74,14 @@ public class SpawnerEnemy : MonoBehaviour
 
             if (enemies.Count == 0)
             {
-                if (LevelLogic.instance.currentWave == 3)
+                if (LevelLogic.instance.currentWave == LevelLogic.instance.GetCountWave)
                 {
                     Debug.Log("Все волны пройдены!");
+                    LevelLogic.instance.FinishedLevel();
                 }
-                else
+                else if (spawnAmount == 0)
                 {
+                    Debug.LogError("Новая волна врагов!!");
                     StartCoroutine(ShowNewWave());
                 }
             }
@@ -89,7 +90,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     IEnumerator ShowNewWave()
     {
-        spawnAmount = countEnemy;
+        spawnAmount = maxEnemyLevel;
         yield return new WaitForSeconds(2f);
         StartCoroutine(SpawnEnemy());
         LevelLogic.instance.ShowNewWave();

@@ -29,7 +29,7 @@ namespace Ui
         
         public void DebugTimeScale()
         {
-            Debug.Log("Time Scale: " + Time.timeScale);
+            // Debug.Log("Time Scale: " + Time.timeScale);
         }
         
         void UpdateUi()

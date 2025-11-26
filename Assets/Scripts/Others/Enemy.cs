@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isAFKEnemy)
+        if (isAFKEnemy || health <= 0)
         {
             return;
         }
@@ -106,16 +106,16 @@ public class Enemy : MonoBehaviour
         sliderHealth.value = health;
     }
 
-    void IsDead()
+    IEnumerator IsDead()
     {
         if (health <= 0)
         {
             if (!isLiveStage)
             {
                 LevelLogic.instance.ProfitMoney(levelEnemy);
-                // LevelLogic.instance.EnemyKill();
             }
 
+            yield return new WaitForSeconds(0.5f);
             OnEnemyDied?.Invoke(this);
             Destroy(gameObject);
         }
@@ -154,10 +154,8 @@ public class Enemy : MonoBehaviour
             if (projectile.targetEnemy == gameObject)
             {
                 Damage(projectile);
-
                 DestroyProjectile(projectile, collision);
-
-                IsDead();
+                StartCoroutine(IsDead());
             }
         }
     }
