@@ -15,6 +15,8 @@ public class SpawnerEnemy : MonoBehaviour
     public List<Enemy> enemies;
     public List<GameObject> wayPoints;
 
+    private int healthPlayerOnStart;
+    
     private void OnEnable()
     {
         Enemy.OnEnemyDied += EnemyDie;
@@ -82,6 +84,12 @@ public class SpawnerEnemy : MonoBehaviour
                 else if (spawnAmount == 0)
                 {
                     Debug.LogError("Новая волна врагов!!");
+
+                    if (LevelLogic.instance.playerValues.health == healthPlayerOnStart)
+                    {
+                        Debug.LogError("Игрок не получил урона за волну!!");
+                    }
+                    
                     StartCoroutine(ShowNewWave());
                 }
             }
@@ -90,6 +98,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     IEnumerator ShowNewWave()
     {
+        healthPlayerOnStart = LevelLogic.instance.playerValues.health;
         spawnAmount = maxEnemyLevel;
         yield return new WaitForSeconds(2f);
         StartCoroutine(SpawnEnemy());
