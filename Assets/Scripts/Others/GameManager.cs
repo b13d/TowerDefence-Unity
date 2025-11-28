@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using DG.Tweening;
-using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +15,9 @@ public class GameManager : MonoBehaviour
     public GameObject prefabMoneyImage;
     public GameObject parentMoney;
     private const int ValueRand = 150;
+
+
+
 
     [SerializeField] GameObject _clickSound;
 
@@ -48,7 +50,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-
             Time.timeScale = 1;
             LoadGame();
 

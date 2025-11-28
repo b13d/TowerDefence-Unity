@@ -15,7 +15,9 @@ public class SpawnerEnemy : MonoBehaviour
     public List<Enemy> enemies;
     public List<GameObject> wayPoints;
 
-    private int healthPlayerOnStart;
+    public GameObject prefabSpawnerMoneyUI;
+    public int healthPlayerOnStart;
+    
     
     private void OnEnable()
     {
@@ -31,6 +33,7 @@ public class SpawnerEnemy : MonoBehaviour
     {
         spawnAmount = maxEnemyLevel;
         StartCoroutine(SpawnEnemy());
+        healthPlayerOnStart = LevelLogic.instance.playerValues.health;
     }
 
     IEnumerator SpawnEnemy()
@@ -87,6 +90,7 @@ public class SpawnerEnemy : MonoBehaviour
 
                     if (LevelLogic.instance.playerValues.health == healthPlayerOnStart)
                     {
+                        prefabSpawnerMoneyUI.SetActive(true);
                         Debug.LogError("Игрок не получил урона за волну!!");
                     }
                     
