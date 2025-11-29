@@ -14,6 +14,8 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (Time.timeScale == 0) return; 
+        
         Debug.Log("Click on place tower");
 
         if (_isLiveStage)

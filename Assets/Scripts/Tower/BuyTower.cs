@@ -35,7 +35,7 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // если это туториал не провер€ть
+        if (Time.timeScale == 0f) return;
 
         if (_isTutorial)
         {
@@ -57,7 +57,6 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
         } 
         else
         {
-            Debug.LogError("Ќе хватает денег!!");
         }
     }
 

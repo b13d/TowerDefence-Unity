@@ -3,9 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Ui;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 [Serializable]
 public class PlayerValues
@@ -24,33 +27,33 @@ public class LevelLogic : MonoBehaviour
     Texts texts;
 
     [SerializeField] GameObject _windowLose;
-
     [SerializeField] GameObject _windowWin;
-
     [SerializeField] TextMeshProUGUI textCounterWave;
-
     [SerializeField] GameObject _canvasStartGame;
-
     [SerializeField] TextMeshProUGUI _txtTargetEnemyOnLevel;
-
     [SerializeField] TextMeshProUGUI _txtCurrentLevel;
-
     [SerializeField] GameObject _enemySoundPrefab;
 
     [SerializeField] public PlayerValues playerValues;
 
     [Header("Level Values")] public int allCounterEnemyDie = 0;
     public int enemyKill = 0;
-    public bool pause;
     public int currentWave = 0;
     public int targetEnemyOnLevel;
+    
+    [FormerlySerializedAs("pauseForm")] public Pause pause;
 
+    [Header("UI для отключения во время паузы")]
+    [SerializeField] List<Button> actionButtons = new List<Button>();
+    
+    
+    
     [SerializeField] int maxWave = 0;
     [SerializeField] int _currentLevel;
     [SerializeField] int countSpawnersOnLevel;
 
     private string language = "";
-
+    
     #region Propetries
 
     public int GetCountWave
@@ -74,11 +77,13 @@ public class LevelLogic : MonoBehaviour
 
     private void OnEnable()
     {
+        pause.OnPauseStateChanged += OnPauseChanged;
         Enemy.OnEnemyDied += EnemyKill;
     }
 
     private void OnDisable()
     {
+        pause.OnPauseStateChanged -= OnPauseChanged;
         Enemy.OnEnemyDied -= EnemyKill;
     }
 
@@ -114,7 +119,7 @@ public class LevelLogic : MonoBehaviour
         currentWave++;
         Invoke("HideNewWave", 1f);
 
-        pause = true;
+        pause.PauseGame(true, 0f);
 
         if (language == "en")
         {
@@ -246,6 +251,10 @@ public class LevelLogic : MonoBehaviour
         SceneManager.LoadScene("Levels");
     }
 
+    void OnChangedPause()
+    {
+                
+    }    
     #endregion
 
 
@@ -261,13 +270,21 @@ public class LevelLogic : MonoBehaviour
         }
     }
 
+    void OnPauseChanged(bool paused)
+    {
+        for (int i = 0; i < actionButtons.Count; i++)
+        {
+            actionButtons[i].interactable = !paused;
+        }
+    }
+
     IEnumerator StartLevelWait()
     {
         yield return new WaitForSecondsRealtime(.5f);
 
         _canvasStartGame.SetActive(false);
         Time.timeScale = 1.0f;
-        pause = false;
+        pause.PauseGame(false, 1.0f);
     }
 
     #endregion

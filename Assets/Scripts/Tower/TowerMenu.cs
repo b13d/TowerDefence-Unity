@@ -77,6 +77,8 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseEnter()
     {
+        if (Time.timeScale == 0) return;
+        
         _line.DOColor(new Color2(colorEmpty, colorEmpty), new Color2(Color.white, Color.white), .5f);
 
         if (_isLiveStage) { return; }
@@ -86,6 +88,8 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseExit()
     {
+        if (Time.timeScale == 0) return;
+
         _line.DOColor(new Color2(Color.white, Color.white), new Color2(colorEmpty, colorEmpty), .5f);
 
         if (_isLiveStage) { return; }
@@ -96,6 +100,8 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (Time.timeScale == 0) return;
+
         if (_isLiveStage) { return; }
 
         _skillsView.SetActive(!_skillsView.activeSelf);

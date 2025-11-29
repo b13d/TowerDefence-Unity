@@ -18,6 +18,8 @@ public class SkillSpeedAttack : Skill
 
     public override void OnPointerClick(PointerEventData eventData)
     {
+        if (Time.timeScale == 0f) return;
+        
         AddSpeedAttack();
         base.OnPointerClick(eventData);
     }

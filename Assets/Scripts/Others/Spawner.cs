@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ui;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -22,8 +23,8 @@ public class Spawner : MonoBehaviour
     List<int> countEnemyWave = new List<int>();
 
     public int spawnCountEnemy = 0;
-
     public int counter = 0;
+    public Pause pause;
 
     #region Private Fields
     // private SpawnerManagment _spawnerManagment;
@@ -80,7 +81,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (!_isLiveStage && (_isPause || LevelLogic.instance.pause)) { return; }
+        if (!_isLiveStage && (_isPause || pause.Paused)) { return; }
 
         _countDown -= Time.deltaTime;
 
