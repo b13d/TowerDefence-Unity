@@ -13,11 +13,11 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
 
     [Header("Tower GameObjects")]
     [SerializeField] PlaceTower _parent;
-
+    
     [SerializeField] GameObject _place;
-
     [SerializeField] TextMeshProUGUI _txtPrice;
-
+    [SerializeField] private GameObject prefabSoundCantBuyTower;
+    
     [SerializeField]
     bool _isTutorial;
 
@@ -57,6 +57,7 @@ public class BuyTower : MonoBehaviour, IPointerClickHandler
         } 
         else
         {
+            var sound = Instantiate(prefabSoundCantBuyTower);
         }
     }
 

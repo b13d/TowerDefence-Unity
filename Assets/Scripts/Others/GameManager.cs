@@ -14,10 +14,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject prefabMoneyImage;
     public GameObject parentMoney;
+
     private const int ValueRand = 150;
-
-
-
 
     [SerializeField] GameObject _clickSound;
 
@@ -112,7 +110,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void ResetData()
     {
         if (File.Exists(Application.persistentDataPath + "/GuardiansoftheRealm.dat"))
@@ -135,30 +132,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnMoney()
-    {
-        while (true)
-        {
-            float randValueX = Random.Range(-ValueRand, ValueRand);
-            float randValueY = Random.Range(-ValueRand, ValueRand);
-            var money = Instantiate(prefabMoneyImage, new Vector3(randValueX, randValueY, 0), Quaternion.identity,
-                parentMoney.transform);
-
-            money.transform.DOScale(1, 0.5f);
-
-            yield return new WaitForSeconds(0.5f);
-
-            StartCoroutine(DestroyMoney(money));
-        }
-    }
-
-    IEnumerator DestroyMoney(GameObject money)
-    {
-        money.transform.DOScale(0, 0.5f);
-        yield return new WaitForSeconds(1f);
-
-        Destroy(money);
-    }
 
     #endregion
 }

@@ -1616,6 +1616,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1190952261684202680, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
+      propertyPath: coinsAmount
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190952261684202680, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
+      propertyPath: coinsCountPrefabs
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1249808284302025100, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2115,6 +2123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &213970625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1391484601689366872, guid: 81eb231f27181d14485e9d52bbcecc49, type: 3}
+  m_PrefabInstance: {fileID: 213970621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &266129605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,7 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   m_MaxRayIntersections: 0
 --- !u!81 &1346928070
 AudioListener:
@@ -3953,6 +3966,8 @@ MonoBehaviour:
   wayPoints:
   - {fileID: 365706359}
   - {fileID: 302788401}
+  prefabSpawnerMoneyUI: {fileID: 213970625}
+  healthPlayerOnStart: 0
 --- !u!4 &1473412764
 Transform:
   m_ObjectHideFlags: 0

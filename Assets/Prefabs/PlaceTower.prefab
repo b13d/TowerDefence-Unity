@@ -144,11 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towers:
-  - {fileID: 7113708139584469301, guid: 412e94770fe44b347ae73e7c57352a11, type: 3}
+  - {fileID: 4395803024058759230, guid: 35dea01676bc62549aacbdb65a40af6c, type: 3}
   - {fileID: 4395803024058759230, guid: fe9519695b1f3cd47b2578c4f50a37c9, type: 3}
   - {fileID: 993561781145274359, guid: 9b18a3aaf26e5024e972489ac16a9e8a, type: 3}
   _place: {fileID: 330644515938029178}
-  _isLiveStage: 0
 --- !u!95 &5393241847555358459
 Animator:
   serializedVersion: 5
@@ -270,6 +269,10 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 8391038752352177399}
+    - target: {fileID: 1565533792069920555, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+      propertyPath: prefabSoundCantBuyTower
+      value: 
+      objectReference: {fileID: 2414145599975990997, guid: d119dc02e228f98429997c31830a9fa6, type: 3}
     - target: {fileID: 3052674824016811989, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -310,6 +313,10 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 8391038752352177399}
+    - target: {fileID: 5478277345963145249, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+      propertyPath: prefabSoundCantBuyTower
+      value: 
+      objectReference: {fileID: 2414145599975990997, guid: d119dc02e228f98429997c31830a9fa6, type: 3}
     - target: {fileID: 6702468564763864751, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
       propertyPath: m_Name
       value: Towers
@@ -322,6 +329,10 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 8391038752352177399}
+    - target: {fileID: 7503616835930105136, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
+      propertyPath: prefabSoundCantBuyTower
+      value: 
+      objectReference: {fileID: 2414145599975990997, guid: d119dc02e228f98429997c31830a9fa6, type: 3}
     - target: {fileID: 8010208102517555709, guid: 9ab77a023bb156e42a0bff6a55fb604c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5

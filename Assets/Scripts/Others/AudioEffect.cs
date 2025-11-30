@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,25 +9,24 @@ public class AudioEffect : MonoBehaviour
 
     [SerializeField] bool _isSoundTowerShoot;
 
+
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
 
-        if (_isSoundTowerShoot)
-        {
-            // if (Settings.instance.GetAudioVolume > .2f)
-            // {
-            //     _audioSource.volume = .2f;
-            // } 
-            // else
-            // {
-            //     _audioSource.volume = Settings.instance.GetAudioVolume;
-            // }
-        } 
-        else
-        {
-            // _audioSource.volume = Settings.instance.GetAudioVolume;
-        }
+        StartCoroutine(PlaySoundAndWait());
     }
 
+    IEnumerator PlaySoundAndWait()
+    {
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.Play();
+        }
+        
+        yield return new WaitWhile(() => _audioSource.isPlaying);
+
+        Destroy(gameObject);
+    }
 }

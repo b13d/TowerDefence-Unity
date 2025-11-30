@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using Random = UnityEngine.Random;
 
 
 public class CoinSpawnerUI : MonoBehaviour
 {
+    public static event Action<int> CoinSpawned;
+    
     public RectTransform coinPrefab;
     public RectTransform spawnPoint; // сундук/кошелек
     public RectTransform targetPoint; // куда летит
@@ -23,8 +27,9 @@ public class CoinSpawnerUI : MonoBehaviour
 
     IEnumerator SpawnCoins()
     {
+        textCoinsAmount.transform.DOScale(0f, 0f);
+        CoinSpawned?.Invoke(coinsAmount);
         int numberToSpawnText = coinsCountPrefabs / 4 * 3;
-        Debug.Log("numberToSpawnText: " + numberToSpawnText);
 
         for (int i = 0; i < coinsCountPrefabs; i++)
         {

@@ -1327,7 +1327,8 @@ MonoBehaviour:
   currentWave: 0
   targetEnemyOnLevel: 0
   pause: {fileID: 8429416851050490116}
-  buttonsSpeed:
+  actionButtons:
+  - {fileID: 7141355112131813477}
   - {fileID: 4612337286161375798}
   - {fileID: 963626136657708217}
   maxWave: 5
@@ -2824,7 +2825,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textTitlePause: {fileID: 8822835979848603093}
   currentSpeedGame: 0
-  isPaused: 0
 --- !u!1 &3228299957527957035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,9 +4058,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Ui.PauseForm, Assembly-CSharp
-        m_MethodName: Pause
+      - m_Target: {fileID: 8429416851050490116}
+        m_TargetAssemblyTypeName: Ui.Pause, Assembly-CSharp
+        m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

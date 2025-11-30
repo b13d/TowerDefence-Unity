@@ -79,12 +79,14 @@ public class LevelLogic : MonoBehaviour
     {
         pause.OnPauseStateChanged += OnPauseChanged;
         Enemy.OnEnemyDied += EnemyKill;
+        CoinSpawnerUI.CoinSpawned += AddMoneyBouns;
     }
 
     private void OnDisable()
     {
         pause.OnPauseStateChanged -= OnPauseChanged;
         Enemy.OnEnemyDied -= EnemyKill;
+        CoinSpawnerUI.CoinSpawned -= AddMoneyBouns;
     }
 
     private void Start()
@@ -147,12 +149,16 @@ public class LevelLogic : MonoBehaviour
         }
     }
 
-    public void ProfitMoney(int levelEnemy)
+    public void AddMoneyBouns(int moneyBonus)
+    {
+        playerValues.money += moneyBonus;
+        texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
+    }
+    
+    public void AddMoney(int levelEnemy)
     {
         playerValues.money += PRICE * Mathf.FloorToInt(levelEnemy + (float)_currentLevel / 2);
-
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
-
         Invoke("SpawnSoundEnemyDie", .5f);
     }
 

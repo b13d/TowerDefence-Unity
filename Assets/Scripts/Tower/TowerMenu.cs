@@ -112,7 +112,9 @@ public class TowerMenu : MonoBehaviour, IPointerClickHandler
     {
         if (_isLiveStage) { return; }
 
-        Destroy(gameObject.transform.parent.gameObject);
+        Transform parentTransform = gameObject.transform.parent;
+        parentTransform.SetParent(null); // Отвязываем от своего родителя (_place)
+        Destroy(parentTransform.gameObject);
     }
 
     #endregion

@@ -9,19 +9,23 @@ public class PlaceTower : MonoBehaviour, IPointerClickHandler
     public GameObject[] _towers;
     [SerializeField]
     GameObject _place;
-    [SerializeField]
-    bool _isLiveStage;
-
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         if (Time.timeScale == 0) return; 
-        
-        Debug.Log("Click on place tower");
-
-        if (_isLiveStage)
+    
+        Debug.Log("=== CLICK DEBUG ===");
+        Debug.Log($"PlaceTower: {gameObject.name}");
+        Debug.Log($"Place reference: {_place.name}");
+        Debug.Log($"Place instance ID: {_place.GetInstanceID()}");
+        Debug.Log($"ChildCount: {_place.transform.childCount}");
+    
+        for(int i = 0; i < _place.transform.childCount; i++)
         {
-            return;
+            Transform child = _place.transform.GetChild(i);
+            Debug.Log($"  Child {i}: {child.name}, active: {child.gameObject.activeSelf}");
         }
+        Debug.Log("==================");
 
         if(_place.transform.childCount == 0)
         {

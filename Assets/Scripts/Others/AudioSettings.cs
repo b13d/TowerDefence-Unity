@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 public class AudioSettings : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class AudioSettings : MonoBehaviour
 
     public void InitialMusic()
     {
+        musicIndex = Random.Range(0, musicClips.Length);
+        
         musicSource.clip = musicClips[musicIndex];
         musicSource.Play();
     }

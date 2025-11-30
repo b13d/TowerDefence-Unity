@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
         {
             if (!isLiveStage)
             {
-                LevelLogic.instance.ProfitMoney(levelEnemy);
+                LevelLogic.instance.AddMoney(levelEnemy);
             }
 
             yield return new WaitForSeconds(0.5f);
