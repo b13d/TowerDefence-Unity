@@ -33,6 +33,8 @@ public class LevelLogic : MonoBehaviour
     [SerializeField] TextMeshProUGUI _txtTargetEnemyOnLevel;
     [SerializeField] TextMeshProUGUI _txtCurrentLevel;
     [SerializeField] GameObject _enemySoundPrefab;
+    [SerializeField] private GameObject meteorPrefab;
+    [SerializeField] Abilities abilities;
 
     [SerializeField] public PlayerValues playerValues;
 
@@ -47,11 +49,11 @@ public class LevelLogic : MonoBehaviour
     [SerializeField] List<Button> actionButtons = new List<Button>();
     
     
-    
     [SerializeField] int maxWave = 0;
     [SerializeField] int _currentLevel;
     [SerializeField] int countSpawnersOnLevel;
 
+    
     private string language = "";
     
     #region Propetries
@@ -113,7 +115,6 @@ public class LevelLogic : MonoBehaviour
     {
         language = LocalizationSettings.SelectedLocale.Identifier.Code;
 
-        _txtCurrentLevel.text = $"Level - {_currentLevel}";
         texts.txtMoney.text = $"<sprite=0> {playerValues.money}";
         texts.txtHealth.text = $"<sprite=0> {playerValues.health}";
         // counterWave.SetActive(true);
@@ -126,10 +127,12 @@ public class LevelLogic : MonoBehaviour
         if (language == "en")
         {
             textCounterWave.text = $"Round\r\n{currentWave}/{maxWave}";
+            _txtCurrentLevel.text = $"Level - {_currentLevel}";
         }
         else
         {
             textCounterWave.text = $"Волна\r\n{currentWave}/{maxWave}";
+            _txtCurrentLevel.text = $"Уровень - {_currentLevel}";
         }
 
         Time.timeScale = 0.0f;
@@ -260,7 +263,13 @@ public class LevelLogic : MonoBehaviour
     void OnChangedPause()
     {
                 
-    }    
+    }
+
+    public void SelectMeteor()
+    {
+        var meteor = Instantiate(meteorPrefab, transform.position, Quaternion.identity);
+        meteor.GetComponent<Meteor>().Abilities = abilities;
+    }
     #endregion
 
 

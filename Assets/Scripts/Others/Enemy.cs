@@ -100,9 +100,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Damage(Projectile projectile)
+    void Damage(float damage)
     {
-        health -= projectile.Damage;
+        health -= damage;
         sliderHealth.value = health;
     }
 
@@ -147,13 +147,19 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collision.CompareTag("Meteor"))
+        {
+            Damage(2);
+            StartCoroutine(IsDead());
+        }
+
         if (collision.CompareTag("Projectile"))
         {
             Projectile projectile = collision.GetComponent<Projectile>();
 
             if (projectile.targetEnemy == gameObject)
             {
-                Damage(projectile);
+                Damage(projectile.Damage);
                 DestroyProjectile(projectile, collision);
                 StartCoroutine(IsDead());
             }
