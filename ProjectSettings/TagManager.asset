@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - TutorialObject
   - Meteor
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - TowerRange
   - Abilities
-  - 
+  - Meteor
   - 
   - 
   - 
