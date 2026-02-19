@@ -1770,7 +1770,7 @@ GameObject:
   - component: {fileID: 580983109}
   - component: {fileID: 580983108}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Text (Name Scene)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1796,7 +1796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ForestScene
+  m_text: IceScene
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 328a24654266fd149be032a20a184877, type: 2}
   m_sharedMaterial: {fileID: -3176909396118424194, guid: 328a24654266fd149be032a20a184877, type: 2}
@@ -1805,8 +1805,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255514
-  m_fontColor: {r: 0.6045822, g: 1, b: 0, a: 1}
+    rgba: 4294964480
+  m_fontColor: {r: 0, g: 0.96008086, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

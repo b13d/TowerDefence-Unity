@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels.unity
     guid: 213e82e5dc038524598f636bb2650308
+  - enabled: 1
+    path: Assets/Scenes/SandyScene.unity
+    guid: cfa85312a7dba914f8f6c5c42fdb0c85
+  - enabled: 1
+    path: Assets/Scenes/IceScene.unity
+    guid: c8ac24b72ffd21543bbde518906a0d02
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 628c86eb4ec50714fa6f783bf4c33fcb, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: e3228dd6a55ae3e4ea72a2739131c889, type: 2}
