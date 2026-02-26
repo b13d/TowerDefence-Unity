@@ -26,7 +26,7 @@ public class PlaceTower : MonoBehaviour
         _defaultCostTower = _costTower;
         textCostTower.text = _costTower + "$";
     }
-
+    
     void Update()
     {
         if (isActiveTower || Time.timeScale == 0) return;
