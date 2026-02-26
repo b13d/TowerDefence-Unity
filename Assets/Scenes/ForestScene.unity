@@ -2084,7 +2084,7 @@ GameObject:
   - component: {fileID: 733786569}
   - component: {fileID: 733786568}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: StartWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2099,16 +2099,16 @@ RectTransform:
   m_GameObject: {fileID: 733786566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1680518743}
   m_Father: {fileID: 1161553344}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1072.053, y: 601.849}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733786568
 MonoBehaviour:
@@ -2123,7 +2123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3114,7 +3114,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1161553344
 RectTransform:
@@ -3301,17 +3301,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd0f14a7bb972247b594489a3568dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  notificationPrefab: {fileID: 1112547631194524302, guid: 785135ad520eff148a7ea4cd0fffc3a4, type: 3}
-  uiManager: {fileID: 1596989872}
   currentLevel: {fileID: 0}
   enemy:
   - {fileID: 11400000, guid: 0288eeda51df93c47ae47c00a4e21a5f, type: 2}
   rareEnemy:
   - {fileID: 11400000, guid: 1b500140721db0948b8f5e1cac72fb35, type: 2}
   spawnerEnemy: {fileID: 1678407428}
+  uiManager: {fileID: 1596989872}
   winWindow: {fileID: 765473477}
   windowLose: {fileID: 1341994125}
   containerNotifications: {fileID: 868237919}
+  countDown: {fileID: 6089285077281974410, guid: 1c17ed63b13bd6d4eaa557232e154424, type: 3}
+  parentStartWindow: {fileID: 733786566}
+  notificationPrefab: {fileID: 1112547631194524302, guid: 785135ad520eff148a7ea4cd0fffc3a4, type: 3}
   counterEnemy: 0
 --- !u!4 &1299729833
 Transform:
@@ -3596,15 +3598,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 328a24654266fd149be032a20a184877, type: 2}
-  m_sharedMaterial: {fileID: -3176909396118424194, guid: 328a24654266fd149be032a20a184877, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4526d1da7c60de641bb73bdad671f6e3, type: 2}
+  m_sharedMaterial: {fileID: 7111899740130594308, guid: 4526d1da7c60de641bb73bdad671f6e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3621,10 +3623,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 24
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -4124,7 +4126,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 733786566}
+      - m_Target: {fileID: 1680518742}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4149,7 +4151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4923,7 +4925,10 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: -4.94, y: 0, z: -1.47}
+  - {x: 3.55, y: 0, z: -1.36}
+  - {x: 3.8, y: 0, z: -5.74}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -4932,29 +4937,38 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.10100433
+        value: 0.7231662
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.42810395
+        inSlope: -0.48131526
+        outSlope: -0.48131526
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.1932928
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0.92234945, b: 0, a: 0.49019608}
+      key1: {r: 1, g: 0.34532684, b: 0, a: 0.49019608}
+      key2: {r: 1, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
+      ctime0: 15705
+      ctime1: 41014
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -4970,10 +4984,10 @@ LineRenderer:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 3
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 50
+    numCapVertices: 50
     alignment: 0
     textureMode: 1
     textureScale: {x: 1, y: 1}

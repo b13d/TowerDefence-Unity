@@ -9,17 +9,21 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    [SerializeField] GameObject notificationPrefab;
-
-    [SerializeField] private UIManager uiManager;
 
     public LevelData currentLevel;
     public List<EnemyDataSO> enemy;
     public List<EnemyDataSO> rareEnemy;
     public GameObject spawnerEnemy;
+    
+    [Header("UI")]
+    [SerializeField] private UIManager uiManager;
     public GameObject winWindow;
     public GameObject windowLose;
     public GameObject containerNotifications;
+    public GameObject countDown;
+    public GameObject parentStartWindow;
+    [SerializeField] GameObject notificationPrefab;
+
     float _increaseDamageEnemy;
     float _increaseSpeedEnemy;
     float _increaseGoldEnemy;
@@ -57,6 +61,13 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel()
     {
+        var textCountDown = Instantiate(countDown, parentStartWindow.transform);
+        textCountDown.GetComponent<Countdown>().StartCountdown(Play);
+    }
+
+    void Play()
+    {
+        parentStartWindow.SetActive(false);
         GameManager.Instance.InitialLevels(currentLevel);
         uiManager.Init();
 

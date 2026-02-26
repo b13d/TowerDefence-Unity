@@ -13,7 +13,7 @@ public class PathDrawer : MonoBehaviour
     void Start()
     {
         line = GetComponent<LineRenderer>();
-
+        // SetColorLine();
         // Начинаем с 0 точек
         line.positionCount = 0;
     }
@@ -54,5 +54,25 @@ public class PathDrawer : MonoBehaviour
         }
 
         currentPointIndex = 0;
+    }
+
+    void SetColorLine()
+    {
+        LineRenderer lr = GetComponent<LineRenderer>();
+
+        Gradient gradient = new Gradient();
+
+        gradient.SetKeys(
+            new GradientColorKey[] {
+                new GradientColorKey(Color.yellow, 0f),      // начало
+                new GradientColorKey(new Color(255,69,0), 0.5f), // середина
+            },
+            new GradientAlphaKey[] {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(1f, 1f)
+            }
+        );
+
+        lr.colorGradient = gradient;
     }
 }

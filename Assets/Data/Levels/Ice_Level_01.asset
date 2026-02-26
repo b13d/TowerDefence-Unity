@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cd1ca7887bcb8439275d480d5703de, type: 3}
   m_Name: Ice_Level_01
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelId: 3
+  levelId: 7
   healthPlayer: 90
   moneyPlayer: 80
   levelType: 0
@@ -26,5 +26,5 @@ MonoBehaviour:
   increaseSpeedEnemy: 1.4
   increaseGoldEnemy: 1.4
   coinsReward: 50
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 006f0a9d748d95949a5864389982c8a6, type: 3}
   ambientColor: {r: 0.56469953, g: 1, b: 0.5208999, a: 0}
