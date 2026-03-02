@@ -9,10 +9,11 @@ public class LoseBlock : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Enemy enemy = other.GetComponent<Enemy>();
+            Enemy enemy = other.GetComponentInParent<Enemy>();
+            GameObject parent = enemy.gameObject;
             GameManager.Instance.AddDamage(enemy.damage);
             GameManager.Instance.DeadEnemy();
-            Destroy(other.gameObject);
+            Destroy(parent);
         }
     }
 }

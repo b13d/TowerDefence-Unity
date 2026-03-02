@@ -9,7 +9,7 @@ public class TriggerRotate : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlaceTower"))
+        if (other.CompareTag("PlaceTower") || other.CompareTag("Tower"))
         {
             other.transform.rotation = Quaternion.Euler(rotation);
             Debug.Log("Коснулся PlaceTower!!");

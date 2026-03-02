@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public int currentHealth;
     public int damage;
     public float speed;
-    
+
     private bool isDied;
     public EnemyDataSO enemyData;
 
@@ -26,12 +26,16 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        _collider = GetComponent<Collider>();
-        _animator = GetComponent<Animator>();
+        _collider = GetComponentInChildren<Collider>();
+        _animator = GetComponentInChildren<Animator>();
         currentHealth = enemyData.health;
         damage = enemyData.damage * Mathf.FloorToInt(LevelManager.Instance.IncreaseDamageEnemy);
-        speed = Random.Range(enemyData.minSpeed, enemyData.maxSpeed) * Mathf.FloorToInt(LevelManager.Instance.IncreaseSpeedEnemy);
-        
+        speed = Random.Range(enemyData.minSpeed, enemyData.maxSpeed) *
+                Mathf.FloorToInt(LevelManager.Instance.IncreaseSpeedEnemy);
+
+
+        float speedMultiplier = speed / enemyData.minSpeed;
+        _animator.speed = speedMultiplier;
         Debug.Log("Урон врага: " + damage);
     }
 
@@ -44,7 +48,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, MaxHealth);
-        Instantiate(particleDamage, transform.position, particleDamage.transform.rotation); 
+        Instantiate(particleDamage, transform.position, particleDamage.transform.rotation);
 
         if (currentHealth <= 0)
         {
@@ -55,17 +59,23 @@ public class Enemy : MonoBehaviour
     IEnumerator Die()
     {
         if (isDied) yield return null;
-        
+
         isDied = true;
-        int money = Random.Range(enemyData.coinsMin, enemyData.coinsMax) * Mathf.FloorToInt(LevelManager.Instance.IncreaseGoldEnemy);
+        int money = Random.Range(enemyData.coinsMin, enemyData.coinsMax) *
+                    Mathf.FloorToInt(LevelManager.Instance.IncreaseGoldEnemy);
         healthBar.SetActive(false);
         _animator.SetTrigger("isDead");
         GameManager.Instance.AddScore();
         GameManager.Instance.AddMoney(money);
         _collider.enabled = false;
+        healthBar.GetComponentInParent<HealthBar>().gameObject.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(0.5f);
-        // Instantiate(particleDead, transform.position, particleDead.transform.rotation);
+        yield return new WaitUntil(() =>
+        {
+            AnimatorStateInfo state = _animator.GetCurrentAnimatorStateInfo(0);
+            return state.IsName("Death") && state.normalizedTime >= 1f;
+        });
+
 
         GameManager.Instance.DeadEnemy();
         Destroy(gameObject);
@@ -78,6 +88,7 @@ public class Enemy : MonoBehaviour
         Vector3 position = points[currentPointIndex];
         position.y = 0f;
         transform.position = Vector3.MoveTowards(transform.position, position, 0.05f * speed);
+        transform.LookAt(position);
 
         if (Vector3.Distance(transform.position, position) < 0.1f)
         {

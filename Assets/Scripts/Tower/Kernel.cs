@@ -39,7 +39,7 @@ public class Kernel : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
             enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }

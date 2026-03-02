@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI recordText;
+    // public TextMeshProUGUI recordText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI moneyText;
     public LevelManager levelManager;
@@ -45,14 +45,13 @@ public class UIManager : MonoBehaviour
     
     void UpdateMoney(int money)
     {
-        moneyText.text = money.ToString();
+        moneyText.text = money + "$";
     }
     
     public void Init()
     {
         healthText.text = GameManager.Instance.health.ToString();
-        recordText.text = GameManager.Instance.record.ToString();
         scoreText.text = GameManager.Instance.score.ToString();
-        moneyText.text = GameManager.Instance.money.ToString();
+        moneyText.text = GameManager.Instance.money  + "$";
     }
 }
