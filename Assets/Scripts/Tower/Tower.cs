@@ -38,6 +38,7 @@ public class Tower : MonoBehaviour
         damage = towerData.damage;
         level = towerData.level;
         towerName = towerData.nameTower;
+        reloadTime = RELOAD_TIME;
     }
 
     private void Update()

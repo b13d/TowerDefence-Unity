@@ -100,6 +100,8 @@ public class PlaceTower : MonoBehaviour
     {
         if (isActiveTower) return;
 
+        if (pointsWay.Count == 0) return;
+
         bool distance = 0.1f > Vector3.Distance(pointsWay[currentPoint].position, transform.position);
 
         if (distance)

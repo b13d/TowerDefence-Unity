@@ -27,16 +27,16 @@ public class Countdown : MonoBehaviour
             
             _sequence = DOTween.Sequence();
             _sequence.SetUpdate(true);
-            _sequence.AppendInterval(0.25f);
+            _sequence.AppendInterval(0.1f);
 
             for (int i = 3; i > 0; i--)
             {
                 int value = i;
                 
                 _sequence.AppendCallback(() => countdownText.text = value.ToString());
-                _sequence.Append(countdownText.transform.DOScale(5f, 0.5f));
-                _sequence.AppendInterval(0.25f);
-                _sequence.Append(countdownText.transform.DOScale(1f, 0.5f));
+                _sequence.Append(countdownText.transform.DOScale(5f, 0.3f));
+                _sequence.AppendInterval(0.1f);
+                _sequence.Append(countdownText.transform.DOScale(1f, 0.3f));
             }
 
             _sequence.OnComplete(() =>
