@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class LevelManager : MonoBehaviour
     public GameObject containerNotifications;
     public GameObject countDown;
     public GameObject parentStartWindow;
+    
     [SerializeField] GameObject notificationPrefab;
 
     float _increaseDamageEnemy;

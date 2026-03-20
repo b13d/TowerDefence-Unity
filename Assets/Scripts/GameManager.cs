@@ -1,7 +1,7 @@
 using System;
-using TMPro;
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     public int wave;
     public int counterDeadEnemy;
 
-    [SerializeField] private int criticalLowHealth = 10;
+    [SerializeField] private RawImage imageDamage;
+    private int criticalLowHealth = 3;
 
     public static GameManager Instance;
-
+    
+    Sequence sequenceImageDamage;
     public event Action<int> OnScoreChanged;
     public event Action<int> OnHealthChanged;
     public event Action<int> OnMoneyChanged;
@@ -37,8 +39,15 @@ public class GameManager : MonoBehaviour
     public void AddDamage(int damage)
     {
         health -= damage;
+        
+        sequenceImageDamage.Kill();
+        
+        sequenceImageDamage = DOTween.Sequence();
+        sequenceImageDamage.Append(imageDamage.DOFade(0.1f, 0.25f));
+        sequenceImageDamage.Append(imageDamage.DOFade(0f, 0.10f));
+        
 
-        if (health < criticalLowHealth && health > 0)
+        if (health <= criticalLowHealth && health > 0)
         {
             LevelManager.Instance.Notification("У игрока осталось мало здоровья!", TypeMessage.Error);
         }
