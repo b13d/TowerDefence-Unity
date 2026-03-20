@@ -67,6 +67,8 @@ public class LevelManager : MonoBehaviour
 
     void Play()
     {
+        Debug.Log("Функция Play сработала!");
+        
         parentStartWindow.SetActive(false);
         GameManager.Instance.InitialLevels(currentLevel);
         uiManager.Init();
@@ -77,13 +79,14 @@ public class LevelManager : MonoBehaviour
         counterEnemy = currentLevel.enemyCount;
 
         // Инициализация данных в игре
-        // GameManager.Instance.levelManager = this;
+
         _increaseDamageEnemy = currentLevel.increaseDamageEnemy;
         _increaseGoldEnemy = currentLevel.increaseGoldEnemy;
         _increaseSpeedEnemy = currentLevel.increaseSpeedEnemy;
         GameManager.Instance.OnDeadEnemy += CheckLastEnemy;
         GameManager.Instance.money = currentLevel.moneyPlayer;
         GameManager.Instance.health = currentLevel.healthPlayer;
+        
         StartCoroutine(SpawnEnemy());
     }
 
@@ -98,6 +101,11 @@ public class LevelManager : MonoBehaviour
     public void CompleteGame()
     {
         GameManager.Instance.counterDeadEnemy = 0;
+        SceneManager.LoadScene("Levels");
+    }
+
+    public void BackToLevels()
+    {
         SceneManager.LoadScene("Levels");
     }
 
@@ -116,11 +124,16 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log($"countEnemyLevel === {currentLevel.enemyCount} and count dead {countEnemyDead}");
 
-        if (countEnemyDead == currentLevel.enemyCount)
+        if (countEnemyDead == currentLevel.enemyCount && GameManager.Instance.health > 0)
         {
             Time.timeScale = 0;
             Debug.Log("Последний враг погиб!");
             winWindow.SetActive(true);
+            LevelSelector.Instance.CheckNextLevel(currentLevel);
+        }
+        else if (GameManager.Instance.health <= 0)
+        {
+            Debug.Log("Здоровья игрока равно 0");
         }
     }
 

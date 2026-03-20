@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6762272848820455306}
   - component: {fileID: 4369124066325229332}
   - component: {fileID: 1040486174759354618}
+  - component: {fileID: 8900709045357779107}
   m_Layer: 5
   m_Name: Button Level
   m_TagString: Untagged
@@ -148,6 +149,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonLevel
   levelData: {fileID: 0}
   textLevel: {fileID: 8522030198224409533}
+--- !u!225 &8900709045357779107
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5682014365533979894}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7298784074991778432
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,10 +226,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C - 1"
+  m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4526d1da7c60de641bb73bdad671f6e3, type: 2}
+  m_sharedMaterial: {fileID: 7111899740130594308, guid: 4526d1da7c60de641bb73bdad671f6e3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -240,8 +253,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

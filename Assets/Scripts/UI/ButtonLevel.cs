@@ -1,10 +1,16 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonLevel : MonoBehaviour
 {
     [SerializeField] LevelData levelData;
     [SerializeField] private TextMeshProUGUI textLevel;
+
+    private void Start()
+    {
+    }
 
     public LevelData LevelData
     {
@@ -12,7 +18,13 @@ public class ButtonLevel : MonoBehaviour
         set
         {
             levelData = value;
-            textLevel.text = "Уровень - " + value.levelId;
+            textLevel.text = value.levelId.ToString();
+            
+            if (LevelSelector.Instance.lastUnlockedLevel < value.levelId)
+            {
+                GetComponent<Button>().interactable = false;
+                GetComponent<CanvasGroup>().alpha = 0.1f;
+            }
         }
     }
 

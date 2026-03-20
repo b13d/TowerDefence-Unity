@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Kernel : MonoBehaviour
 {
-    public GameObject target;
+    public Enemy target;
     public bool isFollowing;
     private float speed = 0.1f;
     int _damage;
@@ -27,7 +27,7 @@ public class Kernel : MonoBehaviour
         if (target)
         {
             isFollowing = true;
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.5f * speed);
+            transform.position = Vector3.MoveTowards(transform.position, target.gameObject.transform.position, 0.5f * speed);
         } else if (isFollowing && !target)
         {
             Debug.Log("Снаряд очищается...");
@@ -40,13 +40,17 @@ public class Kernel : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
-            enemy.TakeDamage(_damage);
-            Destroy(gameObject);
+
+            if (enemy == target)
+            {
+                enemy.TakeDamage(_damage);
+                Destroy(gameObject);
+            }
         }
 
         if (other.CompareTag("Ground"))
         {
-            Debug.LogError("Снаряд ударился об землю, удаляем");
+            Debug.LogWarning("Снаряд ударился об землю, удаляем");
             Destroy(gameObject);
         }
     }

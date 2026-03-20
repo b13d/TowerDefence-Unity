@@ -31,7 +31,7 @@ public class PlaceTower : MonoBehaviour
     {
         if (isActiveTower || Time.timeScale == 0) return;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

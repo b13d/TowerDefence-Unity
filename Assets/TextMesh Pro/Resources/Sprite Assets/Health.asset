@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e93120eb60f7bde46aba0c6f600a9550, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5a66fba122890b042be3b9f57b26d333, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_StrikethroughOffset: 0
     m_StrikethroughThickness: 0
     m_TabWidth: 0
-  spriteSheet: {fileID: 2800000, guid: e93120eb60f7bde46aba0c6f600a9550, type: 3}
+  spriteSheet: {fileID: 2800000, guid: 5a66fba122890b042be3b9f57b26d333, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 65534
@@ -87,6 +87,12 @@ MonoBehaviour:
     m_Scale: 1
     m_Name: Icon-Health500
     m_HashCode: -501507249
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 1
+    m_Scale: 1
+    m_Name: health
+    m_HashCode: -331737412
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -104,5 +110,21 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 21300000, guid: e93120eb60f7bde46aba0c6f600a9550, type: 3}
+  - m_Index: 1
+    m_Metrics:
+      m_Width: 512
+      m_Height: 512
+      m_HorizontalBearingX: -256
+      m_HorizontalBearingY: 256
+      m_HorizontalAdvance: 512
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 0
+      m_Width: 512
+      m_Height: 512
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 21300000, guid: 5a66fba122890b042be3b9f57b26d333, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []

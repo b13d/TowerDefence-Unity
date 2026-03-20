@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forest_Level_01
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelId: 1
-  healthPlayer: 100
+  healthPlayer: 10
   moneyPlayer: 100
   levelType: 0
   sceneLevel: {fileID: 102900000, guid: 71c0dfac0287a1649afca12f61cd6084, type: 3}

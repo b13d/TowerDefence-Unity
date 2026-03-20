@@ -7,8 +7,8 @@ public class EnemyDataSO: ScriptableObject
     public GameObject enemyPrefab;
     public int damage;
     public int health;
-    public int minSpeed;
-    public int maxSpeed;
+    public float minSpeed;
+    public float maxSpeed;
 
     [Header("Coins Drop")] public int coinsMin;
     public int coinsMax;

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyData_2Rare
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDataSO
   enemyPrefab: {fileID: 6225649361535016585, guid: 2b17f9479eb874844ac5eb8a00a751a3, type: 3}
-  damage: 10
+  damage: 1
   health: 10
-  minSpeed: 2
-  maxSpeed: 4
+  minSpeed: 1
+  maxSpeed: 2
   coinsMin: 40
   coinsMax: 80

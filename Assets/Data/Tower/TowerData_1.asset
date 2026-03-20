@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TowerData_1
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   level: 1
-  damage: 5
-  health: 3
+  damage: 3
+  health: 6
   money: 25
   nameTower: tower_01

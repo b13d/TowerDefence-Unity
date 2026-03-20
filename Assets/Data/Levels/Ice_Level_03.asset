@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ice_Level_03
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelId: 9
-  healthPlayer: 90
+  healthPlayer: 10
   moneyPlayer: 80
   levelType: 0
   sceneLevel: {fileID: 102900000, guid: c8ac24b72ffd21543bbde518906a0d02, type: 3}

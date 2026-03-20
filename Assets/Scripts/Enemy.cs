@@ -29,10 +29,13 @@ public class Enemy : MonoBehaviour
         _collider = GetComponentInChildren<Collider>();
         _animator = GetComponentInChildren<Animator>();
         currentHealth = enemyData.health;
-        damage = enemyData.damage * Mathf.FloorToInt(LevelManager.Instance.IncreaseDamageEnemy);
-        speed = Random.Range(enemyData.minSpeed, enemyData.maxSpeed) *
-                Mathf.FloorToInt(LevelManager.Instance.IncreaseSpeedEnemy);
 
+        if (LevelManager.Instance)
+        {
+            damage = enemyData.damage * Mathf.FloorToInt(LevelManager.Instance.IncreaseDamageEnemy);
+            speed = Random.Range(enemyData.minSpeed, enemyData.maxSpeed) *
+                    Mathf.FloorToInt(LevelManager.Instance.IncreaseSpeedEnemy);
+        }
 
         float speedMultiplier = speed / enemyData.minSpeed;
         _animator.speed = speedMultiplier;
@@ -60,6 +63,12 @@ public class Enemy : MonoBehaviour
     {
         if (isDied) yield return null;
 
+        if (GameManager.Instance == null)
+        {
+            Destroy(gameObject);
+            yield return null;
+        }
+
         isDied = true;
         int money = Random.Range(enemyData.coinsMin, enemyData.coinsMax) *
                     Mathf.FloorToInt(LevelManager.Instance.IncreaseGoldEnemy);
@@ -84,6 +93,7 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         if (currentHealth <= 0) return;
+        if (points.Count <= 0) return;
 
         Vector3 position = points[currentPointIndex];
         position.y = 0f;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sandy_Level_03
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelId: 6
-  healthPlayer: 90
+  healthPlayer: 10
   moneyPlayer: 80
   levelType: 0
   sceneLevel: {fileID: 102900000, guid: cfa85312a7dba914f8f6c5c42fdb0c85, type: 3}

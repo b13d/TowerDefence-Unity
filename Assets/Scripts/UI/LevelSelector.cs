@@ -6,6 +6,7 @@ public class LevelSelector : MonoBehaviour
 {
     public static LevelSelector Instance;
     public LevelData selectedLevel;
+    public int lastUnlockedLevel = 1;
 
     private void Awake()
     {
@@ -27,5 +28,13 @@ public class LevelSelector : MonoBehaviour
 
         SceneManager.LoadScene(level.sceneLevel.name);
         // Загрузка уровня...
+    }
+
+    public void CheckNextLevel(LevelData level)
+    {
+        if (level.levelId == lastUnlockedLevel)
+        {
+            lastUnlockedLevel++;
+        }
     }
 }

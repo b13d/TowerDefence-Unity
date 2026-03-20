@@ -93,14 +93,17 @@ public class Tower : MonoBehaviour
             var bullet = Instantiate(prefabBullet, cannon.transform.position, cannon.transform.rotation);
             Kernel kernel = bullet.GetComponent<Kernel>();
             kernel.Damage = damage;
-            kernel.target = other.gameObject;
+            kernel.target = other.GetComponentInParent<Enemy>();
             Vector3 direction = (other.transform.position - bullet.transform.position).normalized;
             bullet.GetComponent<Rigidbody>().AddForce(direction * 5, ForceMode.Impulse);
 
             if (health <= 0)
             {
-                placeTower.ActivePlace();
-                Destroy(gameObject);
+                if (placeTower != null)
+                {
+                    placeTower.ActivePlace();
+                    Destroy(gameObject);
+                }
             }
         }
     }

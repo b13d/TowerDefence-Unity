@@ -1040,7 +1040,7 @@ Camera:
   far clip plane: 100
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 8.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3187,17 +3187,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd0f14a7bb972247b594489a3568dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  notificationPrefab: {fileID: 1112547631194524302, guid: 785135ad520eff148a7ea4cd0fffc3a4, type: 3}
-  uiManager: {fileID: 0}
   currentLevel: {fileID: 11400000, guid: 3ac506cb858b6884b9076f1667805452, type: 2}
   enemy:
   - {fileID: 11400000, guid: 0288eeda51df93c47ae47c00a4e21a5f, type: 2}
   rareEnemy:
   - {fileID: 11400000, guid: 1b500140721db0948b8f5e1cac72fb35, type: 2}
   spawnerEnemy: {fileID: 1678407428}
+  uiManager: {fileID: 0}
   winWindow: {fileID: 765473477}
   windowLose: {fileID: 1341994125}
   containerNotifications: {fileID: 868237919}
+  countDown: {fileID: 0}
+  parentStartWindow: {fileID: 0}
+  notificationPrefab: {fileID: 1112547631194524302, guid: 785135ad520eff148a7ea4cd0fffc3a4, type: 3}
   counterEnemy: 0
 --- !u!4 &1299729833
 Transform:
@@ -3468,7 +3470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   scoreText: {fileID: 263795744}
-  recordText: {fileID: 286951028}
   healthText: {fileID: 1348022914}
   moneyText: {fileID: 1234894323}
   levelManager: {fileID: 1299729832}

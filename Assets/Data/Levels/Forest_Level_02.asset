@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Forest_Level_02
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelId: 2
-  healthPlayer: 95
-  moneyPlayer: 90
+  healthPlayer: 10
+  moneyPlayer: 70
   levelType: 0
   sceneLevel: {fileID: 102900000, guid: 71c0dfac0287a1649afca12f61cd6084, type: 3}
-  enemyCount: 20
+  enemyCount: 15
   wayPointsEnemies:
   - {x: -3.6069098, y: 0, z: -1.47}
   - {x: 3.55, y: 0, z: -1.36}

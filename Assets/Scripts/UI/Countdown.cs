@@ -21,6 +21,8 @@ public class Countdown : MonoBehaviour
 
     public void StartCountdown(Action playFn)
     {
+        Debug.Log("countdownText" + countdownText.transform);
+        
         if (countdownText != null) 
         {
             _originalScale = countdownText.transform.localScale;
@@ -41,6 +43,7 @@ public class Countdown : MonoBehaviour
 
             _sequence.OnComplete(() =>
             {
+                Debug.Log("Запуск функции play");
                 playFn?.Invoke();
             });
             
