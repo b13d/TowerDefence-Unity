@@ -9,12 +9,13 @@ using Random = UnityEngine.Random;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
-
+    public CounterWave counterWave;
 
     public LevelData currentLevel;
     public List<EnemyDataSO> enemy;
     public List<EnemyDataSO> rareEnemy;
     public GameObject spawnerEnemy;
+    public List<GameObject> enemyScene;
     
     [Header("UI")]
     [SerializeField] private UIManager uiManager;
@@ -31,7 +32,7 @@ public class LevelManager : MonoBehaviour
     float _increaseGoldEnemy;
 
 
-    [SerializeField] private int counterEnemy = 0;
+    private int counterEnemy = 0;
 
     public float IncreaseDamageEnemy => _increaseDamageEnemy;
     public float IncreaseSpeedEnemy => _increaseSpeedEnemy;
@@ -50,6 +51,7 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        counterWave.WaveCicle = currentLevel.waveCount;
         Time.timeScale = 0;
     }
 
@@ -78,7 +80,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
         Debug.Log("Текущий уровень - " + currentLevel);
 
-        counterEnemy = currentLevel.enemyCount;
+        // counterEnemy = currentLevel.enemyCount;
 
         // Инициализация данных в игре
 
@@ -88,8 +90,8 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.OnDeadEnemy += CheckLastEnemy;
         GameManager.Instance.money = currentLevel.moneyPlayer;
         GameManager.Instance.health = currentLevel.healthPlayer;
-        
-        StartCoroutine(SpawnEnemy());
+
+        StartCoroutine(SpawnEnemy(counterWave.EnemyWave));
     }
 
     void OnDestroy()
@@ -122,7 +124,12 @@ public class LevelManager : MonoBehaviour
         windowLose.SetActive(true);
     }
 
-    void CheckLastEnemy(int countEnemyDead)
+    public void CheckLastEnemy(int countEnemyDead)
+    {
+        StartCoroutine(CheckLastEnemyWithDelay(countEnemyDead));
+    }
+
+    private IEnumerator CheckLastEnemyWithDelay(int countEnemyDead)
     {
         Debug.Log($"countEnemyLevel === {currentLevel.enemyCount} and count dead {countEnemyDead}");
 
@@ -137,63 +144,47 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("Здоровья игрока равно 0");
         }
+        
+        yield return new WaitForSeconds(0.1f);
+
+        enemyScene.RemoveAll(item => item == null);
+
+        if (enemyScene.Count == 0)
+        {
+            counterWave.NextWave(SpawnEnemy);
+        }
     }
 
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy(int enemyCount)
     {
-        Debug.Log($"Спавн врагов! counterEnemy: {counterEnemy}");
-
-        int countDifferentEnemy = enemy.Count;
+        Debug.Log("Спавн врагов в количестве: " + enemyCount);
+        
+        yield return new WaitForSeconds(1f);
+        
+        Debug.Log("Начало появление новых врагов!");
+        
         Vector3 positionSpawn = spawnerEnemy.transform.position;
-        positionSpawn.y = 0f;
 
-        while (counterEnemy > 0)
+        for (int i = 0; i < enemyCount; i++)
         {
-            if (counterEnemy == 5)
-            {
-                Notification("Осталось 5 врагов!", TypeMessage.Warning);
-            }
-
-            float randTimeWait = Random.Range(0.35f, 1.5f);
-
-            if (Random.Range(0, 100) < 10)
-            {
-                SpawnRareEnemy(countDifferentEnemy, positionSpawn);
-            }
-            else
-            {
-                if (Random.Range(0, 100) < 5)
-                {
-                    // множественный спавн
-
-                    int countEnemySpawn = Random.Range(1, counterEnemy);
-
-                    if (countEnemySpawn > 3)
-                    {
-                        countEnemySpawn = 3;
-                    }
-
-                    for (int i = 0; i < countEnemySpawn; i++)
-                    {
-                        SpawnDefaultEnemy(countDifferentEnemy, positionSpawn);
-                    }
-                }
-                else
-                {
-                    SpawnDefaultEnemy(countDifferentEnemy, positionSpawn);
-                }
-            }
-
-            yield return new WaitForSeconds(randTimeWait);
+            counterEnemy++;
+            SpawnDefaultEnemy(0, positionSpawn);
+            Debug.Log("Counter Enemy: " + counterEnemy);
+            yield return new WaitForSeconds(1.5f);
         }
+        
+
+        yield return null;
     }
 
     void SpawnDefaultEnemy(int countDifferentEnemy, Vector3 positionSpawn)
     {
-        counterEnemy--;
+        // counterEnemy--;
         int indexEnemy = Random.Range(0, countDifferentEnemy);
         var newEnemy = Instantiate(enemy[indexEnemy].enemyPrefab, positionSpawn,
             Quaternion.identity);
+        
+        enemyScene.Add(newEnemy);
         newEnemy.GetComponent<Enemy>().SetPoints(currentLevel.wayPointsEnemies);
     }
 
@@ -214,7 +205,7 @@ public class LevelManager : MonoBehaviour
 
     void SpawnRareEnemy(int countDifferentEnemy, Vector3 positionSpawn)
     {
-        counterEnemy--;
+        // counterEnemy--;
         int indexEnemy = Random.Range(0, countDifferentEnemy);
         var newEnemy = Instantiate(rareEnemy[indexEnemy].enemyPrefab, positionSpawn,
             Quaternion.identity);

@@ -21,6 +21,7 @@ public class LevelData : ScriptableObject
     [Header("Gameplay")] 
 
     public int enemyCount;
+    public int waveCount;
     public List<Vector3> wayPointsEnemies;
 
     [Header("Increase")] 

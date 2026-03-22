@@ -18,6 +18,7 @@ MonoBehaviour:
   levelType: 0
   sceneLevel: {fileID: 102900000, guid: 71c0dfac0287a1649afca12f61cd6084, type: 3}
   enemyCount: 10
+  waveCount: 3
   wayPointsEnemies:
   - {x: -3.6069098, y: 0, z: -1.47}
   - {x: 3.55, y: 0, z: -1.36}

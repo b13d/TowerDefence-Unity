@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
 
         if (tower != null)
         {
-            Debug.Log("Health tower: " + tower.health);
+            // Debug.Log("Health tower: " + tower.health);
             fillImage.fillAmount = (float)tower.health / tower.MaxHealth;
         }
     }
