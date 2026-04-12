@@ -17,12 +17,9 @@ MonoBehaviour:
   moneyPlayer: 100
   levelType: 0
   sceneLevel: {fileID: 102900000, guid: 71c0dfac0287a1649afca12f61cd6084, type: 3}
-  enemyCount: 10
+  enemyCount: 20
   waveCount: 3
-  wayPointsEnemies:
-  - {x: -3.6069098, y: 0, z: -1.47}
-  - {x: 3.55, y: 0, z: -1.36}
-  - {x: 3.8, y: 0, z: -5.74}
+  wayPointsEnemies: []
   increaseDamageEnemy: 1
   increaseSpeedEnemy: 1
   increaseGoldEnemy: 1

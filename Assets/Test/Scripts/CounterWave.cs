@@ -21,7 +21,20 @@ public class CounterWave : MonoBehaviour
 
 
     public int WaveCicle { get => waveCicle; set => waveCicle = value; }
-    public int EnemyWave => enemyOnOneWave;
+    public int EnemyWave
+    {
+        get
+        {
+            if (currentWave == waveCicle)
+            {
+                return enemyCount / waveCicle + lastAdditionalEnemy;
+            }
+            else
+            {
+                return enemyCount / waveCicle;
+            }
+        }
+    }
 
     void Start()
     {
@@ -149,10 +162,15 @@ public class CounterWave : MonoBehaviour
     {
         lastAdditionalEnemy = 0;
 
-        if (enemyCount % waveCicle != 0)
+        if (enemyCount > 0 && waveCicle > 0)
         {
-            lastAdditionalEnemy = enemyCount % waveCicle;
-            enemyOnOneWave = enemyCount / waveCicle;
+            int different = enemyCount % waveCicle;
+        
+            if (different != 0)
+            {
+                lastAdditionalEnemy = enemyCount % waveCicle;
+                enemyOnOneWave = enemyCount / waveCicle;
+            }
         }
     }
 }

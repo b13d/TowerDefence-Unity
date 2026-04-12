@@ -1135,12 +1135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 100
-  lastAdditionalEnemy: 0
-  waveNumber: 10
-  enemyOnOneWave: 0
+  waveCicle: 0
   currentWave: 0
+  enemyOnOneWave: 0
+  lastAdditionalEnemy: 0
   prefabEnemy: {fileID: 628531525207909063, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
-  enemy: []
 --- !u!1 &580983107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,6 +2095,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8768310358610450823, guid: 2b5346531011eb34591a8e80c105d450, type: 3}
   m_PrefabInstance: {fileID: 1792853595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1798404454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 628531525207909063, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.821
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779344757757472721, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 628531525207909063, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1798404456}
+  m_SourcePrefab: {fileID: 100100000, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+--- !u!1 &1798404455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 628531525207909063, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
+  m_PrefabInstance: {fileID: 1798404454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1798404456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798404455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125b39957732ea94b842ed202e5994c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!4 &1826583704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2238808994181596301, guid: 3213478adfdda354f89e15cba0c77bdd, type: 3}
@@ -2444,3 +2525,4 @@ SceneRoots:
   - {fileID: 308569774}
   - {fileID: 26309139}
   - {fileID: 701945314}
+  - {fileID: 1798404454}
