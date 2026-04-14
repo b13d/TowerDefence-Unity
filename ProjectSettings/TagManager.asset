@@ -10,6 +10,7 @@ TagManager:
   - TutorialObject
   - Meteor
   - Ground
+  - PlaceTower
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - TowerRange
   - Abilities
   - Meteor
-  - 
+  - Ground
   - 
   - 
   - 
