@@ -1,14 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TowerDisabled : MonoBehaviour
 {
     public int z;
-    
+    public bool isClicked;
+
+    private void Start()
+    {
+        StartCoroutine(CursorF());
+    }
+
+    IEnumerator CursorF()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        yield return new WaitForSeconds(0.01f);
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void Update()
     {
-        if (Camera.main)
+        if (Input.GetMouseButtonDown(0))
+        {
+            isClicked = true;
+        }
+        
+        if (Camera.main && !isClicked)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

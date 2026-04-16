@@ -6,18 +6,10 @@ using UnityEngine.EventSystems;
 
 public class TowerButton : MonoBehaviour, IPointerClickHandler
 {
-    private bool isFocused = false;
-
-    private void Update()
-    {
-        if (isFocused)
-        {
-            transform.position = Input.mousePosition;
-        }
-    }
+    [SerializeField] private GameObject prefabTower;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        isFocused = !isFocused;
+        Instantiate(prefabTower, Vector3.zero, Quaternion.identity);
     }
 }
