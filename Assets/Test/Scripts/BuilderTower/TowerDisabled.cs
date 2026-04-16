@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class TowerDisabled : MonoBehaviour
 {
-    public int z;
+    [SerializeField] GameObject towerPrefab;
     public bool isClicked;
     public bool isFloor;
 
@@ -24,17 +24,12 @@ public class TowerDisabled : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Позиция башни: " + transform.position);
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && isFloor)
         {
-            if (isFloor)
-            {
-                isClicked = true;
-            }
+            isClicked = true;
         }
-
-        if (Camera.main && !isClicked)
+        
+        if (Camera.main)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -43,16 +38,25 @@ public class TowerDisabled : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
             {
+                Vector3 worldPoint = hit.point;
+                worldPoint.y = 0;
+                transform.position = worldPoint;
 
                 if (hit.collider.CompareTag("PlaceTower"))
                 {
                     isFloor = true;
+                    
+                    if (isClicked)
+                    {
+                        CubeTrigger cube = hit.collider.gameObject.GetComponent<CubeTrigger>();
+
+                        if (!cube.hasTower)
+                        {
+                            cube.SetTower(towerPrefab);
+                            Destroy(gameObject);
+                        }
+                    }
                 }
-                
-                Vector3 worldPoint = hit.point;
-                worldPoint.y = 0;
-                transform.position = worldPoint;
-                Debug.Log("did hit worldPoint: " + worldPoint);
             }
             
         }

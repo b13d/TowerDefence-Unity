@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd705878fd26d134a875777b6ba1d3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  z: 10
+  towerPrefab: {fileID: 4352897966156635556, guid: 6447a413ce06ff24a803a7e3d3b1265a, type: 3}
   isClicked: 0
   isFloor: 0
 --- !u!65 &149227895289843910
