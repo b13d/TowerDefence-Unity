@@ -8,6 +8,7 @@ public class TowerDisabled : MonoBehaviour
 {
     public int z;
     public bool isClicked;
+    public bool isFloor;
 
     private void Start()
     {
@@ -23,22 +24,37 @@ public class TowerDisabled : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Позиция башни: " + transform.position);
+
         if (Input.GetMouseButtonDown(0))
         {
-            isClicked = true;
+            if (isFloor)
+            {
+                isClicked = true;
+            }
         }
-        
+
         if (Camera.main && !isClicked)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
+            isFloor = false;
+
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
             {
+
+                if (hit.collider.CompareTag("PlaceTower"))
+                {
+                    isFloor = true;
+                }
+                
                 Vector3 worldPoint = hit.point;
+                worldPoint.y = 0;
                 transform.position = worldPoint;
                 Debug.Log("did hit worldPoint: " + worldPoint);
             }
+            
         }
     }
 }
