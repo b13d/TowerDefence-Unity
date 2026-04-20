@@ -7,9 +7,11 @@ using UnityEngine.EventSystems;
 public class TowerButton : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private GameObject prefabTower;
-
+    [SerializeField] private CanvasSidebar canvasSidebar;
+    
     public void OnPointerClick(PointerEventData eventData)
     {
-        Instantiate(prefabTower, Vector3.zero, Quaternion.identity);
+        var tower = Instantiate(prefabTower, Vector3.zero, Quaternion.identity);
+        canvasSidebar.SelectTower(tower);
     }
 }

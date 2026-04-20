@@ -7,9 +7,13 @@ using UnityEngine.EventSystems;
 public class TowerDisabled : MonoBehaviour
 {
     [SerializeField] GameObject towerPrefab;
+    [SerializeField] TowerInfo towerInfo;
     public bool isClicked;
     public bool isFloor;
-
+    
+    
+    public TowerInfo GetTowerInfo() => towerInfo;
+    
     private void Start()
     {
         StartCoroutine(CursorF());
