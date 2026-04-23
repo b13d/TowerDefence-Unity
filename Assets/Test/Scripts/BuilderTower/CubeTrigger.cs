@@ -23,13 +23,23 @@ public class CubeTrigger : MonoBehaviour
         canvasSidebar = FindObjectOfType<CanvasSidebar>();
     }
 
+    private void OnEnable()
+    {
+        hasTower = false;
+        zoneTower.SetActive(false);
+        canvasSidebar.TooltipOff();
+        meshRenderer.material = mDisable;
+    }
+
     public void SetTower(GameObject tower)
     {
         Debug.Log("SetTower func");
 
         hasTower = true;
-        Instantiate(tower, transform.position, transform.localRotation);
-        Destroy(gameObject); // возможно не нужно так делать для будущих башен, после одной этой установленной
+        var newTower = Instantiate(tower, transform.position, transform.localRotation);
+        newTower.GetComponent<Tower>().placeTower = gameObject;
+        gameObject.SetActive(false);
+        // Destroy(gameObject); // возможно не нужно так делать для будущих башен, после одной этой установленной
 
         Debug.Log("hasTower: " + hasTower);
     }

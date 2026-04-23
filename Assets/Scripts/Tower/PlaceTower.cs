@@ -53,7 +53,7 @@ public class PlaceTower : MonoBehaviour
                     
                     Vector3 newPosition = new Vector3(transform.position.x, 0, transform.position.z);
                     var newTower = Instantiate(towerPrefab, newPosition, transform.rotation);
-                    newTower.GetComponent<Tower>().PlaceTower = this; 
+                    newTower.GetComponent<Tower>().PlaceTower = gameObject; 
                     DisablePlace();
                     Debug.Log(hit.collider.name);
                 }

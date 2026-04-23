@@ -14,7 +14,7 @@ public class Tower : MonoBehaviour
     public float reloadTime;
     public bool wasShot;
     public TowerData towerData;
-    public PlaceTower placeTower;
+    public GameObject placeTower;
 
     public int health;
     public int damage;
@@ -24,11 +24,13 @@ public class Tower : MonoBehaviour
     public TowerData TowerData => towerData;
     public int MaxHealth => towerData.health;
 
-    public PlaceTower PlaceTower
+    public GameObject PlaceTower
     {
         set { placeTower = value; }
         get { return placeTower; }
     }
+
+    public int PriceTower => towerData.money;
 
 
     private void Awake()
@@ -99,11 +101,14 @@ public class Tower : MonoBehaviour
 
             if (health <= 0)
             {
-                if (placeTower != null)
-                {
-                    placeTower.ActivePlace();
-                    Destroy(gameObject);
-                }
+                placeTower.SetActive(true);
+                Destroy(gameObject);
+                
+                // if (placeTower != null)
+                // {
+                //     placeTower.ActivePlace();
+                //     Destroy(gameObject);
+                // }
             }
         }
     }
