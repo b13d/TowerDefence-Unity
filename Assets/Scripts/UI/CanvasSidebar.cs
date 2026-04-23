@@ -13,10 +13,17 @@ public class CanvasSidebar : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Current tower: " + currentTower);
+        
         if (Input.GetMouseButtonDown(1))
         {
             if (currentTower != null)
             {
+                var gameManager = GameManager.Instance;
+                
+                gameManager.AddMoney(gameManager.lastMoneyBuy);
+                gameManager.lastMoneyBuy = 0;
+                
                 Debug.Log("Удаление башни при постройке, на правое нажатие мыши");
                 Destroy(currentTower);
             }

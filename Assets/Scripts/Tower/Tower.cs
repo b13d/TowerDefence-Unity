@@ -16,13 +16,13 @@ public class Tower : MonoBehaviour
     public TowerData towerData;
     public GameObject placeTower;
 
-    public int health;
+    // public int health;
     public int damage;
     public int level;
     public string towerName;
 
     public TowerData TowerData => towerData;
-    public int MaxHealth => towerData.health;
+    // public int MaxHealth => towerData.health;
 
     public GameObject PlaceTower
     {
@@ -36,7 +36,7 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         defaultRotation = cannon.transform.rotation;
-        health = towerData.health;
+        // health = towerData.health;
         damage = towerData.damage;
         level = towerData.level;
         towerName = towerData.nameTower;
@@ -87,7 +87,7 @@ public class Tower : MonoBehaviour
                 StopCoroutine(backCoroutine);
             }
 
-            health -= 1;
+            // health -= 1;
             // Debug.Log("Выстрел с башни");
             wasShot = true;
             cannon.transform.LookAt(other.transform.position);
@@ -99,17 +99,17 @@ public class Tower : MonoBehaviour
             Vector3 direction = (other.transform.position - bullet.transform.position).normalized;
             bullet.GetComponent<Rigidbody>().AddForce(direction * 5, ForceMode.Impulse);
 
-            if (health <= 0)
-            {
-                placeTower.SetActive(true);
-                Destroy(gameObject);
-                
-                // if (placeTower != null)
-                // {
-                //     placeTower.ActivePlace();
-                //     Destroy(gameObject);
-                // }
-            }
+            // if (health <= 0)
+            // {
+            //     placeTower.SetActive(true);
+            //     Destroy(gameObject);
+            //     
+            //     // if (placeTower != null)
+            //     // {
+            //     //     placeTower.ActivePlace();
+            //     //     Destroy(gameObject);
+            //     // }
+            // }
         }
     }
 }

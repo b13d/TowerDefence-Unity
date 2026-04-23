@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int health = 100;
     public int wave;
     public int counterDeadEnemy;
+    public int lastMoneyBuy;
 
     [SerializeField] private RawImage imageDamage;
     private int criticalLowHealth = 3;
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void BuyTower(int wasteMoney)
     {
+        lastMoneyBuy = wasteMoney;
         money -= wasteMoney;
         OnMoneyChanged?.Invoke(money);
     }

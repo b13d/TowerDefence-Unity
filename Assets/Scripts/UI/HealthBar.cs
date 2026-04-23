@@ -20,12 +20,6 @@ public class HealthBar : MonoBehaviour
         {
             fillImage.fillAmount = (float)enemy.currentHealth / enemy.MaxHealth;
         }
-
-        if (tower != null)
-        {
-            // Debug.Log("Health tower: " + tower.health);
-            fillImage.fillAmount = (float)tower.health / tower.MaxHealth;
-        }
     }
 
     private void LateUpdate()
