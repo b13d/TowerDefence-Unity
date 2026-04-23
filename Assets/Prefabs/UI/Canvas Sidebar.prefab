@@ -970,6 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8df04b73ce5cf478a825c3f9a4653c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltip: {fileID: 7563154236164708864}
   textTooltip: {fileID: 1253241345288307838}
   currentTower: {fileID: 0}
 --- !u!1 &6189086946130970850
