@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,7 +8,14 @@ public class CubeTrigger : MonoBehaviour
     [SerializeField] private Material mDisable;
     [SerializeField] private Material mFocus;
     [SerializeField] CanvasSidebar canvasSidebar;
+    [SerializeField] private GameObject zoneTower;
     public bool hasTower;
+
+
+    private void Awake()
+    {
+        zoneTower.SetActive(false);
+    }
 
     void Start()
     {
@@ -20,7 +28,7 @@ public class CubeTrigger : MonoBehaviour
         Debug.Log("SetTower func");
 
         hasTower = true;
-        Instantiate(tower, transform.position, Quaternion.identity);
+        Instantiate(tower, transform.position, transform.localRotation);
         Destroy(gameObject); // возможно не нужно так делать для будущих башен, после одной этой установленной
 
         Debug.Log("hasTower: " + hasTower);
@@ -30,6 +38,12 @@ public class CubeTrigger : MonoBehaviour
     {
         if (other.CompareTag("Tower"))
         {
+            if (!zoneTower.activeSelf)
+            {
+                zoneTower.SetActive(true);
+            }
+            
+            other.transform.localRotation = transform.localRotation;
             StopAllCoroutines();
             StartCoroutine(TriggerTower(other.gameObject));
         }
@@ -47,8 +61,8 @@ public class CubeTrigger : MonoBehaviour
         Debug.Log(towerInfo.towerName);
         meshRenderer.material = mFocus;
 
-        yield return new WaitForSeconds(0.2f);
-
+        yield return new WaitForSeconds(0.1f);
+        zoneTower.SetActive(false);
         canvasSidebar.TooltipOff();
         meshRenderer.material = mDisable;
     }
